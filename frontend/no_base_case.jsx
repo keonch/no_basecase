@@ -5,7 +5,7 @@ import Root from './components/root';
 import configureStore from './store/store';
 
 // test
-import { login, signup, logout } from './util/session_api_util';
+import { login, signup, logout } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;

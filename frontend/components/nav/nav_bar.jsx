@@ -1,20 +1,17 @@
 import React from 'react';
-import UserNav from './user_nav';
-import Tabs from './tabs_nav';
+import UserNav from './right_nav/user_nav';
+import Tabs from './left_nav/tabs';
 
-export default class NavBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = this.props.currentUser;
-  }
+const NavBar = (props) => {
+  const loggedOut = !props.currentUser;
+  return (
+    <nav className='nav-bar'>
+      <Tabs />
+      <switch>
+      </switch>
+      <UserNav loggedOut={loggedOut} currentUser={ props } logout={props.logout} />
+    </nav>
+  );
+};
 
-  render () {
-    const loggedOut = !this.state;
-    return (
-      <nav className='nav-bar'>
-        <Tabs />
-        <UserNav loggedOut={loggedOut} />
-      </nav>
-    );
-  }
-}
+export default NavBar;

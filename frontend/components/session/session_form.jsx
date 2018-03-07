@@ -5,7 +5,7 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
+      email: '',
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,7 +26,7 @@ class SessionForm extends React.Component {
   renderErrors() {
     return(
       <ul>
-        {this.props.errors.session.map((error, i) => (
+        {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
           </li>
@@ -38,29 +38,17 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div className="login-form-container">
+        Session Form
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          NoBaseCase
-          <br/>
-          Please {this.props.formType} or {this.props.navLink}
           {this.renderErrors()}
+
+
+
+
+
           <div className="login-form">
-            <br/>
-            <label>Username:
-              <input type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
-                className="login-input"
-              />
-            </label>
-            <br/>
-            <label>Password:
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className="login-input"
-              />
-            </label>
-            <br/>
+            <input type="text" value={this.state.email} onChange={this.update('email')} className="login-input" />
+            <input type="password" value={this.state.password} onChange={this.update('password')} className="login-input"/>
             <input className="session-submit" type="submit" value={this.props.formType} />
           </div>
         </form>
