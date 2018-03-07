@@ -1,4 +1,6 @@
 class Api::UsersController < ApplicationController
+  before_action :require_logged_in!, only: [:show, :update]
+  before_action :require_logged_out!, only: [:create]
 
   def show
     @user = User.find(params[:id])
