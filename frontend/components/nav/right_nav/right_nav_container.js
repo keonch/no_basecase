@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { login, logout, signup } from '../../actions/session_actions';
-import NavBar from './nav_bar';
+import { login, logout, signup } from '../../../actions/session_actions';
+import RightNav from './right_nav';
 
 const msp = (state) => {
   return ({
@@ -16,4 +16,4 @@ const mdp = dispatch => {
   });
 };
 
-export default connect(msp, mdp)(NavBar);
+export default connect(msp, mdp)(RightNav);

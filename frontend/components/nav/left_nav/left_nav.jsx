@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Tabs = () => {
+const LeftNav = () => {
   return (
     <div>
       Left side nav bar placeholders
@@ -13,4 +13,4 @@ const Tabs = () => {
   );
 };
 
-export default Tabs;
+export default LeftNav;
