@@ -16,7 +16,6 @@ import QuestionsIndex from './questions/index.jsx';
 
 const App = () => (
   <div>
-    <h1>App component</h1>
     <NavBar />
 
     <Switch>
