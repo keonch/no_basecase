@@ -26,11 +26,16 @@ class ApplicationController < ActionController::Base
     @current_user = nil
   end
 
-  def redirect_unless_logged_in
+  def require_logged_in!
     unless current_user
-      render json: { base: ['invalid credentials'] }, status: 401
+      render json: { base: ['must be logged in'] }, status: 401
     end
   end
 
+  def require_logged_out!
+    if logged_in?
+      render json: { base: ['must be logged out'] }, status: 401
+    end
+  end
 
 end
