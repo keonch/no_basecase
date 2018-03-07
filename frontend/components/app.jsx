@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from './nav/nav_bar_container';
+import NavBar from './nav/nav_bar';
 import { Provider } from 'react-redux';
 import {
   Route,

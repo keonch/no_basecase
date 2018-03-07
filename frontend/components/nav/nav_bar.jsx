@@ -1,17 +1,15 @@
 import React from 'react';
-import UserNav from './right_nav/user_nav';
-import Tabs from './left_nav/tabs';
+import RightNavContainer from './right_nav/right_nav_container';
+import LeftNav from './left_nav/left_nav';
 
 const NavBar = (props) => {
-  const loggedOut = !props.currentUser;
   return (
     <nav className='nav-bar'>
-      <Tabs />
-      <switch>
-      </switch>
-      <UserNav loggedOut={loggedOut} currentUser={ props } logout={props.logout} />
+      <LeftNav />
+      <RightNavContainer />
     </nav>
   );
 };
 
+// loggedOut={ loggedOut } currentUser={ props } logout={ props.logout }
 export default NavBar;
