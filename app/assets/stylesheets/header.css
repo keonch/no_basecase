@@ -1,0 +1,47 @@
+.nav {
+  max-width: 1060px;
+  margin: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.right-nav {
+  margin-right: 10px;
+}
+
+.right-nav-btn {
+  margin: 8px 0;
+  font-size: 13px;
+}
+
+.login-btn {
+  box-sizing: border-box;
+  color: #07c;
+  margin-right: 2px;
+  padding: 7px 13px;
+}
+
+.signup-btn {
+  box-sizing: border-box;
+  background-color: #0095ff;
+  border: 1px solid #07c;
+  box-shadow: inset 0 1px 0 #66bfff;
+  color: #fff;
+  border-radius: 2px;
+  margin-left: 2px;
+  padding: 7px 13px;
+}
+
+.login-btn:hover {
+  color: #005999;
+  background-color: rgba(0,119,204,0.1);
+  border-radius: 2px;
+}
+
+.signup-btn:hover {
+  color: rgba(255,255,255,0.9);
+  background-color: #07c;
+  border-color: #005999;
+  box-shadow: inset 0 1px 0 #3af;
+}

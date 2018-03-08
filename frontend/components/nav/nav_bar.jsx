@@ -4,10 +4,10 @@ import LeftNav from './left_nav/left_nav';
 
 const NavBar = (props) => {
   return (
-    <nav className='nav-bar'>
+    <div className='nav'>
       <LeftNav />
       <RightNavContainer />
-    </nav>
+    </div>
   );
 };
 export default NavBar;
