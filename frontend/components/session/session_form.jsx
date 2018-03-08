@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -37,44 +37,51 @@ class SessionForm extends React.Component {
   }
 
   renderNameInput(){
-    if (this.props.formType === 'Signup') {
+    if (this.props.formType === 'Sign Up') {
       return (
-        <label>Name
-          <input type='text' value={this.state.name} onChange={this.update('name')} className='signup-input' />
-        </label>
+        <div className='session-name-field'>
+          <label className='session-label'>Display Name</label>
+          <br></br>
+          <input type='text' value={this.state.name} onChange={this.update('name')} className='session-input' placeholder='J. Doh'/>
+        </div>
       );
     }
   }
 
   render() {
+    let emailLabel;
+    if (this.props.formType === 'Sign Up') {
+      emailLabel = ' (required, but never shown)';
+    } else {
+      emailLabel = '';
+    }
     return (
-      <div className="login-form-container">
+      <div className="session">
+        <div className='session-tabs'>
+          <Link to="/login" className='session-tab-btn'>Log in</Link>
+          <Link to="/signup" className='session-tab-btn'>Sign up</Link>
+        </div>
 
-        <h2>{this.props.formType}</h2>
+        <h3 className='session-header'>{this.props.message}</h3>
 
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          { this.renderErrors() }
+        { this.renderErrors() }
 
-          <div className="login-form">
+        <form onSubmit={this.handleSubmit} className="session-form">
+
+          <div className='session-form-field'>
 
             { this.renderNameInput() }
 
-            <br/>
+            <label className='session-label'>Email{emailLabel}</label>
+            <input type="text" value={this.state.email} onChange={this.update('email')} className="session-input" placeholder='you@example.org'/>
 
-            <label>Username
-              <input type="text" value={this.state.email} onChange={this.update('email')} className="signup-input" />
-            </label>
-
-            <br/>
-
-            <label>Password
-              <input type="password" value={this.state.password} onChange={this.update('password')} className="signup-input"/>
-            </label>
-
-            <br/>
+            <label className='session-label'>Password</label>
+            <input type="password" value={this.state.password} onChange={this.update('password')} className="session-input" placeholder='*********'/>
 
             <input className="session-submit" type="submit" value={this.props.formType} />
           </div>
+
+          ADD A BOX HERE
         </form>
       </div>
     );

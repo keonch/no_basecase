@@ -5,7 +5,7 @@ import Root from './components/root';
 import configureStore from './store/store';
 
 // test
-import { login, signup, logout } from './actions/session_actions';
+// import { login, signup, logout } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -18,12 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   //test
-  window.login = login;
-  window.logout = logout;
-  window.signup = signup;
-  window.store = store;
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
+  // window.login = login;
+  // window.logout = logout;
+  // window.signup = signup;
+  // window.store = store;
+  // window.getState = store.getState;
+  // window.dispatch = store.dispatch;
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={ store } />, root);

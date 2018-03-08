@@ -1,0 +1,13 @@
+.footer-content {
+  margin: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  max-width: 1060px;
+}
+
+.footer-links {
+  text-align: left;
+  color: rgb(187, 192, 191);
+  padding: 20px;
+}
