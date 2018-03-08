@@ -7,7 +7,6 @@ class SessionForm extends React.Component {
     this.state = {
       email: '',
       password: '',
-      name: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -42,19 +41,13 @@ class SessionForm extends React.Component {
         <div className='session-name-field'>
           <label className='session-label'>Display Name</label>
           <br></br>
-          <input type='text' value={this.state.name} onChange={this.update('name')} className='session-input' placeholder='J. Doh'/>
+          <input type='text' value={this.state.name} onChange={this.update('name')} className='session-name-input' placeholder='J. Doh'/>
         </div>
       );
     }
   }
 
   render() {
-    let emailLabel;
-    if (this.props.formType === 'Sign Up') {
-      emailLabel = ' (required, but never shown)';
-    } else {
-      emailLabel = '';
-    }
     return (
       <div className="session">
         <div className='session-tabs'>
@@ -72,7 +65,7 @@ class SessionForm extends React.Component {
 
             { this.renderNameInput() }
 
-            <label className='session-label'>Email{emailLabel}</label>
+            <label className='session-label'>Email{this.props.emailLabel}</label>
             <input type="text" value={this.state.email} onChange={this.update('email')} className="session-input" placeholder='you@example.org'/>
 
             <label className='session-label'>Password</label>
@@ -81,7 +74,10 @@ class SessionForm extends React.Component {
             <input className="session-submit" type="submit" value={this.props.formType} />
           </div>
 
-          ADD A BOX HERE
+          <div className='session-redirect'>
+            <div>{ this.props.redirectMessage }{ this.props.redirectLink }</div>
+            <div className='session-employer'>Are you an employer? <Link to='/' className='session-link'>A placeholder link</Link></div>
+          </div>
         </form>
       </div>
     );

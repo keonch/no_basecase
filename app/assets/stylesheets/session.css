@@ -13,9 +13,9 @@
 }
 
 .session-tab-btn {
-  font-size: 13px;
-  padding: 13px;
-  border: 1px solid rgb(228, 230, 232);
+  font-size: 12px;
+  font-weight: 400;
+  padding: 13px 10px;
 }
 
 .session-header {
@@ -34,13 +34,23 @@
 }
 
 .session-form-field {
+  width: 342px;
   display: flex;
   flex-flow: column nowrap;
-  width: 342px;
   padding: 30px;
   box-sizing: border-box;
   border: 1px solid rgb(228, 230, 232);
   font-size: 13px;
+}
+
+.session-name-input {
+  width: 280px;
+  font-weight: 400;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid rgb(228, 230, 232);
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .session-label {
@@ -68,4 +78,35 @@
   width: 125px;
   padding: 12px 40px;
   margin-top: 16px;
+}
+
+.session-redirect {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 342px;
+  font-size: 13px;
+  padding: 30px;
+  box-sizing: border-box;
+  border: 1px solid rgb(228, 230, 232);
+  margin-top: 20px;
+  margin-bottom: 100px;
+  padding: 20px;
+}
+
+.session-redirect-label {
+  margin: 10px;
+}
+
+.session-employer{
+  margin-top: 10px;
+}
+
+.session-link {
+  color: rgb(14, 115, 212);
+}
+
+.session-link:hover {
+  color: #1da9da;
 }

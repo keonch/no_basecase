@@ -3,10 +3,10 @@ import React from 'react';
 const Footer = () => {
   return (
     <div className='footer-content'>
-        <p1 className='footer-links'>Foo one</p1>
-        <p1 className='footer-links'>Foo two</p1>
-        <p1 className='footer-links'>Foo three</p1>
-        <p1 className='footer-links'>Foo four</p1>
+        <p className='footer-links'>Foo one</p>
+        <p className='footer-links'>Foo two</p>
+        <p className='footer-links'>Foo three</p>
+        <p className='footer-links'>Foo four</p>
     </div>
   );
 };

@@ -2,13 +2,18 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { signup } from '../../actions/session_actions';
 import SessionForm from './session_form';
+import { Link } from 'react-router-dom';
+
 
 const msp = (state) => {
   return ({
     errors: state.errors.session,
     formType: 'Sign Up',
+    message: "Create your No Base Case account. It's free and only takes a minute.",
     name: '',
-    message: <div>Create your No Base Case account. Its free and only takes a minute.</div>
+    emailLabel: ' (required, but never shown)',
+    redirectMessage: "Already have an account? ",
+    redirectLink: <Link to='/login' className='session-link'>Log in</Link>
   });
 };
 
