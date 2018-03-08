@@ -10,6 +10,4 @@ const NavBar = (props) => {
     </nav>
   );
 };
-
-// loggedOut={ loggedOut } currentUser={ props } logout={ props.logout }
 export default NavBar;

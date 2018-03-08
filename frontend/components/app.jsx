@@ -16,7 +16,9 @@ import QuestionsIndex from './questions/index.jsx';
 
 const App = () => (
   <div>
-    <NavBar />
+    <header className='nav-header'>
+      <NavBar />
+    </header>
 
     <Switch>
       <AuthRoute exact path="/login" component={LogInFormContainer} />
