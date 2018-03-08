@@ -2,12 +2,12 @@ import React from 'react';
 
 const LeftNav = () => {
   return (
-    <div>
-      Left side nav bar placeholders
-      <button>Question</button>
-      <button>Developer Jobs</button>
-      <button>Tags</button>
-      <button>Users</button>
+    <div className='left-nav'>
+      No Base Case (placeholders)
+      <button className='left-nav-btn'>Questions</button>
+      <button className='left-nav-btn'>Developer Jobs</button>
+      <button className='left-nav-btn'>Tags</button>
+      <button className='left-nav-btn'>Users</button>
       <input type="text" placeholder="Search.." />
     </div>
   );
