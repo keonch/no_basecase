@@ -8,7 +8,7 @@ const msp = (state) => {
   return ({
     errors: state.errors.session,
     formType: 'Log In',
-    message: "No Base Case is part of the Manhattan pod network of AA communities.",
+    message: "No Basecase is part of the Manhattan Pod network of aA community.",
     redirectMessage: "Don't have an account? ",
     redirectLink: <Link to='/signup' className='session-link'>Sign up</Link>
   });

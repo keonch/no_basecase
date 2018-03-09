@@ -9,7 +9,7 @@ const msp = (state) => {
   return ({
     errors: state.errors.session,
     formType: 'Sign Up',
-    message: "Create your No Base Case account. It's free and only takes a minute.",
+    message: "Create your No Basecase account. It's free and only takes 5 seconds.",
     name: '',
     emailLabel: ' (required, but never shown)',
     redirectMessage: "Already have an account? ",

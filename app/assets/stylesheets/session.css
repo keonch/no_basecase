@@ -143,3 +143,12 @@
 .session-link:hover {
   color: #1da9da;
 }
+
+
+/* errors */
+.bubble:after {
+  position: relative;
+  padding: 11px;
+  background: #be4248;
+  z-index: 1;
+}
