@@ -27,6 +27,5 @@
 .footer {
   width: 100%;
   min-height: 216px;
-  box-sizing: border-box;
   background-color: rgb(37, 39, 41);
 }

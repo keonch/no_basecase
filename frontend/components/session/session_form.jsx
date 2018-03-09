@@ -47,14 +47,29 @@ class SessionForm extends React.Component {
     }
   }
 
+  renderSessionTabs (){
+    let loginClass;
+    let signupClass;
+    if (this.props.formType === 'Log In') {
+      loginClass = 'selectdSession'
+      signupClass = 'unselectedSession'
+    } else {
+      loginClass = 'unselectedSession'
+      signupClass = 'selectdSession'
+    }
+    return (
+      <div className='session-tabs'>
+        <Link to="/login" className={ loginClass }>Log in</Link>
+        <Link to="/signup" className={ signupClass }>Sign up</Link>
+      </div>
+    );
+  };
+
   render() {
+
     return (
       <div className="session">
-        <div className='session-tabs'>
-          <Link to="/login" className='session-tab-btn'>Log in</Link>
-          <Link to="/signup" className='session-tab-btn'>Sign up</Link>
-        </div>
-
+        { this.renderSessionTabs() }
         <h3 className='session-header'>{this.props.message}</h3>
 
         { this.renderErrors() }
