@@ -21,6 +21,7 @@
 .session-login-tab, .session-signup-tab {
   padding: 13px 10px;
   position: relative;
+  border: 1px solid transparent;
   top: 1px;
 }
 
