@@ -8,6 +8,11 @@ class User < ApplicationRecord
 
   attr_reader :password
 
+  has_many :questions,
+    class_name: :Question,
+    foreign_key: :author_id,
+    primary_key: :id
+
   def self.generate_session_token
     begin
       token = SecureRandom::urlsafe_base64(16)
