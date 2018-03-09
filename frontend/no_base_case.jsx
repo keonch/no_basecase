@@ -6,6 +6,7 @@ import configureStore from './store/store';
 
 // test
 // import { login, signup, logout } from './actions/session_actions';
+import { fetchQuestion, fetchAllQuestions, createQuestion, updateQuestion, deleteQuestion } from './actions/question_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -22,8 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // window.logout = logout;
   // window.signup = signup;
   // window.store = store;
-  // window.getState = store.getState;
-  // window.dispatch = store.dispatch;
+  window.fetchQuestion = fetchQuestion;
+  window.fetchAllQuestions = fetchAllQuestions;
+  window.createQuestion = createQuestion;
+  window.updateQuestion = updateQuestion;
+  window.deleteQuestion = deleteQuestion;
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={ store } />, root);
