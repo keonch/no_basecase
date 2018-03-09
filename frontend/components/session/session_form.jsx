@@ -11,6 +11,18 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  // renderErrors(field) {
+  //   return(
+  //     this.state.errors[field].map((error, idx) => {
+  //       return (
+  //         <li key={idx}>
+  //           {error}
+  //         </li>
+  //       )
+  //     })
+  //   );
+  // }
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -21,18 +33,6 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
-  }
-
-  renderErrors() {
-    return(
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
   }
 
   renderNameInput(){
@@ -65,6 +65,9 @@ class SessionForm extends React.Component {
     );
   };
 
+
+  // { this.renderErrors('email') }
+  // { this.renderErrors('password') }
   render() {
     return (
       <div className="session">
@@ -72,8 +75,6 @@ class SessionForm extends React.Component {
         { this.renderSessionTabs() }
 
         <h3 className='session-header'>{this.props.message}</h3>
-
-        { this.renderErrors() }
 
         <form onSubmit={this.handleSubmit} className="session-form">
 
