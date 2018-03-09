@@ -51,11 +51,11 @@ class SessionForm extends React.Component {
     let loginClass;
     let signupClass;
     if (this.props.formType === 'Log In') {
-      loginClass = 'selectdSession'
-      signupClass = 'unselectedSession'
+      loginClass = 'selectdSession session-login-tab'
+      signupClass = 'unselectedSession session-signup-tab'
     } else {
-      loginClass = 'unselectedSession'
-      signupClass = 'selectdSession'
+      loginClass = 'unselectedSession session-login-tab'
+      signupClass = 'selectdSession session-signup-tab'
     }
     return (
       <div className='session-tabs'>
@@ -66,10 +66,11 @@ class SessionForm extends React.Component {
   };
 
   render() {
-
     return (
       <div className="session">
+
         { this.renderSessionTabs() }
+
         <h3 className='session-header'>{this.props.message}</h3>
 
         { this.renderErrors() }
