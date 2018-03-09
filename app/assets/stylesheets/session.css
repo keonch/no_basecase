@@ -3,21 +3,51 @@
   display: flex;
   flex-flow: column nowrap;
   max-width: 1060px;
+  padding: 15px;
 }
 
+
+/* tabs */
 .session-tabs {
   display: flex;
   flex-flow: row nowrap;
   box-sizing: border-box;
   border-bottom: 1px solid rgb(228, 230, 232);
-}
-
-.session-tab-btn {
   font-size: 12px;
   font-weight: 400;
-  padding: 13px 10px;
+  margin-top: 10px;
 }
 
+.session-login-tab, .session-signup-tab {
+  padding: 13px 10px;
+  position: relative;
+  top: 1px;
+}
+
+.session-login-tab {
+  margin-right: 10px;
+}
+
+.unselectedSession {
+  color: #848d95;
+}
+
+.unselectedSession:hover {
+  background-color: rgba(132,141,149,0.05);
+  border-color: rgba(228,230,232,0.25);
+  color: #535a60;
+}
+
+.selectdSession {
+  border-top: 2px solid rgb(242, 126, 38);
+  border-left: 1px solid rgb(228, 230, 232);
+  border-right: 1px solid rgb(228, 230, 232);
+  border-bottom: 2px solid #fff;
+  padding-top: 11px;
+}
+
+
+/* message */
 .session-header {
   margin: auto;
   margin-top: 40px;
@@ -27,6 +57,8 @@
   font-weight: 500;
 }
 
+
+/* form */
 .session-form {
   display: flex;
   align-items: center;
