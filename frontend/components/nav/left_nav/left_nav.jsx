@@ -5,11 +5,7 @@ const LeftNav = () => {
   return (
     <div className='left-nav'>
       <Link to='/' className='logo'></Link>
-      <button className='left-nav-btn'>Questions</button>
-      <button className='left-nav-btn'>Developer Jobs</button>
-      <button className='left-nav-btn'>Tags</button>
-      <button className='left-nav-btn'>Users</button>
-      <input type="text" placeholder="Search.." />
+      <Link to='/questions' className='left-n-btn'>Questions</Link>
     </div>
   );
 };

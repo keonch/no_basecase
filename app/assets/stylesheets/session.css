@@ -77,7 +77,7 @@
 }
 
 .session-field {
-  display: flex;
+  position: relative;
 }
 
 .session-name-input {
@@ -174,7 +174,15 @@
 }
 
 .email {
+  position: absolute;
+  white-space: nowrap;
+  left: 290px;
+  top: 14px;
 }
 
 .password {
+  position: absolute;
+  left: 290px;
+  white-space: nowrap;
+  top: 14px;
 }

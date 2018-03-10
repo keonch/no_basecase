@@ -10,7 +10,8 @@ class QuestionsIndex extends React.Component {
     const questions = this.props.questions.map((question, idx) => {
       return (
         <li key={idx}>
-          { question }
+          { question.title }
+          { question.body }
         </li>
       );
     });
