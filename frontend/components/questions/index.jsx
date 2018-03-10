@@ -1,9 +1,26 @@
 import React from 'react';
 
-export default class QuestionsIndex extends React.Component {
+class QuestionsIndex extends React.Component {
+
+  componentDidMount() {
+    this.props.fetchAllQuestions();
+  }
+
   render () {
+    const questions = this.props.questions.map((question, idx) => {
+      return (
+        <li key={idx}>
+          { question }
+        </li>
+      );
+    });
+
     return (
-      <h1>This is from QuestionsIndex</h1>
+      <ul>
+        { questions }
+      </ul>
     );
   }
 }
+
+export default QuestionsIndex;
