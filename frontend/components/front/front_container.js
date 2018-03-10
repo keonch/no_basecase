@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import Main from './main';
+import Front from './front';
 
 const msp = state => {
   const questions = Object.values(state.entities.questions);
@@ -15,4 +15,4 @@ const mdp = dispatch => {
   });
 };
 
-export default connect(msp, mdp)(Main);
+export default connect(msp, mdp)(Front);

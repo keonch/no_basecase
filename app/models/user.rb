@@ -25,6 +25,12 @@ class User < ApplicationRecord
     user && user.is_password?(password) ? user : nil
   end
 
+  def self.generate_name
+    name = 'user'
+    number = rand(0..999999).to_s
+    name += number
+  end
+
   def reset_session_token!
     self.session_token = self.class.generate_session_token
     self.save!
