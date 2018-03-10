@@ -9,19 +9,8 @@ class SessionForm extends React.Component {
       password: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
-
-  // renderErrors(field) {
-  //   return(
-  //     this.state.errors[field].map((error, idx) => {
-  //       return (
-  //         <li key={idx}>
-  //           {error}
-  //         </li>
-  //       )
-  //     })
-  //   );
-  // }
 
   update(field) {
     return e => this.setState({
@@ -33,6 +22,12 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
+  }
+
+  renderErrors(field) {
+    return(
+      this.props.errors[field][0]
+    );
   }
 
   renderNameInput(){
@@ -51,11 +46,11 @@ class SessionForm extends React.Component {
     let loginClass;
     let signupClass;
     if (this.props.formType === 'Log In') {
-      loginClass = 'selectdSession session-login-tab'
-      signupClass = 'unselectedSession session-signup-tab'
+      loginClass = 'selectdSession session-login-tab';
+      signupClass = 'unselectedSession session-signup-tab';
     } else {
-      loginClass = 'unselectedSession session-login-tab'
-      signupClass = 'selectdSession session-signup-tab'
+      loginClass = 'unselectedSession session-login-tab';
+      signupClass = 'selectdSession session-signup-tab';
     }
     return (
       <div className='session-tabs'>
@@ -63,11 +58,8 @@ class SessionForm extends React.Component {
         <Link to="/signup" className={ signupClass }>Sign up</Link>
       </div>
     );
-  };
+  }
 
-
-  // { this.renderErrors('email') }
-  // { this.renderErrors('password') }
   render() {
     return (
       <div className="session">
@@ -84,9 +76,11 @@ class SessionForm extends React.Component {
 
             <label className='session-label'>Email{this.props.emailLabel}</label>
             <input type="text" value={this.state.email} onChange={this.update('email')} className="session-input" placeholder='you@example.org'/>
+            { this.renderErrors('email') }
 
             <label className='session-label'>Password</label>
             <input type="password" value={this.state.password} onChange={this.update('password')} className="session-input" placeholder='*********'/>
+            { this.renderErrors('password') }
 
             <input className="session-submit" type="submit" value={this.props.formType} />
           </div>
@@ -99,6 +93,11 @@ class SessionForm extends React.Component {
       </div>
     );
   }
+
+  componentWillUnmount() {
+    this.props.resetErrors();
+  }
 }
+
 
 export default withRouter(SessionForm);

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import { login } from '../../actions/session_actions';
+import { login, RESET_SESSION_ERRORS } from '../../actions/session_actions';
 import SessionForm from './session_form';
 import { Link } from 'react-router-dom';
 
@@ -17,6 +17,7 @@ const msp = (state) => {
 const mdp = dispatch => {
   return ({
     processForm: (user) => dispatch(login(user)),
+    resetErrors: () => dispatch({ type: RESET_SESSION_ERRORS })
   });
 };
 
