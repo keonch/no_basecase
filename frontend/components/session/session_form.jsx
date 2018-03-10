@@ -25,9 +25,11 @@ class SessionForm extends React.Component {
   }
 
   renderErrors(field) {
-    return(
-      this.props.errors[field][0]
-    );
+    if (this.props.errors[field].length === 0) {
+      return '';
+    } else {
+      return <div className='error'>{this.props.errors[field][0]}</div>;
+    }
   }
 
   renderNameInput(){

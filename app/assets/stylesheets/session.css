@@ -113,6 +113,8 @@
   margin-top: 16px;
 }
 
+
+/* redirect box */
 .session-redirect {
   display: flex;
   flex-flow: column nowrap;
@@ -146,9 +148,25 @@
 
 
 /* errors */
-.bubble:after {
+.error {
   position: relative;
-  padding: 11px;
   background: #be4248;
+  padding: 12px;
+  color: white;
+  /* -webkit-border-radius: 0px; */
+  /* -moz-border-radius: 0px; */
+  /* border-radius: 0px; */
+}
+
+.error:after {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 8px 10px 8px 0;
+  border-color: transparent #be4248;
+  /* display: block; */
+  width: 0;
   z-index: 1;
+  left: -10px;
+  top: 0px;
 }
