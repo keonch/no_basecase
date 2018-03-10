@@ -76,6 +76,10 @@
   font-size: 13px;
 }
 
+.session-field {
+  display: flex;
+}
+
 .session-name-input {
   width: 280px;
   font-weight: 400;
@@ -91,6 +95,8 @@
 }
 
 .session-input {
+  width: 280px;
+  height: 33px;
   font-weight: 400;
   box-sizing: border-box;
   border: 1px solid rgb(228, 230, 232);
@@ -153,9 +159,6 @@
   background: #be4248;
   padding: 12px;
   color: white;
-  /* -webkit-border-radius: 0px; */
-  /* -moz-border-radius: 0px; */
-  /* border-radius: 0px; */
 }
 
 .error:after {
@@ -164,9 +167,14 @@
   border-style: solid;
   border-width: 8px 10px 8px 0;
   border-color: transparent #be4248;
-  /* display: block; */
   width: 0;
   z-index: 1;
   left: -10px;
   top: 0px;
+}
+
+.email {
+}
+
+.password {
 }

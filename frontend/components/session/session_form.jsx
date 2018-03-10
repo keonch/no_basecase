@@ -28,7 +28,7 @@ class SessionForm extends React.Component {
     if (this.props.errors[field].length === 0) {
       return '';
     } else {
-      return <div className='error'>{this.props.errors[field][0]}</div>;
+      return <div className={`error ${field}`}>{this.props.errors[field][0]}</div>;
     }
   }
 
@@ -77,12 +77,16 @@ class SessionForm extends React.Component {
             { this.renderNameInput() }
 
             <label className='session-label'>Email{this.props.emailLabel}</label>
-            <input type="text" value={this.state.email} onChange={this.update('email')} className="session-input" placeholder='you@example.org'/>
-            { this.renderErrors('email') }
+            <div className='session-field'>
+              <input type="text" value={this.state.email} onChange={this.update('email')} className="session-input" placeholder='you@example.org'/>
+              { this.renderErrors('email') }
+            </div>
 
             <label className='session-label'>Password</label>
-            <input type="password" value={this.state.password} onChange={this.update('password')} className="session-input" placeholder='*********'/>
-            { this.renderErrors('password') }
+            <div className='session-field'>
+              <input type="password" value={this.state.password} onChange={this.update('password')} className="session-input" placeholder='*********'/>
+              { this.renderErrors('password') }
+            </div>
 
             <input className="session-submit" type="submit" value={this.props.formType} />
           </div>
