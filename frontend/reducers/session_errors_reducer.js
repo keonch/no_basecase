@@ -15,11 +15,11 @@ const parseErrors = (railsErrors = []) => {
       case "Email can't be blank":
         return errors.email.push("Email cannot be empty.");
       case "Email not an email":
-        return errors.email.push("is not a valid email address.");
+        return errors.email.push("Not a valid email address.");
       case "Password can't be blank":
         return errors.password.push("Password cannot be empty.");
       case "Password is too short (minimum is 6 characters)":
-        return errors.password.push("Password cannot be empty.");
+        return errors.password.push("Password must contain at least 6 characters.");
       case "The email or password is incorrect.":
         return errors.email.push(error);
       default:
