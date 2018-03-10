@@ -1,7 +1,8 @@
 import {
   RECEIVE_SESSION_ERRORS,
-  RECEIVE_CURRENT_USER
-} from '../../actions/session_actions';
+  RECEIVE_CURRENT_USER,
+  RESET_SESSION_ERRORS
+} from '../actions/session_actions';
 
 const parseErrors = (railsErrors = []) => {
   const errors = {
@@ -18,7 +19,7 @@ const parseErrors = (railsErrors = []) => {
       case "Password can't be blank":
         return errors.password.push("Password cannot be empty.");
       case "Password is too short (minimum is 6 characters)":
-        return errors.password.push("Email cannot be empty");
+        return errors.password.push("Password cannot be empty");
       case "The email or password is incorrect":
         return errors.email.push(error);
       default:
@@ -29,13 +30,15 @@ const parseErrors = (railsErrors = []) => {
   return errors;
 };
 
-export default (oldState = [], action) => {
+export default (oldState = { email: [], password: [] }, action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_SESSION_ERRORS:
       return parseErrors(action.errors);
     case RECEIVE_CURRENT_USER:
-      return [];
+      return { email: [], password: [] };
+    case RESET_SESSION_ERRORS:
+      return { email: [], password: [] };
     default:
       return oldState;
   }
