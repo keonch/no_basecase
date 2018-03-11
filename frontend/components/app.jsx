@@ -10,14 +10,12 @@ import {
 } from 'react-router-dom';
 
 import NavBar from './nav/nav_bar';
-
 import FrontContainer from './front/front_container';
 import LogInFormContainer from './session/login_form_container';
 import SignUpFormContainer from './session/signup_form_container';
 import QuestionsIndexContainer from './questions/questions_index_container';
 import QuestionFormContainer from './questions/question_form_container';
 import Sidebar from './sidebar/sidebar.jsx';
-
 import Footer from './footer/footer';
 
 const App = () => (
@@ -34,6 +32,7 @@ const App = () => (
         <Switch>
           <AuthRoute path="/login" component={LogInFormContainer} />
           <AuthRoute path="/signup" component={SignUpFormContainer} />
+          <ProtectedRoute path="/questions/ask" component={QuestionFormContainer} />
           <Route path='/' component={Sidebar} />
         </Switch>
 

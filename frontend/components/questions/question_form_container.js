@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { submitQuestion } from '../../actions/question_actions';
+import { createQuestion } from '../../actions/question_actions';
 import QuestionForm from './question_form';
 
 const mdp = (dispatch) => {

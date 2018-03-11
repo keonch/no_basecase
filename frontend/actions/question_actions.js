@@ -15,7 +15,8 @@ const receiveAllQuestions = (payload) => {
 const receiveQuestion = (question) => {
   return ({
     type: RECEIVE_QUESTION,
-    question
+    question,
+    users: {}
   });
 };
 

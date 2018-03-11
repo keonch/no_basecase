@@ -6,7 +6,13 @@ import configureStore from './store/store';
 
 // test
 // import { login, signup, logout } from './actions/session_actions';
-import { fetchQuestion, fetchAllQuestions, createQuestion, updateQuestion, deleteQuestion } from './actions/question_actions'
+import {
+  fetchQuestion,
+  fetchAllQuestions,
+  createQuestion,
+  updateQuestion, 
+  deleteQuestion
+} from './actions/question_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;

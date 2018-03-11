@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect, withRouter } from 'react-router-dom';
 
 class QuestionForm extends React.Component {
   constructor (props) {
@@ -7,6 +8,7 @@ class QuestionForm extends React.Component {
       title: '',
       body: ''
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
@@ -18,7 +20,11 @@ class QuestionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const question = Object.assign({}, this.state);
-    this.props.submitQuestion(question);
+    this.props.submitQuestion(question).then((payload) => {
+      return (
+        this.props.history.push(`${payload.question.id}`)
+      );
+    });
   }
 
   render () {
@@ -28,7 +34,7 @@ class QuestionForm extends React.Component {
           <label>Title</label>
           <input type='text' value={this.state.title} onChange={this.update('title')} placeholder="What's your programming question? Be specific."></input>
 
-          <textarea></textarea>
+          <textarea value={this.state.body} onChange={this.update('body')}></textarea>
 
           <div>{this.state.body}</div>
 
@@ -42,4 +48,4 @@ class QuestionForm extends React.Component {
   }
 }
 
-export default QuestionForm;
+export default withRouter(QuestionForm);
