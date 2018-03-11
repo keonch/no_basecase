@@ -14,28 +14,41 @@ import NavBar from './nav/nav_bar';
 import FrontContainer from './front/front_container';
 import LogInFormContainer from './session/login_form_container';
 import SignUpFormContainer from './session/signup_form_container';
-import QuestionsIndex from './questions/questions_index_container';
+import QuestionsIndexContainer from './questions/questions_index_container';
+// import QuestionsFormContainer from './questions/questions_form_container';
+import Sidebar from './sidebar/sidebar.jsx';
 
 import Footer from './footer/footer';
 
 const App = () => (
   <div className='app'>
     <header className='header'>
+
       <NavBar />
+
     </header>
 
     <div className='page'>
-      <Switch>
-        <AuthRoute exact path="/login" component={LogInFormContainer} />
-        <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+      <div className='content'>
+
+        <Switch>
+          <AuthRoute path="/login" component={LogInFormContainer} />
+          <AuthRoute path="/signup" component={SignUpFormContainer} />
+          <Route path='/' component={Sidebar} />
+        </Switch>
+
+
         <Route exact path="/" component={FrontContainer} />
-        <Route exact path="/questions" component={QuestionsIndex} />
-      </Switch>
+        <Route exact path="/questions" component={QuestionsIndexContainer} />
+
+      </div>
     </div>
 
-    <div className='footer'>
+    <footer className='footer'>
+
       <Footer />
-    </div>
+
+    </footer>
   </div>
 );
 

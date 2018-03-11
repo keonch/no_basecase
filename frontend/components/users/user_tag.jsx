@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 
 const UserTag = (props) => {
   return(
-    <li>
-      <Link to={`/users/${props.user.id}`} >{ props.user.name }</Link>
-      {props.user.icon}
-    </li>
+    <div className='question-user-tag'>
+      <Link className='user-tag-name' to={`/users/${props.user.id}`} >{ props.user.name }</Link>
+    </div>
   );
 };
 

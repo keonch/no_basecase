@@ -5,7 +5,6 @@
   flex-flow: row nowrap;
   justify-content: space-between;
   min-width: 800px;
-  font-size: 13px;
 }
 
 .left-nav {
@@ -13,17 +12,26 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
-  width: 150px;
-  height: 42px;
-  background-size: cover;
+  width: 130px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-image: image-url('logo1.png');
+  margin: 0 12px;
 }
 
-.left-nav-btn {
-  padding: 10px;
+.left-nav-link {
+  padding: 0 8px;
+  font-size: 14px;
+}
+
+.left-nav-link-active {
+  border-bottom: 2px solid rgb(242, 126, 38);
+  padding: 14px 8px;
 }
 
 .right-nav {
@@ -34,6 +42,7 @@
 }
 
 .right-nav-btn {
+  font-size: 13px;
   margin: 8px 0;
 }
 

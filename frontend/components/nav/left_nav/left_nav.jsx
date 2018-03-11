@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const LeftNav = () => {
   return (
     <div className='left-nav'>
       <Link to='/' className='logo'></Link>
-      <Link to='/questions' className='left-n-btn'>Questions</Link>
+      <NavLink to='/questions' className='left-nav-link' activeClassName="left-nav-link-active">Questions</NavLink>
     </div>
   );
 };

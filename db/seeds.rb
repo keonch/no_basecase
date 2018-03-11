@@ -9,9 +9,9 @@
 User.destroy_all
 Question.destroy_all
 
-10.times do
-  user = User.create(name: Faker::LordOfTheRings.unique.character, email: Faker::Internet.unique.email, password: '123123')
-  rand(0..5).times do
-    Question.create(title: Faker::Company.unique.buzzword, body: Faker::StarWars.unique.quote, author_id: user.id)
+15.times do
+  user = User.create(name: Faker::Superhero.unique.name, email: Faker::Internet.unique.email, password: '123123')
+  rand(0..3).times do
+    Question.create(title: Faker::Hipster.unique.sentence(5, false, 10), body: Faker::Hipster.unique.paragraph(2, false, 3), author_id: user.id)
   end
 end

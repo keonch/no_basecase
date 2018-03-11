@@ -17,9 +17,14 @@ class QuestionsIndex extends React.Component {
     });
 
     return (
-      <ul>
-        { questions }
-      </ul>
+      <div className='questions'>
+        <header className='questions-header'>
+          <h3 className='questions-head'>All Questions</h3>
+        </header>
+        <ul>
+          { questions }
+        </ul>
+      </div>
     );
   }
 }
