@@ -15,7 +15,7 @@ import FrontContainer from './front/front_container';
 import LogInFormContainer from './session/login_form_container';
 import SignUpFormContainer from './session/signup_form_container';
 import QuestionsIndexContainer from './questions/questions_index_container';
-// import QuestionsFormContainer from './questions/questions_form_container';
+import QuestionFormContainer from './questions/question_form_container';
 import Sidebar from './sidebar/sidebar.jsx';
 
 import Footer from './footer/footer';

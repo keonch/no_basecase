@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// USER STORE NOT UPDATING AFTER QUESTION CREATION CHECK REDUCER!
 const UserTag = (props) => {
   return(
     <div className='question-user-tag'>
