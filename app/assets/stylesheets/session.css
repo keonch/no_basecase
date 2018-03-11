@@ -2,14 +2,13 @@
   margin: auto;
   display: flex;
   flex-flow: column nowrap;
-  max-width: 1060px;
-  padding: 15px;
 }
 
 
 /* tabs */
 .session-tabs {
   display: flex;
+  width: 1060px;
   flex-flow: row nowrap;
   box-sizing: border-box;
   border-bottom: 1px solid rgb(228, 230, 232);
