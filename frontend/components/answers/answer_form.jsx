@@ -19,6 +19,7 @@ class AnswerForm extends React.Component {
     e.preventDefault();
     const answer = Object.assign({}, this.state);
     this.props.submitAnswer(this.props.questionId, answer);
+    this.setState({body: ''});
   }
 
   render () {
@@ -26,7 +27,7 @@ class AnswerForm extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <h3>Your Answer</h3>
-          <textarea onChange={this.updateBody}></textarea>
+          <textarea onChange={this.updateBody} value={this.state.body}></textarea>
           <input type='submit' value='Post Your Answer'></input>
         </form>
       </div>
