@@ -2,13 +2,12 @@ import React from 'react';
 
 class QuestionShow extends React.Component {
   componentDidMount(){
-    debugger
     this.props.fetchQuestion(this.props.questionId);
   }
 
   render () {
     return (
-      <div>
+      <div className='question-show'>
         {
           Object.keys(this.props.questions).length > 0 ?
           <div>
