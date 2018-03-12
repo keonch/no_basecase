@@ -53,15 +53,12 @@
   font-weight: 400;
 }
 
-.question-user-tag {
+.user-tag-name {
   align-self: flex-end;
   margin-top: auto;
   width: 200px;
   height: 70px;
   padding: 5px 6px 7px 7px;
-}
-
-.user-tag-name {
   font-size: 12px;
   font-weight: 400;
   color: #005999;
