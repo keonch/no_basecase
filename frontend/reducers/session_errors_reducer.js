@@ -22,6 +22,8 @@ const parseErrors = (railsErrors = []) => {
         return errors.password.push("Password must contain at least 6 characters.");
       case "The email or password is incorrect.":
         return errors.email.push(error);
+      case "Email has already been taken":
+        return errors.email.push("The email address is already registered.");
       default:
         return null;
     }

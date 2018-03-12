@@ -12,11 +12,11 @@ const receiveAllQuestions = (payload) => {
   });
 };
 
-const receiveQuestion = (question) => {
+const receiveQuestion = (payload) => {
   return ({
     type: RECEIVE_QUESTION,
-    question,
-    users: {}
+    question: payload.question,
+    users: payload.users
   });
 };
 
@@ -43,7 +43,12 @@ export const fetchQuestion = (id) => {
     (dispatch) => {
       return (
         APIUtil.fetchQuestion(id)
-        .then((question) => dispatch(receiveQuestion(question)))
+        .then((payload) => {
+
+          return (
+            dispatch(receiveQuestion(payload))
+          );
+        })
       );
     }
   );

@@ -8,6 +8,7 @@ export const fetchAllQuestions = () => {
 };
 
 export const fetchQuestion = (id) => {
+   
   return (
     $.ajax({
       method: 'GET',
