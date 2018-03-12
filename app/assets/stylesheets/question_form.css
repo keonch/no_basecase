@@ -1,0 +1,53 @@
+.question-form {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.question-form .content {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 0;
+}
+
+.question-form .title-field {
+  min-width: 665px;
+  min-height: 45px;
+  padding: 10px 0 15px;
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 10px 0 15px;
+  align-items: center;
+}
+
+.question-form .input, .body {
+  width: 100%;
+  border: 1px solid #c8ccd0;
+}
+
+.question-form .label {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.question-form .input {
+  font-size: 14px;
+  font-weight: 400;
+  height: 32px;
+}
+
+.question-form .title-field .label {
+  width: 40px;
+}
+
+.question-form .title-field .input {
+  padding: 0 10px;
+  margin: 5px 0;
+}
+
+.question-form .preview {
+  font-size: 15px;
+  font-weight: 400;
+  min-height: 22px;
+  border-top: 1px solid #c8ccd0;
+  border-bottom: 1px solid #c8ccd0;
+}

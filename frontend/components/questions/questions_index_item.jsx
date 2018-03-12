@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import UserTag from '../users/user_tag';
-
 const QuestionsIndexItem = (props) => {
 
   return (
@@ -14,7 +12,7 @@ const QuestionsIndexItem = (props) => {
       <div className='question-summary'>
         <Link className='question-title' to={`/questions/${props.question.id}`}>{props.question.title}</Link>
         <div className='question-body-trunk'>{props.question.body}</div>
-        <UserTag user={props.author} />
+        <Link className='user-tag-name' to={`/users/${props.author.id}`} >{ props.author.name }</Link>
       </div>
     </div>
   );

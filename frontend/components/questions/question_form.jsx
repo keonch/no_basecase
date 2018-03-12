@@ -29,19 +29,42 @@ class QuestionForm extends React.Component {
 
   render () {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>Title</label>
-          <input type='text' value={this.state.title} onChange={this.update('title')} placeholder="What's your programming question? Be specific."></input>
+      <div className='question-form'>
+        <form onSubmit={this.handleSubmit} className='content'>
 
-          <textarea value={this.state.body} onChange={this.update('body')}></textarea>
+          <div className='title-field'>
+            <label className='label'>Title</label>
+            <input
+              type='text'
+              value={this.state.title}
+              onChange={this.update('title')}
+              placeholder="What's your programming question? Be specific."
+              className='input'>
+            </input>
+          </div>
 
-          <div>{this.state.body}</div>
+          <div className='body-field'>
+            <textarea
+              value={this.state.body}
+              onChange={this.update('body')}
+              className='body'></textarea>
 
-          <label>Tags</label>
-          <input type='text' placeholder='coming soon!'></input>
+            <div className='preview'>{this.state.body}</div>
+          </div>
 
-          <input type='submit' value='Post Your Question' />
+          <div className='tag-field'>
+            <label className='label'>Tags</label>
+            <input
+              type='text'
+              placeholder='coming soon!'
+              className='input'></input>
+          </div>
+
+          <input
+            type='submit'
+            value='Post Your Question'
+            className='question-form-submit' />
+
         </form>
       </div>
     );
