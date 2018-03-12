@@ -22,7 +22,7 @@ class QuestionForm extends React.Component {
     const question = Object.assign({}, this.state);
     this.props.submitQuestion(question).then((payload) => {
       return (
-        this.props.history.push(`${payload.question.id}`)
+        this.props.history.push(`/questions/${payload.question.id}`)
       );
     });
   }

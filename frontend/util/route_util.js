@@ -22,9 +22,21 @@ const Protected = ({ component: Component, path, loggedIn, exact }) => (
   )} />
 );
 
+// const Required = ({ component: Component, path, exact }) => {
+//   <Route path={path} exact={exact} render={(props) => (
+//     ? (
+//       <Component {...props} />
+//     ) : (
+//       <Redirect to="/questions" />
+//     )
+//   )} />
+// );
+
 const msp = state => (
   {loggedIn: Boolean(state.session.currentUser)}
 );
+
+// export const RequiredRoute = withRouter(connect(msp)(Required));
 
 export const AuthRoute = withRouter(connect(msp)(Auth));
 
