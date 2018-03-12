@@ -2,15 +2,15 @@ import { connect } from 'react-redux';
 import AnswerForm from './answer_form';
 import { submitAnswer } from '../../actions/answer_actions';
 
-const msp = state => {
+const msp = (state, ownProps) => {
   return ({
-    state
+    questionId: ownProps.questionId
   });
 };
 
 const mdp = dispatch => {
   return ({
-    submitAnswer: (answer) => dispatch(createAnswer(answer))
+    submitAnswer: (questionId, answer) => dispatch(createAnswer(questionId, answer))
   });
 };
 

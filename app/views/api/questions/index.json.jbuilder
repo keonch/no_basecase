@@ -10,9 +10,9 @@ json.questions do
 end
 
 json.users do
-  @questions.map(&:author).each do |author|
-    json.set! author.id do
-      json.partial! 'api/users/user', user: author
+  @questions.each do |question|
+    json.set! question.author.id do
+      json.extract! question.author, :id, :name
     end
   end
 end

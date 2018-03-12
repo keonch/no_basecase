@@ -1,8 +1,9 @@
-export const createAnswer = (answer) => {
+export const createAnswer = (questionId, answer) => {
   return (
     $.ajax({
       method: 'POST',
-      url: 'api/question'
+      url: `api/questions/${questionId}/answers`,
+      data: { answer }
     })
   );
 };

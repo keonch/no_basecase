@@ -10,9 +10,12 @@ import {
   fetchQuestion,
   fetchAllQuestions,
   createQuestion,
-  updateQuestion, 
+  updateQuestion,
   deleteQuestion
 } from './actions/question_actions';
+import {
+  createAnswer
+} from './actions/answer_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -29,11 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // window.logout = logout;
   // window.signup = signup;
   // window.store = store;
-  window.fetchQuestion = fetchQuestion;
-  window.fetchAllQuestions = fetchAllQuestions;
-  window.createQuestion = createQuestion;
+  // window.fetchQuestion = fetchQuestion;
+  // window.fetchAllQuestions = fetchAllQuestions;
+  // window.createQuestion = createQuestion;
   window.updateQuestion = updateQuestion;
   window.deleteQuestion = deleteQuestion;
+  window.createAnswer = createAnswer;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 
