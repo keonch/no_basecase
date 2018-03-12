@@ -1,13 +1,13 @@
-class Question < ApplicationRecord
-  validates :title, :body, :author_id, presence: true
+class Answer < ApplicationRecord
+  validates :body, presence: true
 
   belongs_to :author,
     class_name: :User,
     foreign_key: :author_id,
     primary_key: :id
 
-  has_many :answers,
-    class_name: :Answer,
+  belongs_to :question,
+    class_name: :Question,
     foreign_key: :question_id,
     primary_key: :id
 end

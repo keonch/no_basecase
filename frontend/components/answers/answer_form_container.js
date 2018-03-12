@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import AnswerForm from './answer_form';
+import { submitAnswer } from '../../actions/answer_actions';
 
 const msp = state => {
   return ({
@@ -9,7 +10,7 @@ const msp = state => {
 
 const mdp = dispatch => {
   return ({
-    
+    submitAnswer: (answer) => dispatch(createAnswer(answer))
   });
 };
 
