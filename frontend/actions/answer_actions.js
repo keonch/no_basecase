@@ -10,7 +10,6 @@ const receiveAnswer = (payload) => {
   });
 };
 
-
 export const createAnswer = (questionId, answer) => (dispatch) => {
   return (
     APIUtil.createAnswer(questionId, answer)

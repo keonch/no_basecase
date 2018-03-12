@@ -17,7 +17,7 @@ const usersReducer = (oldState = {}, action) => {
     case RECEIVE_QUESTION:
       return merge({}, oldState, action.users);
     case RECEIVE_ANSWER:
-      return merge({}, oldState, action.author);
+      return merge({}, oldState, { [action.author.id]: action.author });
     default:
       return oldState;
   }
