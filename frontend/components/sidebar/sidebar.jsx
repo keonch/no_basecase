@@ -1,11 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
 
-// add protected routes to question_counter, ask_questions
 const Sidebar = (props) => {
   return (
     <div className='sidebar'>
-      <Link to='/questions/ask' >Ask Question</Link>
+      <Switch >
+        {/* <Route exact path='/questions/:questionId' component={FrontSidebar} /> */}
+        {/* <Route exact path='/questions' component={QuestionsSidebar} /> */}
+        {/* <Route exact path='/' component={FrontSidebar} /> */}
+        <Link to='/questions/ask' >Ask Question</Link>
+      </Switch>
     </div>
   );
 };
