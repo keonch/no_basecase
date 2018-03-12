@@ -3,18 +3,23 @@ json.question do
 end
 
 json.answers do
-  # @questions.each do |question|
-  #   json.set! question.id do
-  #     if question.body.length > 188
-  #       question.body = question.body[0...188] + '...'
-  #     end
-  #     json.extract! question, :id, :title, :body, :author_id
-  #   end
-  # end
+  @question.answers.each do |answer|
+    json.set! answer.id do
+      json.extract! answer, :id, :body, :author_id
+    end
+  end
 end
 
 json.users do
+
   json.set! @question.author.id do
     json.partial! 'api/users/user', user: @question.author
   end
+
+  @question.answers.each do |answer|
+    json.set! answer.author.id do
+      json.extract! answer.author, :id, :name
+    end
+  end
+
 end

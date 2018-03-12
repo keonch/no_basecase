@@ -4,9 +4,13 @@ import { updateQuestion, fetchQuestion } from '../../actions/question_actions';
 
 const msp = (state, ownProps) => {
   const questionId = ownProps.match.params.questionId;
+  const question = state.entities.questions[questionId];
+  const answers = Object.values(state.entities.answers);
   return({
     questionId,
-    questions: state.entities.questions
+    question,
+    answers,
+    users: state.entities.users
   });
 };
 
