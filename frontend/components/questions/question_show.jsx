@@ -45,7 +45,7 @@ class QuestionShow extends React.Component {
             <div>Not Found</div>
         }
 
-        { 
+        {
           <AnswerFormContainer questionId={ this.props.questionId }/>
         }
 
