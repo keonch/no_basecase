@@ -35,6 +35,14 @@ class QuestionForm extends React.Component {
   }
 
   render () {
+
+    const toolbarOptions = [
+      ['bold', 'italic'],
+      ['blockquote', 'code-block'],
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+      [{ 'header': [1, 2, false] }]
+    ];
+
     return (
       <div className='question-form'>
         <form onSubmit={this.handleSubmit} className='question-form-content'>
@@ -54,9 +62,14 @@ class QuestionForm extends React.Component {
             <ReactQuill
               value={this.state.body}
               onChange={this.updateBody}
+              modules={ { toolbar: toolbarOptions } }
               className='question-form-body' />
 
-            <div className='question-form-preview'>{this.state.body}</div>
+            <ReactQuill
+              value={this.state.body}
+              modules={ { toolbar: null } }
+              readOnly
+              className='question-form-preview' />
           </div>
 
           <div className='question-form-tag-field'>
