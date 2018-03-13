@@ -4,7 +4,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 const Sidebar = (props) => {
   return (
     <div className='sidebar'>
-        <Link to='/questions/ask' >Ask Question</Link>
+        <Link className='ask-question' to='/questions/ask' >Ask Question</Link>
     </div>
   );
 };

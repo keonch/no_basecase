@@ -27,7 +27,7 @@
 
 .content {
   max-width: 1060px;
-  padding: 15px;
+  padding: 24px 15px;
   margin: auto;
   display: flex;
   justify-content: space-between;

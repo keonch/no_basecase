@@ -1,3 +1,21 @@
 .sidebar {
+  display: flex;
+  flex-flow: column nowrap;
   order: 1;
+}
+
+.ask-question {
+  white-space: nowrap;
+  color: #07c;
+  border: 1px solid #0095ff;
+  border-radius: 2px;
+  font-size: 13px;
+  padding: 8px 13px;
+  box-sizing: border-box;
+}
+
+.ask-question:hover {
+  color: #005999;
+  background-color: #e6f4ff;
+  border-color: #07c;
 }

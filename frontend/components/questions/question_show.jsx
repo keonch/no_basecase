@@ -13,10 +13,10 @@ class QuestionShow extends React.Component {
     const answers = this.props.answers.map((answer, idx) => {
       const author = this.props.users[answer.author_id];
       return (
-        <div key={idx}>
-          <div>{ answer.body }</div>
+        <div key={idx} className='answer'>
+          <div className='answer-body'>{ answer.body }</div>
           <Link
-            className='user-tag-name'
+            className='answer-author'
             to={`/users/${author.id}`}>
             { author.name }
           </Link>
@@ -25,15 +25,15 @@ class QuestionShow extends React.Component {
     });
 
     return (
-      <div className='question-page'>
+      <div className='question-show-page'>
 
         {
           this.props.question ?
-            <div className='question'>
-              <div>{ this.props.question.title }</div>
-              <div>{ this.props.question.body }</div>
+            <div className='question-show'>
+              <div className='question-show-title'>{ this.props.question.title }</div>
+              <div className='question-show-body'>{ this.props.question.body }</div>
               <Link
-                className='user-tag-name'
+                className='question-show-author'
                 to={`/users/${this.props.question.author_id}`}>
                 { this.props.users[this.props.question.author_id].name }
               </Link>
@@ -41,12 +41,13 @@ class QuestionShow extends React.Component {
           :
             <div>Not Found</div>
         }
-
-        {
+        <div className='answer-form'>
           <AnswerFormContainer questionId={ this.props.questionId }/>
-        }
+        </div>
 
-        { answers }
+        <div className='answers'>
+          { answers }
+        </div>
       </div>
     );
   }
