@@ -11,11 +11,13 @@ const QuestionsIndexItem = (props) => {
       </div>
 
       <div className='question-item-summary'>
-        <Link
-          className='question-item-title'
-          to={`/questions/${props.question.id}`}>
-          {props.question.title}
-        </Link>
+        <div className="question-item-header">
+          <Link
+            className='question-item-title'
+            to={`/questions/${props.question.id}`}>
+            {props.question.title}
+          </Link>
+        </div>
 
         <div className='question-item-body'>
           {props.question.body}
@@ -31,8 +33,9 @@ const QuestionsIndexItem = (props) => {
           :
           ""
         }
-
-        <Link className='question-item-author' to={`/users/${props.author.id}`} >{ props.author.name }</Link>
+        <div className="author-info">
+          <Link className='question-item-author' to={`/users/${props.author.id}`} >{ props.author.name }</Link>
+        </div>
       </div>
     </div>
   );

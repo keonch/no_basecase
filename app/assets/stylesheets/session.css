@@ -1,5 +1,5 @@
 .session {
-  margin: auto;
+  margin: 0 auto;
   display: flex;
   flex-flow: column nowrap;
 }
@@ -14,7 +14,6 @@
   border-bottom: 1px solid rgb(228, 230, 232);
   font-size: 12px;
   font-weight: 400;
-  margin-top: 10px;
 }
 
 .session-login-tab, .session-signup-tab {

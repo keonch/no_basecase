@@ -1,6 +1,8 @@
 import React from 'react';
 import { Redirect, withRouter } from 'react-router-dom';
 
+import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill';
+
 class QuestionForm extends React.Component {
   constructor (props) {
     super(props);
@@ -9,6 +11,11 @@ class QuestionForm extends React.Component {
       body: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateBody = this.updateBody.bind(this);
+  }
+
+  updateBody(value) {
+    this.setState({ body: value });
   }
 
   update(field) {
@@ -30,34 +37,37 @@ class QuestionForm extends React.Component {
   render () {
     return (
       <div className='question-form'>
-        <form onSubmit={this.handleSubmit} className='content'>
+        <form onSubmit={this.handleSubmit} className='question-form-content'>
 
-          <div className='title-field'>
-            <label className='label'>Title</label>
+          <div className='question-form-title-field'>
+            <label className='question-form-title'>Title</label>
             <input
               type='text'
               value={this.state.title}
               onChange={this.update('title')}
               placeholder="What's your programming question? Be specific."
-              className='input'>
+              className='question-form-title-input'>
             </input>
           </div>
 
-          <div className='body-field'>
-            <textarea
+          <div className='question-form-body-field'>
+            <ReactQuill
               value={this.state.body}
-              onChange={this.update('body')}
-              className='body'></textarea>
+              onChange={this.updateBody}
+              className='question-form-body' />
 
-            <div className='preview'>{this.state.body}</div>
+            <div className='question-form-preview'>{this.state.body}</div>
           </div>
 
-          <div className='tag-field'>
-            <label className='label'>Tags</label>
+          <div className='question-form-tag-field'>
+            <label className='question-form-tags'>Tags</label>
             <input
               type='text'
-              placeholder='coming soon!'
-              className='input'></input>
+              placeholder='at least one tag such as (xml arrays c), max 5 tags'
+              className='question-form-tag-input'></input>
+          </div>
+
+          <div className="tag-suggestions">
           </div>
 
           <input
