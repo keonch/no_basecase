@@ -1,5 +1,8 @@
 import { connect } from 'react-redux';
-import { fetchAllQuestions } from '../../actions/question_actions';
+import {
+  fetchAllQuestions,
+  deleteQuestion
+} from '../../actions/question_actions';
 import QuestionsIndex from './questions_index';
 
 const msp = (state) => {

@@ -12,6 +12,6 @@ Question.destroy_all
 15.times do
   user = User.create(name: Faker::Superhero.unique.name, email: Faker::Internet.unique.email, password: '123123')
   rand(0..3).times do
-    Question.create(title: Faker::Hipster.unique.sentence(5, false, 10), body: Faker::Hipster.unique.paragraph(2, false, 3), author_id: user.id)
+    Question.create(title: Faker::Hipster.unique.sentence(8, false, 10), body: Faker::Hipster.unique.paragraph(6, false, 3), author_id: user.id)
   end
 end

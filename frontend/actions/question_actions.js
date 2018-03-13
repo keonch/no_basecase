@@ -21,10 +21,10 @@ const receiveQuestion = (payload) => {
   });
 };
 
-const removeQuestion = (question) => {
+const removeQuestion = (questionId) => {
   return ({
     type: REMOVE_QUESTION,
-    question
+    questionId
   });
 };
 
@@ -77,12 +77,12 @@ export const updateQuestion = (question) => {
   );
 };
 
-export const deleteQuestion = (id) => {
+export const deleteQuestion = (questionId) => {
   return(
     (dispatch) => {
       return (
-        APIUtil.deleteQuestion(id)
-        .then(() => dispatch(removeQuestion()))
+        APIUtil.deleteQuestion(questionId)
+        .then((questionId) => dispatch(removeQuestion(questionId)))
       );
     }
   );

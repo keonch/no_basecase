@@ -1,6 +1,10 @@
 import { connect } from 'react-redux';
 import QuestionShow from './question_show';
-import { updateQuestion, fetchQuestion } from '../../actions/question_actions';
+import {
+  updateQuestion,
+  fetchQuestion,
+  deleteQuestion
+} from '../../actions/question_actions';
 
 const msp = (state, ownProps) => {
   const questionId = ownProps.match.params.questionId;
@@ -17,7 +21,8 @@ const msp = (state, ownProps) => {
 const mdp = (dispatch) => {
   return ({
     fetchQuestion: (id) => dispatch(fetchQuestion(id)),
-    updateQuestion: (question) => dispatch(updateQuestion(question))
+    updateQuestion: (question) => dispatch(updateQuestion(question)),
+    deleteQuestion: (id) => dispatch(deleteQuestion(id))
   });
 };
 
