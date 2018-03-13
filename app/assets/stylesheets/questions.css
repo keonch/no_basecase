@@ -39,7 +39,7 @@
   flex-flow: column nowrap;
 }
 
-.question-item-title {
+.question-item-header {
   color: #005999;
   font-weight: 400;
   margin-bottom: 7.5px;
@@ -50,7 +50,7 @@
   font-weight: 400;
 }
 
-.question-item-author {
+.author-info {
   align-self: flex-end;
   width: 200px;
   height: 70px;

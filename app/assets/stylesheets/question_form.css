@@ -1,53 +1,105 @@
 .question-form {
   display: flex;
-  flex-flow: row nowrap;
-}
-
-.question-form .content {
-  display: flex;
   flex-flow: column nowrap;
-  padding: 0;
 }
 
-.question-form .title-field {
-  min-width: 665px;
-  min-height: 45px;
-  padding: 10px 0 15px;
+.question-form-content {
+  width: 665px;
+}
+
+.question-form-title-field {
   display: flex;
   flex-flow: row nowrap;
-  padding: 10px 0 15px;
   align-items: center;
+  padding: 10px 0 15px;
 }
 
-.question-form .input, .body {
-  width: 100%;
-  border: 1px solid #c8ccd0;
-}
-
-.question-form .label {
+.question-form-title, .question-form-tags {
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
+  width: 40px;
+  color: #242729;
 }
 
-.question-form .input {
+.question-form-title-input {
+  flex-grow: 1;
+  border: 1px solid #c8ccd0;
   font-size: 14px;
   font-weight: 400;
   height: 32px;
-}
-
-.question-form .title-field .label {
-  width: 40px;
-}
-
-.question-form .title-field .input {
   padding: 0 10px;
-  margin: 5px 0;
+  box-shadow: 0 1px 2px rgba(12,13,14,0.1) inset;
 }
 
-.question-form .preview {
+.question-form-title-input::placeholder, .question-form-tag-input::placeholder {
+  color: #9fa6ad;
+}
+
+.question-form-body-field {
+  margin-top: 10px;
+}
+
+.question-form-body {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  min-height: 300px;
+}
+
+.ql-container {
+  flex-grow: 1;
+}
+
+.question-form-preview {
+  margin-top: 32px;
   font-size: 15px;
   font-weight: 400;
   min-height: 22px;
   border-top: 1px solid #c8ccd0;
   border-bottom: 1px solid #c8ccd0;
+  border-style: dotted;
+}
+
+.question-form-tag-field {
+  margin: 5px 0;
+  padding: 10px 0 15px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.question-form-tags {
+  margin-bottom: 5px;
+}
+
+.question-form-tag-input {
+  border: 1px solid #c8ccd0;
+  font-size: 14px;
+  font-weight: 400;
+  height: 32px;
+  padding: 0 4px;
+  box-shadow: 0 1px 2px rgba(12,13,14,0.1) inset;
+}
+
+.question-form-submit {
+  color: #FFF;
+  background-color: #0095ff;
+  border-color: #07c;
+  box-shadow: inset 0 1px 0 #66bfff;
+  border-radius: 2px;
+  box-sizing: border-box;
+  font-weight: 400;
+  font-size: 13px;
+  padding: 8px 13px;
+}
+
+.tag-suggestions {
+  min-height: 30px;
+  margin-bottom: 10px;
+}
+
+.question-form-submit:hover {
+  color: rgba(255,255,255,0.9);
+  background-color: #07c;
+  border-color: #005999;
+  box-shadow: inset 0 1px 0 #3af;
 }

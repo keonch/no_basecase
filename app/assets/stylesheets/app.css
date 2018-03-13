@@ -27,6 +27,7 @@
 
 .content {
   max-width: 1060px;
+  min-height: 750px;
   padding: 24px 15px;
   margin: auto;
   display: flex;
