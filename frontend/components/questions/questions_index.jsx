@@ -20,8 +20,6 @@ class QuestionsIndex extends React.Component {
           />
       );
     });
-    // currentUser={this.props.currentUser || { id: null }}
-    // deleteQuestion={this.props.deleteQuestion}
 
     return (
       <div className='questions'>
