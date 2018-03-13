@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AnswerFormContainer from '../answers/answer_form_container';
+import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill';
 
 class QuestionShow extends React.Component {
   componentDidMount(){
@@ -26,7 +27,6 @@ class QuestionShow extends React.Component {
 
     return (
       <div className='question-show-page'>
-
         {
           this.props.question ?
             <div className='question-show'>
@@ -36,7 +36,15 @@ class QuestionShow extends React.Component {
                   <Link className='question-show-ask-question' to='/questions/ask' >Ask Question</Link>
                 </div>
               </div>
-              <div className='question-show-body'>{ this.props.question.body }</div>
+
+              <div>
+                <ReactQuill
+                  value={this.props.question.body}
+                  readOnly
+                  modules={ {toolbar: null} }
+                   />
+              </div>
+
               <Link
                 className='question-show-author'
                 to={`/users/${this.props.question.author_id}`}>
@@ -61,6 +69,7 @@ class QuestionShow extends React.Component {
 export default QuestionShow;
 
 
+// <div className='question-show-body'>{ this.props.question.body }</div>
 // {
 //   Object.keys(this.props.questions).length > 0 &&
 //   <div>{this.props.question.title}</div>
