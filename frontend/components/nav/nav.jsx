@@ -22,10 +22,10 @@ const Nav = (props) => {
 
       <div className='user-items'>
         <div className='menu-items'>
-          <i class="fas fa-inbox"></i>
-          <i class="fas fa-trophy"></i>
-          <i class="fas fa-question-circle"></i>
-          <i class="fab fa-stack-exchange"></i>
+          <i className="fas fa-inbox"></i>
+          <i className="fas fa-trophy"></i>
+          <i className="fas fa-question-circle"></i>
+          <i className="fab fa-stack-exchange"></i>
         </div>
 
         <div className='session'>

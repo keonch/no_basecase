@@ -4,7 +4,7 @@ json.questions do
       if question.body.length > 188
         question.body = question.body[0...188] + '...'
       end
-      json.extract! question, :id, :title, :body, :author_id
+      json.extract! question, :id, :title, :body, :author_id, :created_at
     end
   end
 end

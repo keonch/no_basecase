@@ -10,32 +10,38 @@
 }
 
 .nav .links {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    flex-grow: 1;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  flex-grow: 1;
 }
 
 .nav .logo {
-    width: 130px;
-    height: 40px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-image: image-url('logo1.png');
-    margin: 0 12px;
+  width: 130px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: image-url('logo1.png');
+  margin: 0 12px;
 }
 
-.nav .links .navlink {
-    padding: 0 12px;
-    font-size: 14px;
-    color: #535a60;
+.nav .navlink {
+  padding: 0 12px;
+  font-size: 14px;
+  color: #535a60;
+  height: 100%;
 }
 
-.nav .links .active {
-    padding: 15px 12px 12px 12px;
-    border-bottom: 2px solid rgb(242, 126, 38);
-    color: #000;
+.nav .navlink:hover {
+  background-color: #eff0f1;
+  height: 100%
+}
+
+.nav .active {
+  padding: 15px 12px 12px 12px;
+  border-bottom: 2px solid rgb(242, 126, 38);
+  color: #000;
 }
 
 .nav .search-bar {

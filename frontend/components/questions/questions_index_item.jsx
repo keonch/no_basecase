@@ -5,36 +5,34 @@ const QuestionsIndexItem = (props) => {
   return (
     <div className='question-item'>
 
-      <div className='question-stats'>
+      <div className='question-item-stats'>
         <p>Vote#</p>
         <p>answer#</p>
       </div>
 
-      <div className='question-summary'>
-
+      <div className='question-item-summary'>
         <Link
-          className='question-title'
+          className='question-item-title'
           to={`/questions/${props.question.id}`}>
           {props.question.title}
         </Link>
 
-        <div className='question-body-trunk'>
+        <div className='question-item-body'>
           {props.question.body}
         </div>
 
         {
           props.isOwner ?
-            <button
-              className="delete-button"
-              onClick={() => props.deleteQuestion(props.question.id)}
-              value="Delete">
-              DELETE
-            </button>
+          <button
+            onClick={() => props.deleteQuestion(props.question.id)}
+            value="Delete">
+            DELETE
+          </button>
           :
-            ""
+          ""
         }
 
-        <Link className='user-tag-name' to={`/users/${props.author.id}`} >{ props.author.name }</Link>
+        <Link className='question-item-author' to={`/users/${props.author.id}`} >{ props.author.name }</Link>
       </div>
     </div>
   );

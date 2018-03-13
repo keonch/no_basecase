@@ -1,17 +1,19 @@
-.questions {
+.questions-index-page {
   display: flex;
   flex-flow: column nowrap;
+  width: 728px;
 }
 
-.questions-header {
+.questions-index-header {
+  height: 40px;
   display: flex;
   flex-flow: row nowrap;
   box-sizing: border-box;
   border-bottom: 1px solid #e4e6e8;
-  width: 728px;
+  align-items: center;
 }
 
-.questions-head {
+.questions-index-head {
   font-size: 18px;
   font-weight: 400;
 }
@@ -21,45 +23,38 @@
   flex-flow: row nowrap;
   box-sizing: border-box;
   border-bottom: 1px solid #e4e6e8;
-  width: 728px;
   height: 160px;
   padding: 12px 0 10px 0;
 }
 
-.question-stats {
-  float: left;
-  width: 78px;
-  margin: 0 8px;
+.question-item-stats {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
+  margin: 0 8px;
 }
 
-.question-summary {
-  width: 800px;
+.question-item-summary {
   display: flex;
   flex-flow: column nowrap;
 }
 
-
-.question-title{
-  margin-bottom: 7.5px;
+.question-item-title {
   color: #005999;
   font-weight: 400;
+  margin-bottom: 7.5px;
 }
 
-.question-body-trunk {
+.question-item-body {
   font-size: 13px;
   font-weight: 400;
 }
 
-.user-tag-name {
+.question-item-author {
   align-self: flex-end;
-  margin-top: auto;
   width: 200px;
   height: 70px;
   padding: 5px 6px 7px 7px;
   font-size: 12px;
-  font-weight: 400;
   color: #005999;
 }
