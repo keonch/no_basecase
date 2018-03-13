@@ -30,7 +30,12 @@ class QuestionShow extends React.Component {
         {
           this.props.question ?
             <div className='question-show'>
-              <div className='question-show-title'>{ this.props.question.title }</div>
+              <div className='question-show-header'>
+                <div className='question-show-title'>{ this.props.question.title }</div>
+                <div className='question-show-header-right'>
+                  <Link className='question-show-ask-question' to='/questions/ask' >Ask Question</Link>
+                </div>
+              </div>
               <div className='question-show-body'>{ this.props.question.body }</div>
               <Link
                 className='question-show-author'

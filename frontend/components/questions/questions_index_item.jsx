@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import UserTag from '../users/user_tag';
 
 const QuestionsIndexItem = (props) => {
   return (
@@ -33,8 +34,8 @@ const QuestionsIndexItem = (props) => {
           :
           ""
         }
-        <div className="author-info">
-          <Link className='question-item-author' to={`/users/${props.author.id}`} >{ props.author.name }</Link>
+        <div className='author-info'>
+          <UserTag contentType='question' author={props.author} time={props.question.created_at }/>
         </div>
       </div>
     </div>
