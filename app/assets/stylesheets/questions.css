@@ -40,7 +40,7 @@
 }
 
 .question-item-header {
-  color: #005999;
+  color: #07C;
   font-weight: 400;
   margin-bottom: 7.5px;
 }
@@ -52,9 +52,4 @@
 
 .author-info {
   align-self: flex-end;
-  width: 200px;
-  height: 70px;
-  padding: 5px 6px 7px 7px;
-  font-size: 12px;
-  color: #005999;
 }

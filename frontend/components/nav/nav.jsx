@@ -8,7 +8,9 @@ const Nav = (props) => {
   return (
     <div className='nav'>
       <div className='links'>
-        <Link to='/' className='logo'></Link>
+        <Link to='/' >
+          <img className='logo' src={ window.logo } />
+        </Link>
 
         <NavLink to='/questions' className='navlink' >Questions</NavLink>
         <NavLink to='/jobs' className='navlink' >Developer Jobs</NavLink>
