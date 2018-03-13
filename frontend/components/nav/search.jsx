@@ -7,6 +7,7 @@ class Search extends React.Component {
       searchText: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.SearchButton = this.SearchButton.bind(this);
   }
 
   updateSearch(e){
@@ -23,6 +24,18 @@ class Search extends React.Component {
     });
   }
 
+  SearchButton() {
+    if (this.props.selected) {
+      return (
+        <button type='submit' className='search-button'><i className="fas fa-search"></i></button>
+      );
+    } else {
+      return (
+        <div></div>
+      );
+    }
+  }
+
   render() {
     return (
       <form onSubmit={() => this.handleSubmit(e)}>
@@ -34,12 +47,19 @@ class Search extends React.Component {
           onClick={() => this.props.selectSearchBar()}
           onBlur={() => this.props.unselectSearchBar()}
           />
-        <button type='submit' className='search-icon'><i className="fas fa-search"></i></button>
+        <this.SearchButton />
       </form>
     );
   }
 }
 
 export default Search;
+
+
+// {
+//   seach ?
+//   :
+//   ""
+// }
 // on blur
 // transitions
