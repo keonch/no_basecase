@@ -87,3 +87,10 @@ export const deleteQuestion = (questionId) => {
     }
   );
 };
+
+export const fetchSearchQuestions = (searchText) => (dispatch) => {
+  return (
+    APIUtil.fetchSearchQuestions(searchText)
+    .then((questions) => dispatch(receiveAllQuestions(questions)))
+  );
+};

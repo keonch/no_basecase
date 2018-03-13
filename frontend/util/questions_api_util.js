@@ -45,3 +45,12 @@ export const deleteQuestion = (id) => {
     })
   );
 };
+
+export const fetchSearchQuestions = (questionText) => {
+  return (
+    $.ajax({
+      method: 'DELETE',
+      url: `api/questions/${id}`
+    })
+  );
+};
