@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import SearchContainer from './search_container';
 
 const Nav = (props) => {
 
@@ -7,22 +8,41 @@ const Nav = (props) => {
 
   return (
     <div className='nav'>
-      <div className='links'>
+      {
+        loggedIn ?
+        <Link to='/' >
+          <img className='logoLoggedIn' src={ window.logoLoggedIn } />
+        </Link>
+        :
         <Link to='/' >
           <img className='logo' src={ window.logo } />
         </Link>
+      }
 
+      <div className='links'>
         <NavLink to='/questions' className='navlink' >Questions</NavLink>
         <NavLink to='/jobs' className='navlink' >Developer Jobs</NavLink>
         <NavLink to='/tags' className='navlink' >Tags</NavLink>
         <NavLink to='/users' className='navlink' >Users</NavLink>
 
         <div className='search-bar'>
-          <input className='search' type='text' placeholder='Search...'></input>
+          <SearchContainer />
         </div>
       </div>
 
       <div className='user-items'>
+        <div>
+          {
+            loggedIn ?
+              <Link to={`/users/${props.currentUser.id}`}>
+                <img className='user-nav-img' src={window.profile} />
+              </Link>
+            :
+              ''
+          }
+
+        </div>
+
         <div className='menu-items'>
           <i className="fas fa-inbox"></i>
           <i className="fas fa-trophy"></i>
