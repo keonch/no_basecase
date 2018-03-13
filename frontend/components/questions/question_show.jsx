@@ -14,10 +14,7 @@ class QuestionShow extends React.Component {
       const author = this.props.users[answer.author_id];
       return (
         <div key={idx}>
-          <div>
-            { answer.body }
-          </div>
-
+          <div>{ answer.body }</div>
           <Link
             className='user-tag-name'
             to={`/users/${author.id}`}>

@@ -29,14 +29,14 @@ class Api::QuestionsController < ApplicationController
   end
 
   def destroy
-    question = Question.find_by(params[:id])
+    question = Question.find(params[:id])
     if question && question.author_id == current_user.id
       question.destroy
-      render json: {}
+      render json: question.id
     elsif question && question.author_id != current_user.id
-      render json: ["You do not own that question"], status: 403
+      render json: ["Forbidden"], status: 403
     else
-      render json: ["Could not find that question"], status: 404
+      render json: ["Not Found"], status: 404
     end
   end
 

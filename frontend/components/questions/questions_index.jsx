@@ -1,6 +1,6 @@
 import React from 'react';
 
-import QuestionsIndexItem from './questions_index_item';
+import QuestionsIndexItemContainer from './questions_index_item_container';
 
 class QuestionsIndex extends React.Component {
 
@@ -9,12 +9,19 @@ class QuestionsIndex extends React.Component {
   }
 
   render () {
+
     const questions = this.props.questions.map((question, idx) => {
       const author = this.props.users[question.author_id];
       return (
-        <QuestionsIndexItem key={idx} question={question} author={author} />
+        <QuestionsIndexItemContainer
+          key={idx}
+          question={question}
+          author={author}
+          />
       );
     });
+    // currentUser={this.props.currentUser || { id: null }}
+    // deleteQuestion={this.props.deleteQuestion}
 
     return (
       <div className='questions'>

@@ -10,4 +10,8 @@ class Question < ApplicationRecord
     class_name: :Answer,
     foreign_key: :question_id,
     primary_key: :id
+
+  has_many :answerers,
+    through: :answers,
+    source: :author
 end
