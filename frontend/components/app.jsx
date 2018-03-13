@@ -9,7 +9,7 @@ import {
   HashRouter
 } from 'react-router-dom';
 
-import NavBar from './nav/nav_bar';
+import NavContainer from './nav/nav_container';
 import FrontContainer from './front/front_container';
 import LogInFormContainer from './session/login_form_container';
 import SignUpFormContainer from './session/signup_form_container';
@@ -23,7 +23,7 @@ const App = () => (
   <div className='app'>
     <header className='header'>
 
-      <NavBar />
+      <NavContainer />
 
     </header>
 
