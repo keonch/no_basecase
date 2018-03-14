@@ -46,11 +46,12 @@ export const deleteQuestion = (id) => {
   );
 };
 
-export const fetchSearchQuestions = (questionText) => {
+export const fetchSearchQuestions = (searchText) => {
   return (
     $.ajax({
-      method: 'DELETE',
-      url: `api/questions/${id}`
+      method: 'GET',
+      url: `api/search`,
+      data: searchText
     })
   );
 };
