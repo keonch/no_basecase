@@ -1,3 +1,5 @@
+
+
 .questions-index-page {
   display: flex;
   flex-flow: column nowrap;
@@ -18,54 +20,68 @@
   font-weight: 400;
 }
 
-.question-item {
+.questions-index-page {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
+}
+
+.q-item {
   box-sizing: border-box;
   border-bottom: 1px solid #e4e6e8;
   height: 160px;
-  padding: 12px 0 10px 0;
+  display: flex;
 }
 
-.question-item-stats {
+.q-stat {
+  color: #6a737c;
+  width: 120px;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: flex-start;
-  margin: 0 8px;
-  color: #6a737c;
+  align-items: center;
+}
+
+.q-votes-number {
+  font-weight: normal;
+  font-size: 20px;
   text-align: center;
 }
 
-.question-item-stats {
-  font-weight: normal;
-  font-size: 20px;
-}
-
-.question-item-stats {
+.q-votes-label {
   font-weight: 400;
   font-size: 11px;
+  text-align: center;
 }
 
-.question-item-answers {
-  margin-top: 8px;
+.q-answers-number {
+  font-weight: normal;
+  font-size: 20px;
+  text-align: center;
 }
 
-.question-item-summary {
+.q-answers-label {
+  font-weight: 400;
+  font-size: 11px;
+  text-align: center;
+}
+
+.q-content {
+  width: 630px;
   display: flex;
-  flex-flow: column nowrap;
+  flex-direction: column;
+  justify-content:
 }
 
-.question-item-header {
+.q-title {
   color: #07C;
   font-weight: 400;
-  margin-bottom: 7.5px;
 }
 
-.question-item-body {
+.q-body {
   font-size: 13px;
   font-weight: 400;
 }
 
-.author-info {
+.q-user-info {
+  display: flex;
   align-self: flex-end;
 }

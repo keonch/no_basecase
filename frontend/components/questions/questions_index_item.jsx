@@ -4,44 +4,40 @@ import UserTag from '../users/user_tag';
 
 const QuestionsIndexItem = (props) => {
   return (
-    <div className='question-item'>
+    <div className='q-item'>
 
-      <div className='question-item-stats'>
-        <div className='question-item-votes'>
-          <h2>{props.question.votes}</h2>
-          <h3>votes</h3>
+      <div className='q-stat'>
+        <div className='q-votes'>
+          <p className='q-votes-number'>{props.question.votes}</p>
+          <p className='q-votes-label'>votes</p>
         </div>
 
-        <div className='question-item-answers'>
-          <h2>{props.question.answersCount}</h2>
-          <h3>answers</h3>
+        <div className='q-answers'>
+          <p className='q-answers-number'>{props.question.answersCount}</p>
+          <p className='q-answers-label'>answers</p>
         </div>
       </div>
 
-      <div className='question-item-summary'>
-        <div className="question-item-header">
-          <Link
-            className='question-item-title'
-            to={`/questions/${props.question.id}`}>
-            {props.question.title}
-          </Link>
-        </div>
+      <div className='q-content'>
+        <Link
+          className='q-title'
+          to={`/questions/${props.question.id}`}>
+          {props.question.title}
+        </Link>
 
-        <div className='question-item-body'>
-          {props.question.body}
-        </div>
+        <div className='q-body'>{props.question.body}</div>
 
         {
           props.isOwner ?
           <button
+            className='q-delete'
             onClick={() => props.deleteQuestion(props.question.id)}
             value="Delete">
-            DELETE
           </button>
           :
           ""
         }
-        <div className='author-info'>
+        <div className='q-user-info'>
           <UserTag contentType='question' author={props.author} time={props.question.created_at }/>
         </div>
       </div>
