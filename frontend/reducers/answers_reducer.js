@@ -9,6 +9,10 @@ import {
   RECEIVE_ANSWER
 } from '../actions/answer_actions';
 
+import {
+  RECEIVE_VOTE
+} from '../actions/vote_actions';
+
 const answersReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   switch (action.type) {
@@ -16,6 +20,8 @@ const answersReducer = (oldState = {}, action) => {
       return merge({}, action.answers);
     case RECEIVE_ANSWER:
       return merge({}, oldState, { [action.answer.id]: action.answer });
+    case RECEIVE_VOTE:
+      return merge({}, oldState, {[action.answer.id]: action.answer.votes });
     case CLEAR_QUESTION:
       return {};
     default:

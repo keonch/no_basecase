@@ -2,10 +2,10 @@ import * as APIUtil from '../util/votes_api_util';
 
 export const RECEIVE_VOTE = 'RECEIVE_VOTE';
 
-const receiveVote = (votes) => {
+const receiveVote = (payload) => {
   return ({
     type: RECEIVE_VOTE,
-    votes
+    payload
   });
 };
 
@@ -14,7 +14,7 @@ export const upvote = (entity, entityId) => {
     (dispatch) => {
       return (
         APIUtil.upvote(entity, entityId)
-        .then((voteCount) => dispatch(receiveVote(voteCount)))
+        .then((votes) => dispatch(receiveVote(votes)))
       );
     }
   );
