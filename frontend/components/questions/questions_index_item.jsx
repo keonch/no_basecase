@@ -7,8 +7,18 @@ const QuestionsIndexItem = (props) => {
     <div className='question-item'>
 
       <div className='question-item-stats'>
-        <p>Vote#</p>
-        <p>answer#</p>
+        <div>
+          {props.question.votes}
+          <div>
+            votes
+          </div>
+        </div>
+        <div>
+          {props.question.answersCount}
+          <div>
+            answers
+          </div>
+        </div>
       </div>
 
       <div className='question-item-summary'>

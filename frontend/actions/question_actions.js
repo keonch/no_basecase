@@ -29,6 +29,12 @@ const removeQuestion = (questionId) => {
   });
 };
 
+export const clearQuestion = () => {
+  return ({
+    type: CLEAR_QUESTION
+  });
+};
+
 export const fetchAllQuestions = () => {
   return(
     (dispatch) => {
@@ -93,11 +99,5 @@ export const fetchSearchQuestions = (searchText) => (dispatch) => {
   return (
     APIUtil.fetchSearchQuestions(searchText)
     .then((questions) => dispatch(receiveAllQuestions(questions)))
-  );
-};
-
-export const clearQuestion = () => (dispatch) => {
-  return (
-    APIUtil
   );
 };

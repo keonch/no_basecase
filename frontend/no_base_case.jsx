@@ -13,9 +13,15 @@ import {
   updateQuestion,
   deleteQuestion
 } from './actions/question_actions';
+
 import {
   createAnswer
 } from './actions/answer_actions';
+
+import {
+  upvote,
+  downvote
+} from './actions/vote_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -38,6 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.updateQuestion = updateQuestion;
   window.deleteQuestion = deleteQuestion;
   window.createAnswer = createAnswer;
+  window.upvote = upvote;
+  window.downvote = downvote;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 

@@ -16,4 +16,6 @@ class Api::AnswersController < ApplicationController
   def answer_params
     params.require(:answer).permit(:body)
   end
+
+  include Vote
 end
