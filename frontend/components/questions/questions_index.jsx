@@ -23,12 +23,14 @@ class QuestionsIndex extends React.Component {
 
     return (
       <div className='questions-index-page'>
+
         <header className='questions-index-header'>
           <h3 className='questions-index-head'>All Questions</h3>
         </header>
-        <ul className='questions-index'>
+
+        <div className='questions-index'>
           { questions }
-        </ul>
+        </div>
       </div>
     );
   }
