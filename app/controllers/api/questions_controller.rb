@@ -2,7 +2,7 @@ class Api::QuestionsController < ApplicationController
   before_action :require_logged_in!, only: [:create, :update, :destroy]
 
   def index
-    @questions = Question.all.includes(:author)
+    @questions = Question.all.includes(:author, :answers)
   end
 
   def show
@@ -43,11 +43,13 @@ class Api::QuestionsController < ApplicationController
   def search
     searchText = params[:searchText]
     @questions = Question.where('title ~* ?', searchText).or(Question.where('body ~* ?', searchText))
-    
+    render 'api/questions/index'
   end
 
   private
   def question_params
     params.require(:question).permit(:title, :body)
   end
+
+  include Vote
 end

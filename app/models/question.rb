@@ -1,15 +1,15 @@
 class Question < ApplicationRecord
+  include Votable
+
   validates :title, :body, :author_id, presence: true
 
   belongs_to :author,
     class_name: :User,
     foreign_key: :author_id,
-    primary_key: :id
+    inverse_of: :questions
 
   has_many :answers,
-    class_name: :Answer,
-    foreign_key: :question_id,
-    primary_key: :id
+    inverse_of: :question
 
   has_many :answerers,
     through: :answers,

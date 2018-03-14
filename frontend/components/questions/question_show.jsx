@@ -7,8 +7,6 @@ class QuestionShow extends React.Component {
   componentDidMount(){
     this.props.fetchQuestion(this.props.questionId);
   }
-// COMPONENT DOES NOT FETCHQUESTION WHEN ENTERING QUESTION/# ON ADDRESS
-
 
   render () {
     const answers = this.props.answers.map((answer, idx) => {
