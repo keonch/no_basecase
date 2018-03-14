@@ -21,7 +21,10 @@ const answersReducer = (oldState = {}, action) => {
     case RECEIVE_ANSWER:
       return merge({}, oldState, { [action.answer.id]: action.answer });
     case RECEIVE_VOTE:
-      return merge({}, oldState, {[action.answer.id]: action.answer.votes });
+      let answer = action.payload.answer;
+      if (!answer) answer = {};
+      
+      return merge({}, oldState, { [answer.id]: answer });
     case CLEAR_QUESTION:
       return {};
     default:
