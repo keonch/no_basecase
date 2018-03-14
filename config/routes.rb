@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   end
 
   root to: 'static_pages#root'
+
+  get 'api/search', to: 'api/questions#search'
 end

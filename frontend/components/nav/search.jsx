@@ -8,6 +8,7 @@ class Search extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.SearchButton = this.SearchButton.bind(this);
+    this.updateSearch = this.updateSearch.bind(this);
   }
 
   updateSearch(e){
@@ -38,7 +39,7 @@ class Search extends React.Component {
 
   render() {
     return (
-      <form onSubmit={() => this.handleSubmit(e)}>
+      <form onSubmit={this.handleSubmit} className='search-form'>
         <input
           className='search'
           type='text'

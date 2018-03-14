@@ -40,6 +40,11 @@ class Api::QuestionsController < ApplicationController
     end
   end
 
+  def search
+    search_text = params[:searchText]
+    
+  end
+
   private
   def question_params
     params.require(:question).permit(:title, :body)
