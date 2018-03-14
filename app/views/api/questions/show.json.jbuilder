@@ -5,13 +5,12 @@ end
 @question.answers.each do |answer|
   json.answers do
       json.set! answer.id do
-        json.extract! answer, :id, :body, :author_id
+        json.extract! answer, :id, :body, :author_id, :votes
       end
   end
 end
 
 json.users do
-
   json.set! @question.author.id do
     json.partial! 'api/users/user', user: @question.author
   end

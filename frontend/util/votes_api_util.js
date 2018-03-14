@@ -2,7 +2,7 @@ export const upvote = (entity, entityId) => {
   return (
     $.ajax({
       method: 'PATCH',
-      url: `api/${entity}/downvote/${entityId}`,
+      url: `api/${entity}/upvote/${entityId}`,
       data: {entity}
     })
   );

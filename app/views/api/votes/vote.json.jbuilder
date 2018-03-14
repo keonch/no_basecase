@@ -1,1 +1,0 @@
-json.votes @entity.votes
