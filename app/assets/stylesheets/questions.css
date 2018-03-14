@@ -30,8 +30,24 @@
 .question-item-stats {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-around;
+  justify-content: flex-start;
   margin: 0 8px;
+  color: #6a737c;
+  text-align: center;
+}
+
+.question-item-stats {
+  font-weight: normal;
+  font-size: 20px;
+}
+
+.question-item-stats {
+  font-weight: 400;
+  font-size: 11px;
+}
+
+.question-item-answers {
+  margin-top: 8px;
 }
 
 .question-item-summary {
