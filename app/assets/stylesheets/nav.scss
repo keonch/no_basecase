@@ -55,14 +55,14 @@
 
 .nav .search-bar {
   display: flex;
-  align-items: center;
+  flex-flow: row nowrap;
   height: 36px;
   background-color: #fff;
   border: 1px solid #c8ccd0;
   border-radius: 3px;
-  flex-grow: 1;
   margin-right: 45px;
   margin-left: 15px;
+  flex-grow: 1;
 }
 
 .nav .search {

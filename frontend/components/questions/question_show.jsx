@@ -64,6 +64,10 @@ class QuestionShow extends React.Component {
       </div>
     );
   }
+
+  componentWillUnmount(){
+    this.props.clearQuestion();
+  }
 }
 
 export default QuestionShow;

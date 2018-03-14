@@ -3,6 +3,7 @@ import * as APIUtil from '../util/questions_api_util';
 export const RECEIVE_ALL_QUESTIONS = 'RECEIVE_ALL_QUESTIONS';
 export const RECEIVE_QUESTION = 'RECEIVE_QUESTION';
 export const REMOVE_QUESTION = 'REMOVE_QUESTION';
+export const CLEAR_QUESTION = 'CLEAR_QUESTION';
 
 const receiveAllQuestions = (payload) => {
   return ({
@@ -92,5 +93,11 @@ export const fetchSearchQuestions = (searchText) => (dispatch) => {
   return (
     APIUtil.fetchSearchQuestions(searchText)
     .then((questions) => dispatch(receiveAllQuestions(questions)))
+  );
+};
+
+export const clearQuestion = () => (dispatch) => {
+  return (
+    APIUtil
   );
 };
