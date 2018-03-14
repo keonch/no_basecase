@@ -41,7 +41,8 @@ class Api::QuestionsController < ApplicationController
   end
 
   def search
-    search_text = params[:searchText]
+    searchText = params[:searchText]
+    @questions = Question.where('title ~* ?', searchText).or(Question.where('body ~* ?', searchText))
     
   end
 

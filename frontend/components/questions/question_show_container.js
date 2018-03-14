@@ -3,7 +3,8 @@ import QuestionShow from './question_show';
 import {
   updateQuestion,
   fetchQuestion,
-  deleteQuestion
+  deleteQuestion,
+  clearQuestion
 } from '../../actions/question_actions';
 
 const msp = (state, ownProps) => {
@@ -22,7 +23,8 @@ const mdp = (dispatch) => {
   return ({
     fetchQuestion: (id) => dispatch(fetchQuestion(id)),
     updateQuestion: (question) => dispatch(updateQuestion(question)),
-    deleteQuestion: (id) => dispatch(deleteQuestion(id))
+    deleteQuestion: (id) => dispatch(deleteQuestion(id)),
+    clearQuestion: () => dispatch(clearQuestion())
   });
 };
 
