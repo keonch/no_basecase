@@ -37,9 +37,8 @@ const QuestionsIndexItem = (props) => {
           :
           ""
         }
-        <div className='q-user-info'>
-          <UserTag contentType='question' author={props.author} time={props.question.created_at }/>
-        </div>
+
+        <UserTag contentType='question' author={props.author} time={props.question.created_at }/>
       </div>
     </div>
   );
