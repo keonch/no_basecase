@@ -7,7 +7,8 @@ const receiveAnswer = (payload) => {
   return ({
     type: RECEIVE_ANSWER,
     answer: payload.answer,
-    author: payload.author
+    author: payload.author,
+    answersCount: payload.answersCount
   });
 };
 

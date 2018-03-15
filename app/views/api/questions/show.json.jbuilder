@@ -1,5 +1,6 @@
 json.question do
   json.partial! 'api/questions/question', question: @question
+  json.answersCount @question.answers.count
 end
 
 @question.answers.each do |answer|

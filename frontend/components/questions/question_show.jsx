@@ -38,11 +38,7 @@ class QuestionShow extends React.Component {
     return (
       isOwner ?
       <div className='user-buttons'>
-        <button
-          className='user-buttons-edit'
-          onClick={() => this.redirectEdit()}>
-          Edit
-        </button>
+        <button className='user-buttons-edit'>Edit</button>
 
         <button
           className='user-buttons-delete'
@@ -71,9 +67,22 @@ class QuestionShow extends React.Component {
 
           { this.renderContent(question) }
 
+          <p className='q-s-answer-count'>{ question.answersCount } Answers</p>
         </div>
         :
         <div>Question Not Found</div>
+    );
+  }
+
+  renderAnswers() {
+    const answers = this.props.answers.map((answer, idx) => {
+      return (
+        this.renderContent(answer, idx)
+      );
+    });
+
+    return (
+      answers
     );
   }
 
@@ -104,18 +113,6 @@ class QuestionShow extends React.Component {
     );
   }
 
-  renderAnswers() {
-    const answers = this.props.answers.map((answer, idx) => {
-      // const author = this.props.users[answer.author_id];
-      return (
-        this.renderContent(answer, idx)
-      );
-    });
-
-    return (
-      answers
-    );
-  }
 
   render () {
     return (

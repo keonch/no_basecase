@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill';
 
 class AnswerForm extends React.Component {
   constructor(props) {
@@ -11,8 +12,8 @@ class AnswerForm extends React.Component {
     this.updateBody = this.updateBody.bind(this);
   }
 
-  updateBody(e) {
-    this.setState({"body": e.currentTarget.value});
+  updateBody(value) {
+    this.setState({body: value});
   }
 
   handleSubmit(e) {
@@ -23,11 +24,29 @@ class AnswerForm extends React.Component {
   }
 
   render () {
+    const toolbarOptions = [
+      ['bold', 'italic'],
+      ['blockquote', 'code-block'],
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+      [{ 'header': [1, 2, false] }]
+    ];
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <h3>Your Answer</h3>
-          <textarea onChange={this.updateBody} value={this.state.body}></textarea>
+          <p>Your Answer</p>
+
+          <ReactQuill
+            value={this.state.body}
+            onChange={this.updateBody}
+            modules={ { toolbar: toolbarOptions } }
+            className='question-form-body' />
+
+          <ReactQuill
+            value={this.state.body}
+            modules={ { toolbar: null } }
+            readOnly
+            className='question-form-preview' />
+
           <input type='submit' value='Post Your Answer'></input>
         </form>
       </div>
