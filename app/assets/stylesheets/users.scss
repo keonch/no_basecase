@@ -34,3 +34,21 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+.user-buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  font-size: 12px;
+  color: #005999;
+  width: 70px;
+  justify-content: space-between;
+  margin: 10px 0 0 20px;
+}
+
+.user-buttons-edit {
+
+}
+
+.user-buttons-delete {
+
+}

@@ -4,10 +4,19 @@ export const RECEIVE_ALL_QUESTIONS = 'RECEIVE_ALL_QUESTIONS';
 export const RECEIVE_QUESTION = 'RECEIVE_QUESTION';
 export const REMOVE_QUESTION = 'REMOVE_QUESTION';
 export const CLEAR_QUESTION = 'CLEAR_QUESTION';
+export const RECEIVE_ALL_QUESTIONS_FRONT = 'RECEIVE_ALL_QUESTIONS_FRONT';
 
 const receiveAllQuestions = (payload) => {
   return ({
     type: RECEIVE_ALL_QUESTIONS,
+    questions: payload.questions,
+    users: payload.users
+  });
+};
+
+const receiveAllQuestionsFront = (payload) => {
+  return ({
+    type: RECEIVE_ALL_QUESTIONS_FRONT,
     questions: payload.questions,
     users: payload.users
   });
@@ -99,5 +108,12 @@ export const fetchSearchQuestions = (searchText) => (dispatch) => {
   return (
     APIUtil.fetchSearchQuestions(searchText)
     .then((questions) => dispatch(receiveAllQuestions(questions)))
+  );
+};
+
+export const fetchAllQuestionsFront = () => (dispatch) => {
+  return (
+    APIUtil.fetchAllQuestionsFront()
+    .then(() => dispatch(receiveAllQuestionsFront()))
   );
 };
