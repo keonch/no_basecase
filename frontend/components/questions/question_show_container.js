@@ -1,14 +1,19 @@
 import { connect } from 'react-redux';
 import QuestionShow from './question_show';
+
 import {
   updateQuestion,
   fetchQuestion,
   deleteQuestion,
   clearQuestions
 } from '../../actions/question_actions';
+
+import { deleteAnswer } from '../../actions/answer_actions';
+
 import {
-  deleteAnswer
-} from '../../actions/answer_actions';
+  upvote,
+  downvote
+} from '../../actions/vote_actions';
 
 const msp = (state, ownProps) => {
   const questionId = ownProps.match.params.questionId;
@@ -30,7 +35,9 @@ const mdp = (dispatch) => {
     updateQuestion: (question) => dispatch(updateQuestion(question)),
     deleteQuestion: (id) => dispatch(deleteQuestion(id)),
     deleteAnswer: (questionId, id) => dispatch(deleteAnswer(questionId, id)),
-    clearQuestions: () => dispatch(clearQuestions())
+    clearQuestions: () => dispatch(clearQuestions()),
+    upvote: (entity, entityId) => dispatch(upvote(entity, entityId)),
+    downvote: (entity, entityId) => dispatch(downvote(entity, entityId))
   });
 };
 
