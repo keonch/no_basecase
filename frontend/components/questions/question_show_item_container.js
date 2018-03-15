@@ -28,8 +28,8 @@ const mdp = (disptach) => {
   return({
     deleteQuestion: (id) => dispatch(deleteQuestion(id)),
     deleteAnswer: (questionId, id) => dispatch(deleteAnswer(questionId, id)),
-    upvote: (entity, entityId) => dispatch(upvote(entity, entityId)),
-    downvote: (entity, entityId) => dispatch(downvote(entity, entityId))
+    upvote: (type, entity, entityId) => dispatch(upvote(type, entity, entityId)),
+    downvote: (type, entity, entityId) => dispatch(downvote(type, entity, entityId))
   });
 };
 
