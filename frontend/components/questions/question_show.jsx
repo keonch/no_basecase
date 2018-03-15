@@ -2,62 +2,75 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import AnswerFormContainer from '../answers/answer_form_container';
 import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill';
+import UserTag from '../users/user_tag';
+import AnswerContainer from '../answers/answer_container.js';
 
 class QuestionShow extends React.Component {
   componentDidMount(){
     this.props.fetchQuestion(this.props.questionId);
   }
 
-  render () {
+  renderQuestion(){
+    return (
+        this.props.question ?
+        <div className='q-s'>
+          <div className='q-s-header'>
+            <div className='q-s-title'>{ this.props.question.title }</div>
+            <Link
+              className='q-s-ask-question'
+              to='/questions/ask'>
+              Ask Question
+            </Link>
+          </div>
+
+          <div className='q-answer-form'>
+            <ReactQuill
+              value={ this.props.question.body }
+              readOnly
+              modules={ {toolbar: null} }
+               />
+          </div>
+
+          <UserTag
+            className='q-author'
+            contentType='question'
+            author={ this.props.users[this.props.question.author_id] }
+            time={ this.props.question.created_at } />
+        </div>
+        :
+        <div>Question Not Found</div>
+    );
+  }
+
+  renderAnswers() {
     const answers = this.props.answers.map((answer, idx) => {
       const author = this.props.users[answer.author_id];
+
       return (
-        <div key={idx} className='answer'>
-          <div className='answer-body'>{ answer.body }</div>
-          <Link
-            className='answer-author'
-            to={`/users/${author.id}`}>
-            { author.name }
-          </Link>
-        </div>
+        <AnswerContainer
+          className='a'
+          key={idx}
+          answer={answer}
+          author={author} />
       );
     });
 
     return (
-      <div className='question-show-page'>
-        {
-          this.props.question ?
-            <div className='question-show'>
-              <div className='question-show-header'>
-                <div className='question-show-title'>{ this.props.question.title }</div>
-                <div className='question-show-header-right'>
-                  <Link className='question-show-ask-question' to='/questions/ask' >Ask Question</Link>
-                </div>
-              </div>
+      answers
+    );
+  }
 
-              <div>
-                <ReactQuill
-                  value={this.props.question.body}
-                  readOnly
-                  modules={ {toolbar: null} }
-                   />
-              </div>
+  render () {
+    return (
+      <div className='q-show-page'>
+        { this.renderQuestion() }
 
-              <Link
-                className='question-show-author'
-                to={`/users/${this.props.question.author_id}`}>
-                { this.props.users[this.props.question.author_id].name }
-              </Link>
-            </div>
-          :
-            <div>Not Found</div>
-        }
-        <div className='answer-form'>
+        <div className='a-form'>
           <AnswerFormContainer questionId={ this.props.questionId }/>
         </div>
 
         <div className='answers'>
-          { answers }
+          { this.renderAnswers() }
         </div>
       </div>
     );
