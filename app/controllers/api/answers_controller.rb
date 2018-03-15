@@ -12,6 +12,18 @@ class Api::AnswersController < ApplicationController
     end
   end
 
+  def destroy
+    @answer = Answer.find(params[:id])
+    if @answer && @answer.author_id == current_user.id
+      @answer.destroy
+      render :destroy
+    elsif @answer && @answer.author_id != current_user.id
+      render json: ["Forbidden"], status: 403
+    else
+      render json: ["Not Found"], status: 404
+    end
+  end
+
   private
   def answer_params
     params.require(:answer).permit(:body)

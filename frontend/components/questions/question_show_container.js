@@ -6,6 +6,9 @@ import {
   deleteQuestion,
   clearQuestions
 } from '../../actions/question_actions';
+import {
+  deleteAnswer
+} from '../../actions/answer_actions';
 
 const msp = (state, ownProps) => {
   const questionId = ownProps.match.params.questionId;
@@ -26,6 +29,7 @@ const mdp = (dispatch) => {
     fetchQuestion: (id) => dispatch(fetchQuestion(id)),
     updateQuestion: (question) => dispatch(updateQuestion(question)),
     deleteQuestion: (id) => dispatch(deleteQuestion(id)),
+    deleteAnswer: (questionId, id) => dispatch(deleteAnswer(questionId, id)),
     clearQuestions: () => dispatch(clearQuestions())
   });
 };
