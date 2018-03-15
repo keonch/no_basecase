@@ -1,5 +1,5 @@
 class Api::QuestionsController < ApplicationController
-  before_action :require_logged_in!, only: [:create, :update, :destroy]
+  before_action :require_logged_in!, only: [:create, :update, :destroy, :upvote, :downvote]
 
   def index
     @questions = Question.all.includes(:author, :answers)

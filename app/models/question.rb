@@ -14,4 +14,8 @@ class Question < ApplicationRecord
   has_many :answerers,
     through: :answers,
     source: :author
+
+  # def self.answersCount
+  #   Question.select('questions.*, answers').count
+  # end
 end

@@ -43,7 +43,7 @@ class QuestionShowItem extends React.Component {
 
   render() {
     return (
-      <div className='q-s-content' key={this.props.key}>
+      <div className='q-s-content'>
         <div className='q-s-votes'>
           <button
             className="q-upvote"
