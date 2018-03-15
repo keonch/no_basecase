@@ -3,7 +3,10 @@ export const upvote = (type, entity, entityId) => {
     $.ajax({
       method: 'PATCH',
       url: `api/${type}/upvote/${entityId}`,
-      data: {entity}
+      data: {
+        entity,
+        type
+      }
     })
   );
 };
@@ -13,7 +16,10 @@ export const downvote = (type, entity, entityId) => {
     $.ajax({
       method: 'PATCH',
       url: `api/${type}/downvote/${entityId}`,
-      data: {entity}
+      data: {
+        entity,
+        type
+      }
     })
   );
 };
