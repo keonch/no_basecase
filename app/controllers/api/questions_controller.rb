@@ -46,6 +46,18 @@ class Api::QuestionsController < ApplicationController
     render 'api/questions/index'
   end
 
+  def top
+    @questions = Question.all.includes(:author, :answers)
+    list = Hash.new(0)
+    @questions.each do |question|
+      list[question.id] = question.votes
+    end
+    sorted = list.sort_by{ |k, v| v }.reverse
+    @sorted = sorted.map do |pair|
+      pair.first
+    end
+  end
+
   private
   def question_params
     params.require(:question).permit(:title, :body)
