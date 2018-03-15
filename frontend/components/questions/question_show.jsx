@@ -1,58 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AnswerFormContainer from '../answers/answer_form_container';
-import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill';
-import UserTag from '../users/user_tag';
-import AnswerContainer from '../answers/answer_container.js';
+// import AnswerContainer from '../answers/answer_container.js';
+import QuestionShowItemContainer from './question_show_item_container';
+
 
 class QuestionShow extends React.Component {
   componentDidMount(){
     this.props.fetchQuestion(this.props.questionId);
   }
 
-  deleteAndRedirect(entity, history){
-    if (entity.title) {
-      this.props.deleteQuestion(entity.id)
-      .then(() => {
-        return (
-          history.push(`/questions`)
-        );
-      });
-    } else {
-      this.props.deleteAnswer(this.props.questionId, entity.id);
-
-      // .then((payload) => {
-      //   return (
-      //     history.push(`/questions/${payload.questionId}`)
-      //   );
-      // });
-    }
-  }
-
-  renderDelete(entity) {
-    const currentUser = this.props.currentUser || { id: null };
-    let isOwner = false;
-    if (entity) {
-      isOwner = (currentUser.id === entity.author_id);
-    }
-    return (
-      isOwner ?
-      <div className='user-buttons'>
-        <button className='user-buttons-edit'>Edit</button>
-
-        <button
-          className='user-buttons-delete'
-          onClick={ () => this.deleteAndRedirect(entity, this.props.history) }>
-          Delete
-        </button>
-      </div>
-      :
-        null
-    );
-  }
-
   renderQuestion(){
     const question = this.props.question;
+    const type = 'questions';
     return (
         question ?
         <div className='q-s'>
@@ -65,7 +25,11 @@ class QuestionShow extends React.Component {
             </Link>
           </div>
 
-          { this.renderContent(question) }
+          <QuestionShowItemContainer
+            type='questions'
+            entity={ question }
+            questionId={ this.props.questionId }
+            />
 
           <p className='q-s-answer-count'>{ question.answersCount } Answers</p>
         </div>
@@ -75,9 +39,15 @@ class QuestionShow extends React.Component {
   }
 
   renderAnswers() {
+    const type = 'answers';
     const answers = this.props.answers.map((answer, idx) => {
       return (
-        this.renderContent(answer, idx)
+
+        <QuestionShowItemContainer
+          type='questions'
+          entity={ answer }
+          questionId={ this.props.questionId }
+          key={idx} />
       );
     });
 
@@ -85,34 +55,6 @@ class QuestionShow extends React.Component {
       answers
     );
   }
-
-  renderContent(entity, idx) {
-    return (
-      <div className='q-s-content' key={idx}>
-        <div className='q-s-votes'>
-          <button className="q-upvote"><i className="fas fa-caret-up"></i></button>
-          <p className='q-s-votes-number'>{ entity.votes }</p>
-          <button className="q-downvote"><i className="fas fa-caret-down"></i></button>
-        </div>
-
-        <div className='q-s-body'>
-          <ReactQuill
-            value={ entity.body }
-            readOnly
-            modules={ {toolbar: null} } />
-        </div>
-
-        { this.renderDelete(entity) }
-
-        <UserTag
-          className='q-author'
-          contentType={`${entity}`}
-          author={ this.props.users[entity.author_id] }
-          time={ entity.created_at } />
-      </div>
-    );
-  }
-
 
   render () {
     return (
