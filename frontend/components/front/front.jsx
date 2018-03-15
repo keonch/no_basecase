@@ -1,10 +1,12 @@
 import React from 'react';
 
+import QuestionsIndexContainer from '../questions/questions_index_container';
+
 class Front extends React.Component {
 
   render () {
     return(
-      <p>FRONT PAGE COMING SOON</p>
+      <QuestionsIndexContainer frontPage={true} />
     );
   }
 }

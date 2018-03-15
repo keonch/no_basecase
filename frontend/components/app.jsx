@@ -10,7 +10,7 @@ import {
 } from 'react-router-dom';
 
 import NavContainer from './nav/nav_container';
-import FrontContainer from './front/front_container';
+import Front from './front/front';
 import LogInFormContainer from './session/login_form_container';
 import SignUpFormContainer from './session/signup_form_container';
 import QuestionsIndexContainer from './questions/questions_index_container';
@@ -38,7 +38,7 @@ const App = () => (
           <Route path='/' component={Sidebar} />
         </Switch>
 
-        <Route exact path="/" component={FrontContainer} />
+        <Route exact path="/" component={Front} />
         <Route exact path="/questions" component={QuestionsIndexContainer} />
 
       </div>

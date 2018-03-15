@@ -12,7 +12,7 @@ const msp = (state, ownProps) => {
 
 const mdp = (dispatch) => {
   return ({
-    deleteQuestion: (questionId) => dispatch(deleteQuestion(questionId))
+    deleteQuestion: (questionId) => dispatch(deleteQuestion(questionId)),
   });
 };
 

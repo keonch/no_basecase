@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   patch '/api/question/downvote/:entity_id', to: 'api/questions#downvote'
   patch '/api/answer/upvote/:entity_id', to: 'api/answers#upvote'
   patch '/api/answer/downvote/:entity_id', to: 'api/answers#downvote'
+  get '/api/questons/front', to: 'api/questions#top'
 
 end

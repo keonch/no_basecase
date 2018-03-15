@@ -7,6 +7,15 @@ export const fetchAllQuestions = () => {
   );
 };
 
+export const fetchAllQuestionsFront = () => {
+  return (
+    $.ajax({
+      method: 'GET',
+      url: 'api/questions/front'
+    })
+  );
+};
+
 export const fetchQuestion = (id) => {
 
   return (

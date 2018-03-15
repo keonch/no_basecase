@@ -1,22 +1,24 @@
 import { connect } from 'react-redux';
 import {
   fetchAllQuestions,
-  deleteQuestion
+  fetchAllQuestionsFront
 } from '../../actions/question_actions';
 import QuestionsIndex from './questions_index';
 
-const msp = (state) => {
+const msp = (state, {frontPage}) => {
   const questions = Object.values(state.entities.questions);
   const users = Object.assign({}, state.entities.users);
   return ({
     questions,
-    users
+    users,
+    frontPage
   });
 };
 
 const mdp = dispatch => {
   return ({
-    fetchAllQuestions: () => dispatch(fetchAllQuestions())
+    fetchAllQuestions: () => dispatch(fetchAllQuestions()),
+    fetchAllQuestionsFront: () => dispatch(fetchAllQuestionsFront())
   });
 };
 
