@@ -13,13 +13,14 @@ const msp = (state, ownProps) => {
   const type = ownProps.type;
   const key = ownProps.key;
   const questionId = ownProps.questionId;
+  const author = state.entities.users[entity.author_id];
 
   return ({
     entity,
     type,
     key,
     questionId,
-    users: state.entities.users,
+    author,
     currentUser: state.session.currentUser
   });
 };

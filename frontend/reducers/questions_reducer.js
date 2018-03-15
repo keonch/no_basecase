@@ -39,8 +39,8 @@ const questionsReducer = (oldState = {}, action) => {
       newState[action.questionId].answersCount -= 1;
       return merge({}, oldState, newState);
     case RECEIVE_VOTE:
-      const question = Object.assign({}, action.payload.question);
-      return merge({}, oldState, { [question.id]: question });
+      if (!action.question) return oldState;
+      return merge({}, oldState, { [action.question.id]: action.question });
     case CLEAR_QUESTIONS:
       return {};
     default:
