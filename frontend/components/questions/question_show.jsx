@@ -10,20 +10,30 @@ class QuestionShow extends React.Component {
     this.props.fetchQuestion(this.props.questionId);
   }
 
-  deleteAndRedirect(history){
-    this.props.deleteQuestion(this.props.question.id)
-    .then(() => {
-      return (
-        history.push(`/questions`)
-      );
-    });
+  deleteAndRedirect(entity, history){
+    if (entity.title) {
+      this.props.deleteQuestion(entity.id)
+      .then(() => {
+        return (
+          history.push(`/questions`)
+        );
+      });
+    } else {
+      this.props.deleteAnswer(this.props.questionId, entity.id);
+
+      // .then((payload) => {
+      //   return (
+      //     history.push(`/questions/${payload.questionId}`)
+      //   );
+      // });
+    }
   }
 
-  renderDelete() {
+  renderDelete(entity) {
     const currentUser = this.props.currentUser || { id: null };
     let isOwner = false;
-    if (this.props.question) {
-      isOwner = (currentUser.id === this.props.question.author_id);
+    if (entity) {
+      isOwner = (currentUser.id === entity.author_id);
     }
     return (
       isOwner ?
@@ -36,7 +46,7 @@ class QuestionShow extends React.Component {
 
         <button
           className='user-buttons-delete'
-          onClick={ () => this.deleteAndRedirect(this.props.history) }>
+          onClick={ () => this.deleteAndRedirect(entity, this.props.history) }>
           Delete
         </button>
       </div>
@@ -67,7 +77,7 @@ class QuestionShow extends React.Component {
     );
   }
 
-  renderContent(entity) {
+  renderContent(entity, idx) {
     return (
       <div className='q-s-content'>
         <div className='q-s-votes'>
@@ -83,7 +93,7 @@ class QuestionShow extends React.Component {
             modules={ {toolbar: null} } />
         </div>
 
-        { this.renderDelete() }
+        { this.renderDelete(entity) }
 
         <UserTag
           className='q-author'
@@ -93,16 +103,12 @@ class QuestionShow extends React.Component {
       </div>
     );
   }
+
   renderAnswers() {
     const answers = this.props.answers.map((answer, idx) => {
-      const author = this.props.users[answer.author_id];
-
+      // const author = this.props.users[answer.author_id];
       return (
-        <AnswerContainer
-          className='a'
-          key={idx}
-          answer={answer}
-          author={author} />
+        this.renderContent(answer)
       );
     });
 
@@ -114,9 +120,11 @@ class QuestionShow extends React.Component {
   render () {
     return (
       <div className='q-show-page'>
-        { this.renderQuestion() }
+        <div>
+          { this.renderQuestion() }
+        </div>
 
-        <div className='answers'>
+        <div>
           { this.renderAnswers() }
         </div>
 

@@ -6,7 +6,8 @@ import {
 } from '../actions/question_actions';
 
 import {
-  RECEIVE_ANSWER
+  RECEIVE_ANSWER,
+  REMOVE_ANSWER
 } from '../actions/answer_actions';
 
 import {
@@ -25,6 +26,10 @@ const answersReducer = (oldState = {}, action) => {
       return merge({}, oldState, { [answer.id]: answer });
     case CLEAR_QUESTIONS:
       return {};
+    case REMOVE_ANSWER:
+      const newState = merge({}, oldState);
+      delete newState[action.answerId];
+      return newState;
     default:
       return oldState;
   }
