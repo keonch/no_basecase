@@ -2,7 +2,7 @@ import merge from 'lodash/merge';
 
 import {
   RECEIVE_QUESTION,
-  CLEAR_QUESTION
+  CLEAR_QUESTIONS
 } from '../actions/question_actions';
 
 import {
@@ -23,7 +23,7 @@ const answersReducer = (oldState = {}, action) => {
     case RECEIVE_VOTE:
       const answer = Object.assign({}, action.payload.answer);
       return merge({}, oldState, { [answer.id]: answer });
-    case CLEAR_QUESTION:
+    case CLEAR_QUESTIONS:
       return {};
     default:
       return oldState;

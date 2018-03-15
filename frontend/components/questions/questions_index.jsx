@@ -65,6 +65,12 @@ class QuestionsIndex extends React.Component {
       </div>
     );
   }
+
+  componentWillUnmount() {
+    if (this.props.frontPage) {
+      this.props.clearQuestions();
+    }
+  }
 }
 
 export default QuestionsIndex;

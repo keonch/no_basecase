@@ -4,7 +4,7 @@ import {
   RECEIVE_ALL_QUESTIONS,
   RECEIVE_QUESTION,
   REMOVE_QUESTION,
-  CLEAR_QUESTION,
+  CLEAR_QUESTIONS,
   RECEIVE_ALL_QUESTIONS_FRONT
 } from '../actions/question_actions';
 
@@ -28,7 +28,7 @@ const questionsReducer = (oldState = {}, action) => {
     case RECEIVE_VOTE:
       const question = Object.assign({}, action.payload.question);
       return merge({}, oldState, { [question.id]: question });
-    case CLEAR_QUESTION:
+    case CLEAR_QUESTIONS:
       return {};
     default:
       return oldState;

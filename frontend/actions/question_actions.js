@@ -3,7 +3,7 @@ import * as APIUtil from '../util/questions_api_util';
 export const RECEIVE_ALL_QUESTIONS = 'RECEIVE_ALL_QUESTIONS';
 export const RECEIVE_QUESTION = 'RECEIVE_QUESTION';
 export const REMOVE_QUESTION = 'REMOVE_QUESTION';
-export const CLEAR_QUESTION = 'CLEAR_QUESTION';
+export const CLEAR_QUESTIONS = 'CLEAR_QUESTIONS';
 export const RECEIVE_ALL_QUESTIONS_FRONT = 'RECEIVE_ALL_QUESTIONS_FRONT';
 
 const receiveAllQuestions = (payload) => {
@@ -39,9 +39,9 @@ const removeQuestion = (questionId) => {
   });
 };
 
-export const clearQuestion = () => {
+export const clearQuestions = () => {
   return ({
-    type: CLEAR_QUESTION
+    type: CLEAR_QUESTIONS
   });
 };
 

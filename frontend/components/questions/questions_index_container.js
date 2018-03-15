@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import {
   fetchAllQuestions,
-  fetchAllQuestionsFront
+  fetchAllQuestionsFront,
+  clearQuestions
 } from '../../actions/question_actions';
 import QuestionsIndex from './questions_index';
 
@@ -18,7 +19,8 @@ const msp = (state, {frontPage}) => {
 const mdp = dispatch => {
   return ({
     fetchAllQuestions: () => dispatch(fetchAllQuestions()),
-    fetchAllQuestionsFront: () => dispatch(fetchAllQuestionsFront())
+    fetchAllQuestionsFront: () => dispatch(fetchAllQuestionsFront()),
+    clearQuestions: () => dispatch(clearQuestions())
   });
 };
 
