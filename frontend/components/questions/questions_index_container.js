@@ -7,7 +7,9 @@ import {
 import QuestionsIndex from './questions_index';
 
 const msp = (state, {frontPage}) => {
+
   const users = Object.assign({}, state.entities.users);
+
   return ({
     questions: state.entities.questions,
     users,

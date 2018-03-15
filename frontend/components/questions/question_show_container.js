@@ -11,10 +11,12 @@ const msp = (state, ownProps) => {
   const questionId = ownProps.match.params.questionId;
   const question = state.entities.questions[questionId];
   const answers = Object.values(state.entities.answers);
+
   return({
     questionId,
     question,
     answers,
+    currentUser: state.session.currentUser,
     users: state.entities.users
   });
 };

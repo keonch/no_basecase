@@ -10,12 +10,48 @@ class QuestionShow extends React.Component {
     this.props.fetchQuestion(this.props.questionId);
   }
 
-  renderQuestion(){
+  deleteAndRedirect(history){
+    this.props.deleteQuestion(this.props.question.id)
+    .then(() => {
+      return (
+        history.push(`/questions`)
+      );
+    });
+  }
+
+  renderDelete() {
+    const currentUser = this.props.currentUser || { id: null };
+    let isOwner = false;
+    if (this.props.question) {
+      isOwner = (currentUser.id === this.props.question.author_id);
+    }
     return (
-        this.props.question ?
+      isOwner ?
+      <div className='user-buttons'>
+        <button
+          className='user-buttons-edit'
+          onClick={() => this.redirectEdit()}>
+          Edit
+        </button>
+
+        <button
+          className='user-buttons-delete'
+          onClick={ () => this.deleteAndRedirect(this.props.history) }>
+          Delete
+        </button>
+      </div>
+      :
+        null
+    );
+  }
+
+  renderQuestion(){
+    const question = this.props.question;
+    return (
+        question ?
         <div className='q-s'>
           <div className='q-s-header'>
-            <div className='q-s-title'>{ this.props.question.title }</div>
+            <div className='q-s-title'>{ question.title }</div>
             <Link
               className='q-s-ask-question'
               to='/questions/ask'>
@@ -23,25 +59,40 @@ class QuestionShow extends React.Component {
             </Link>
           </div>
 
-          <div className='q-answer-form'>
-            <ReactQuill
-              value={ this.props.question.body }
-              readOnly
-              modules={ {toolbar: null} }
-               />
-          </div>
+          { this.renderContent(question) }
 
-          <UserTag
-            className='q-author'
-            contentType='question'
-            author={ this.props.users[this.props.question.author_id] }
-            time={ this.props.question.created_at } />
         </div>
         :
         <div>Question Not Found</div>
     );
   }
 
+  renderContent(entity) {
+    return (
+      <div className='q-s-content'>
+        <div className='q-s-votes'>
+          <button className="q-upvote"><i className="fas fa-caret-up"></i></button>
+          <p className='q-s-votes-number'>{ entity.votes }</p>
+          <button className="q-downvote"><i className="fas fa-caret-down"></i></button>
+        </div>
+
+        <div className='q-s-body'>
+          <ReactQuill
+            value={ entity.body }
+            readOnly
+            modules={ {toolbar: null} } />
+        </div>
+
+        { this.renderDelete() }
+
+        <UserTag
+          className='q-author'
+          contentType={`${entity}`}
+          author={ this.props.users[entity.author_id] }
+          time={ entity.created_at } />
+      </div>
+    );
+  }
   renderAnswers() {
     const answers = this.props.answers.map((answer, idx) => {
       const author = this.props.users[answer.author_id];
@@ -65,12 +116,12 @@ class QuestionShow extends React.Component {
       <div className='q-show-page'>
         { this.renderQuestion() }
 
-        <div className='a-form'>
-          <AnswerFormContainer questionId={ this.props.questionId }/>
-        </div>
-
         <div className='answers'>
           { this.renderAnswers() }
+        </div>
+
+        <div className='a-form'>
+          <AnswerFormContainer questionId={ this.props.questionId }/>
         </div>
       </div>
     );
