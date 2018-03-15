@@ -9,22 +9,22 @@ const receiveVote = (payload) => {
   });
 };
 
-export const upvote = (entity, entityId) => {
+export const upvote = (type, entity, entityId) => {
   return (
     (dispatch) => {
       return (
-        APIUtil.upvote(entity, entityId)
+        APIUtil.upvote(type, entity, entityId)
         .then((votes) => dispatch(receiveVote(votes)))
       );
     }
   );
 };
 
-export const downvote = (entity, entityId) => {
+export const downvote = (type, entity, entityId) => {
   return (
     (dispatch) => {
       return (
-        APIUtil.downvote(entity, entityId)
+        APIUtil.downvote(type, entity, entityId)
         .then((votes) => dispatch(receiveVote(votes)))
       );
     }

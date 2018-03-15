@@ -1,18 +1,18 @@
-export const upvote = (entity, entityId) => {
+export const upvote = (type, entity, entityId) => {
   return (
     $.ajax({
       method: 'PATCH',
-      url: `api/${entity}/upvote/${entityId}`,
+      url: `api/${type}/upvote/${entityId}`,
       data: {entity}
     })
   );
 };
 
-export const downvote = (entity, entityId) => {
+export const downvote = (type, entity, entityId) => {
   return (
     $.ajax({
       method: 'PATCH',
-      url: `api/${entity}/downvote/${entityId}`,
+      url: `api/${type}/downvote/${entityId}`,
       data: {entity}
     })
   );
