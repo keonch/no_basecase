@@ -5,7 +5,8 @@ export const RECEIVE_VOTE = 'RECEIVE_VOTE';
 const receiveVote = (payload) => {
   return ({
     type: RECEIVE_VOTE,
-    payload
+    question: payload.question,
+    answer: payload.answer
   });
 };
 

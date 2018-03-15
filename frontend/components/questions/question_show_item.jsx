@@ -72,7 +72,7 @@ class QuestionShowItem extends React.Component {
         <UserTag
           className='q-author'
           contentType={ this.props.type }
-          author={ this.props.users[this.props.entity.author_id] }
+          author={ this.props.author }
           time={ this.props.entity.created_at } />
       </div>
     );
