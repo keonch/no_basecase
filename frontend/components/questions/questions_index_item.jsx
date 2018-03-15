@@ -16,8 +16,7 @@ class QuestionsIndexItem extends React.Component {
       <div className='user-buttons'>
         <button
           className='user-buttons-edit'
-          onClick={() => this.redirectEdit()}
-          question={this.props.question.id}>
+          onClick={() => this.redirectEdit()}>
           Edit
         </button>
 
@@ -61,7 +60,10 @@ class QuestionsIndexItem extends React.Component {
 
           { this.renderDelete() }
 
-          <UserTag contentType='question' author={this.props.author} time={this.props.question.created_at }/>
+          <UserTag
+            contentType='question'
+            author={this.props.author}
+            time={this.props.question.created_at }/>
         </div>
       </div>
     );

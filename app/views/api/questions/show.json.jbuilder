@@ -5,7 +5,7 @@ end
 @question.answers.each do |answer|
   json.answers do
       json.set! answer.id do
-        json.extract! answer, :id, :body, :author_id, :votes
+        json.extract! answer, :id, :body, :author_id, :votes, :created_at
       end
   end
 end
