@@ -1,6 +1,7 @@
 import React from 'react';
 
 import QuestionsIndexItemContainer from './questions_index_item_container';
+import QuestionsFrontItem from './questions_front_item';
 
 class QuestionsIndex extends React.Component {
 
@@ -13,14 +14,11 @@ class QuestionsIndex extends React.Component {
   }
 
   renderFront() {
-    const index = this.props.sortedQuestions.map((questionId) => {
-      const question = this.props.questions[questionId];
-      const author = this.props.users[question.author_id];
+    const index = this.props.sortedQuestions.map((questionId, idx) => {
       return (
-        <QuestionsIndexItemContainer
-          key={questionId}
-          question={question}
-          author={author} />
+        <QuestionsFrontItem
+          key={idx}
+          questionId={questionId} />
       );
     });
     return index;

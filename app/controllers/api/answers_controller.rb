@@ -1,5 +1,5 @@
 class Api::AnswersController < ApplicationController
-  before_action :require_logged_in!, only: [:create]
+  before_action :require_logged_in!, only: [:create, :upvote, :downvote]
 
   def create
     @answer = Answer.new(answer_params)
