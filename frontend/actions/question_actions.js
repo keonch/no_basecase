@@ -18,7 +18,8 @@ const receiveAllQuestionsFront = (payload) => {
   return ({
     type: RECEIVE_ALL_QUESTIONS_FRONT,
     questions: payload.questions,
-    users: payload.users
+    users: payload.users,
+    sortedQuestions: payload.order
   });
 };
 
@@ -114,6 +115,6 @@ export const fetchSearchQuestions = (searchText) => (dispatch) => {
 export const fetchAllQuestionsFront = () => (dispatch) => {
   return (
     APIUtil.fetchAllQuestionsFront()
-    .then((questions) => dispatch(receiveAllQuestionsFront(questions)))
+    .then((payload) => dispatch(receiveAllQuestionsFront(payload)))
   );
 };

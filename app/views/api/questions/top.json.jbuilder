@@ -1,6 +1,5 @@
 json.questions do
 
-  json.order @sorted
 
   @questions.each do |question|
     json.set! question.id do
@@ -10,6 +9,8 @@ json.questions do
     end
   end
 end
+
+json.order @sorted
 
 json.users do
   @questions.each do |question|
