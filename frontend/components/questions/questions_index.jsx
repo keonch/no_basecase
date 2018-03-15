@@ -13,24 +13,32 @@ class QuestionsIndex extends React.Component {
   }
 
   renderFront() {
-    let questions = this.props.questions;
-    
-    return questions;
+    const index = this.props.sortedQuestions.map((questionId) => {
+      const question = this.props.questions[questionId];
+      const author = this.props.users[question.author_id];
+      return (
+        <QuestionsIndexItemContainer
+          key={questionId}
+          question={question}
+          author={author} />
+      );
+    });
+    return index;
   }
 
   renderQuestions() {
-    const questions = this.props.questions.map((question, idx) => {
+    const questions = Object.values(this.props.questions);
+    const index = questions.map((question, idx) => {
       const author = this.props.users[question.author_id];
       return (
         <QuestionsIndexItemContainer
           key={idx}
           question={question}
-          author={author}
-          />
+          author={author} />
       );
     });
 
-    return questions;
+    return index;
   }
 
   render () {

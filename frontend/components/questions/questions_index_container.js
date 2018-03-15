@@ -6,11 +6,11 @@ import {
 import QuestionsIndex from './questions_index';
 
 const msp = (state, {frontPage}) => {
-  const questions = Object.values(state.entities.questions);
   const users = Object.assign({}, state.entities.users);
   return ({
-    questions,
+    questions: state.entities.questions,
     users,
+    sortedQuestions: state.ui.sortedQuestions,
     frontPage
   });
 };

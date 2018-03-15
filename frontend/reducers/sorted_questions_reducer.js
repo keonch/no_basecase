@@ -4,11 +4,11 @@ import {
   RECEIVE_ALL_QUESTIONS_FRONT
 } from '../actions/question_actions';
 
-const frontPageReducer = (oldState = {}, action) => {
+const frontPageReducer = (oldState = [], action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_ALL_QUESTIONS_FRONT:
-      return merge({}, action.order);
+      return action.sortedQuestions;
     default:
       return oldState;
   }
