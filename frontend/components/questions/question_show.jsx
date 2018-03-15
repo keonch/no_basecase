@@ -26,7 +26,7 @@ class QuestionShow extends React.Component {
           </div>
 
           <QuestionShowItemContainer
-            type='questions'
+            type='question'
             entity={ question }
             questionId={ this.props.questionId }
             />
@@ -44,7 +44,7 @@ class QuestionShow extends React.Component {
       return (
 
         <QuestionShowItemContainer
-          type='questions'
+          type='answer'
           entity={ answer }
           questionId={ this.props.questionId }
           key={idx} />
