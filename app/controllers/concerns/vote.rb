@@ -10,7 +10,7 @@ module Vote
   end
 
   def vote(direction)
-    entity = params[:entity].titleize.constantize.find(params[:entity_id])
+    entity = params[:type].titleize.constantize.find(params[:entity_id])
     @user_vote = entity.user_votes.find_or_initialize_by(user: current_user)
 
     if entity.class == Question
