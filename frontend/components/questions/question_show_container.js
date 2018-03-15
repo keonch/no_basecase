@@ -4,7 +4,7 @@ import {
   updateQuestion,
   fetchQuestion,
   deleteQuestion,
-  clearQuestion
+  clearQuestions
 } from '../../actions/question_actions';
 
 const msp = (state, ownProps) => {
@@ -24,7 +24,7 @@ const mdp = (dispatch) => {
     fetchQuestion: (id) => dispatch(fetchQuestion(id)),
     updateQuestion: (question) => dispatch(updateQuestion(question)),
     deleteQuestion: (id) => dispatch(deleteQuestion(id)),
-    clearQuestion: () => dispatch(clearQuestion())
+    clearQuestions: () => dispatch(clearQuestions())
   });
 };
 
