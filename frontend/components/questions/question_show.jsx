@@ -79,7 +79,7 @@ class QuestionShow extends React.Component {
 
   renderContent(entity, idx) {
     return (
-      <div className='q-s-content'>
+      <div className='q-s-content' key={idx}>
         <div className='q-s-votes'>
           <button className="q-upvote"><i className="fas fa-caret-up"></i></button>
           <p className='q-s-votes-number'>{ entity.votes }</p>
@@ -108,7 +108,7 @@ class QuestionShow extends React.Component {
     const answers = this.props.answers.map((answer, idx) => {
       // const author = this.props.users[answer.author_id];
       return (
-        this.renderContent(answer)
+        this.renderContent(answer, idx)
       );
     });
 
