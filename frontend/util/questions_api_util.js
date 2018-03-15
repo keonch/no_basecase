@@ -11,7 +11,7 @@ export const fetchAllQuestionsFront = () => {
   return (
     $.ajax({
       method: 'GET',
-      url: 'api/questions/front'
+      url: 'api/frontpage'
     })
   );
 };

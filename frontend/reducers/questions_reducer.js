@@ -4,7 +4,8 @@ import {
   RECEIVE_ALL_QUESTIONS,
   RECEIVE_QUESTION,
   REMOVE_QUESTION,
-  CLEAR_QUESTION
+  CLEAR_QUESTION,
+  RECEIVE_ALL_QUESTIONS_FRONT
 } from '../actions/question_actions';
 
 import {
@@ -15,6 +16,8 @@ const questionsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_ALL_QUESTIONS:
+      return merge({}, oldState, action.questions);
+    case RECEIVE_ALL_QUESTIONS_FRONT:
       return merge({}, oldState, action.questions);
     case RECEIVE_QUESTION:
       return merge({}, { [action.question.id]: action.question } );

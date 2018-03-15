@@ -114,6 +114,6 @@ export const fetchSearchQuestions = (searchText) => (dispatch) => {
 export const fetchAllQuestionsFront = () => (dispatch) => {
   return (
     APIUtil.fetchAllQuestionsFront()
-    .then(() => dispatch(receiveAllQuestionsFront()))
+    .then((questions) => dispatch(receiveAllQuestionsFront(questions)))
   );
 };

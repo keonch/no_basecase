@@ -2,7 +2,8 @@ import merge from 'lodash/merge';
 
 import {
   RECEIVE_ALL_QUESTIONS,
-  RECEIVE_QUESTION
+  RECEIVE_QUESTION,
+  RECEIVE_ALL_QUESTIONS_FRONT
 } from '../actions/question_actions';
 
 import {
@@ -13,6 +14,8 @@ const usersReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_ALL_QUESTIONS:
+      return merge({}, oldState, action.users);
+    case RECEIVE_ALL_QUESTIONS_FRONT:
       return merge({}, oldState, action.users);
     case RECEIVE_QUESTION:
       return merge({}, oldState, action.users);
