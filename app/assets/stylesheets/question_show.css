@@ -40,8 +40,6 @@
 }
 
 .q-s-content {
-  display: flex;
-  flex-flow: row nowrap;
   margin: 20px 0;
 }
 
@@ -52,6 +50,7 @@
   margin: 10px;
   padding-right: 15px;
   align-items: center;
+  float: left;
 }
 
 .q-s-ask-question {
@@ -89,7 +88,27 @@
 }
 
 .q-s-component {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
   border-bottom: 1px solid rgb(228, 230, 232);
   max-width: 665px;
+}
+
+.q-submit-answer {
+  color: #FFF;
+  background-color: #0095ff;
+  border-color: #07c;
+  box-shadow: inset 0 1px 0 #66bfff;
+  border-radius: 2px;
+  box-sizing: border-box;
+  font-weight: 400;
+  font-size: 13px;
+  padding: 8px 13px;
+}
+
+.q-submit-answer:hover {
+  color: rgba(255,255,255,0.9);
+  background-color: #07c;
+  border-color: #005999;
+  box-shadow: inset 0 1px 0 #3af;
 }

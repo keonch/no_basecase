@@ -43,10 +43,6 @@ class QuestionShowItem extends React.Component {
 
 
   render() {
-    var quill = new Quill('#editor', {
-      modules: { toolbar: true },
-      theme: 'snow'
-    });
     return (
       <div className='q-s-content'>
         <div className='q-s-votes'>
@@ -63,8 +59,6 @@ class QuestionShowItem extends React.Component {
               <i className="fas fa-caret-down"></i>
             </button>
         </div>
-
-        <div className='q-s-ad'><img></img></div>
 
         <div className='q-s-component'>
           <div className='q-s-body'>

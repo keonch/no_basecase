@@ -60,12 +60,14 @@ class QuestionForm extends React.Component {
 
           <div className='question-form-body-field'>
             <ReactQuill
+              theme="snow"
               value={this.state.body}
               onChange={this.updateBody}
               modules={ { toolbar: toolbarOptions } }
               className='question-form-body' />
 
             <ReactQuill
+              theme="snow"
               value={this.state.body}
               modules={ { toolbar: null } }
               readOnly
