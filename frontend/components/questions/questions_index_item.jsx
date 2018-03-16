@@ -57,7 +57,7 @@ class QuestionsIndexItem extends React.Component {
             </Link>
           </div>
 
-
+          
           <ReactQuill
             value={this.props.question.body}
             modules={ { toolbar: null } }
