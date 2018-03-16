@@ -8,7 +8,6 @@ class QuestionShowItem extends React.Component {
   }
 
   deleteAndRedirect(entity, history){
-    debugger
     if (entity.title) {
       this.props.deleteQuestion(entity.id).then(() => {
         return (
@@ -21,11 +20,8 @@ class QuestionShowItem extends React.Component {
   }
 
   renderDelete(entity) {
-    const currentUser = this.props.currentUser || { id: null };
-    let isOwner = false;
-    if (entity) isOwner = (currentUser.id === entity.author_id);
     return (
-      isOwner ?
+      this.props.isOwner ?
       <div className='user-buttons'>
         <button className='user-buttons-edit'>Edit</button>
 
@@ -40,7 +36,6 @@ class QuestionShowItem extends React.Component {
     );
   }
 
-
   render() {
     return (
       <div className='q-s-content'>
@@ -48,14 +43,14 @@ class QuestionShowItem extends React.Component {
           <button
             className="q-upvote"
             onClick={() => this.props.upvote(this.props.type, this.props.entity, this.props.entity.id)}>
-            <i className="fas fa-caret-up"></i>
+            <i className={`fas fa-caret-up`}></i>
           </button>
 
           <p className='q-s-votes-number'>{ this.props.entity.votes }</p>
             <button
               className="q-downvote"
               onClick={() => this.props.downvote(this.props.type, this.props.entity, this.props.entity.id)}>
-              <i className="fas fa-caret-down"></i>
+              <i className={`fas fa-caret-down`}></i>
             </button>
         </div>
 
