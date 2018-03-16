@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import UserTag from '../users/user_tag';
+import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill';
 
 class QuestionsIndexItem extends React.Component {
 
@@ -56,7 +57,12 @@ class QuestionsIndexItem extends React.Component {
             </Link>
           </div>
 
-          <div className='q-body'>{this.props.question.body}</div>
+
+          <ReactQuill
+            value={this.props.question.body}
+            modules={ { toolbar: null } }
+            readOnly
+            className='question-index-trunk' />
 
           { this.renderDelete() }
 
@@ -71,3 +77,4 @@ class QuestionsIndexItem extends React.Component {
 }
 
 export default QuestionsIndexItem;
+          // <div className='q-body'>{this.props.question.body}</div>

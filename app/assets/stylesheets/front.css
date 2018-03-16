@@ -68,3 +68,7 @@
   flex-flow: row-reverse nowrap;
   text-align: center;
 }
+
+.user-tag-time {
+  margin-right: 5px;
+}

@@ -47,7 +47,11 @@ class AnswerForm extends React.Component {
             readOnly
             className='question-form-preview' />
 
-          <input type='submit' value='Post Your Answer'></input>
+          <button
+            type='submit'
+            className='q-submit-answer'>
+            Post Your Answer
+          </button>
         </form>
       </div>
     );
