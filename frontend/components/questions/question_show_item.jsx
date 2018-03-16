@@ -8,9 +8,9 @@ class QuestionShowItem extends React.Component {
   }
 
   deleteAndRedirect(entity, history){
+    debugger
     if (entity.title) {
-      this.props.deleteQuestion(entity.id)
-      .then(() => {
+      this.props.deleteQuestion(entity.id).then(() => {
         return (
           history.push(`/questions`)
         );
@@ -24,7 +24,6 @@ class QuestionShowItem extends React.Component {
     const currentUser = this.props.currentUser || { id: null };
     let isOwner = false;
     if (entity) isOwner = (currentUser.id === entity.author_id);
-
     return (
       isOwner ?
       <div className='user-buttons'>

@@ -13,12 +13,12 @@ const msp = (state, ownProps) => {
   const type = ownProps.type;
   const questionId = ownProps.questionId;
   const author = state.entities.users[entity.author_id];
-
   return ({
     entity,
     type,
     questionId,
     author,
+    history: ownProps.history,
     currentUser: state.session.currentUser
   });
 };
