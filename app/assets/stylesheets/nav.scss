@@ -36,10 +36,9 @@
 }
 
 .nav .navlink {
-  padding: 0 12px;
+  padding: 14px 12px 15px 12px;
   font-size: 14px;
   color: #535a60;
-  height: 100%;
 }
 
 .nav .navlink:hover {
@@ -121,6 +120,20 @@
 .nav .login {
   box-sizing: border-box;
   padding: 8px 13px;
+}
+
+.logout {
+  box-sizing: border-box;
+  padding: 8px 13px;
+  font-size: 13px;
+  box-sizing: border-box;
+  color: #07c;
+}
+
+.logout:hover {
+  color: #005999;
+  background-color: rgba(0,119,204,0.1);
+  border-radius: 2px;
 }
 
 .signup:hover {

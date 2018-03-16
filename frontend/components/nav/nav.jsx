@@ -53,7 +53,7 @@ const Nav = (props) => {
         <div className='session'>
           {
             loggedIn ?
-            <button onClick={() => props.logout(props.currentUser)}>Logout</button>
+            <button className='logout' onClick={() => props.logout(props.currentUser)}>Logout</button>
             :
             <div className='session-btn'>
               <Link to='/login'><button className='login'>Log In</button></Link>

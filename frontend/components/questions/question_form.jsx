@@ -66,12 +66,6 @@ class QuestionForm extends React.Component {
               modules={ { toolbar: toolbarOptions } }
               className='question-form-body' />
 
-            <ReactQuill
-              theme="snow"
-              value={this.state.body}
-              modules={ { toolbar: null } }
-              readOnly
-              className='question-form-preview' />
           </div>
 
           <div className='question-form-tag-field'>
