@@ -5,10 +5,19 @@ export const RECEIVE_QUESTION = 'RECEIVE_QUESTION';
 export const REMOVE_QUESTION = 'REMOVE_QUESTION';
 export const CLEAR_QUESTIONS = 'CLEAR_QUESTIONS';
 export const RECEIVE_ALL_QUESTIONS_FRONT = 'RECEIVE_ALL_QUESTIONS_FRONT';
+export const RECEIVE_SEARCH_QUESTIONS = 'RECEIVE_SEARCH_QUESTIONS';
 
 const receiveAllQuestions = (payload) => {
   return ({
     type: RECEIVE_ALL_QUESTIONS,
+    questions: payload.questions,
+    users: payload.users
+  });
+};
+
+const receiveSearchQuestions = (payload) => {
+  return ({
+    type: RECEIVE_SEARCH_QUESTIONS,
     questions: payload.questions,
     users: payload.users
   });
@@ -108,7 +117,7 @@ export const deleteQuestion = (questionId) => {
 export const fetchSearchQuestions = (searchText) => (dispatch) => {
   return (
     APIUtil.fetchSearchQuestions(searchText)
-    .then((questions) => dispatch(receiveAllQuestions(questions)))
+    .then((questions) => dispatch(receiveSearchQuestions(questions)))
   );
 };
 

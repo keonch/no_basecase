@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class Search extends React.Component {
   constructor(props){
@@ -18,17 +19,23 @@ class Search extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const searchText = Object.assign({}, this.state);
-    this.props.searchForQuestion(searchText).then((payload) => {
-      return (
-        this.props.history.push('/questions')
-      );
-    });
+    this.props.history.push(`/questions/search/${this.state.searchText.replace(/[ ]/g, '-')}`);
+    this.props.searchForQuestion(searchText);
+    // .then((payload) => {
+    //   return (
+    //
+    //   );
+    // });
   }
 
   SearchButton() {
     if (this.props.selected) {
       return (
-        <button type='submit' className='search-button'><i className="fas fa-search"></i></button>
+        <button
+          className='search-button'
+          onClick={ this.handleSubmit }>
+          <i className="fas fa-search"></i>
+        </button>
       );
     } else {
       return (
@@ -39,14 +46,16 @@ class Search extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className='search-form'>
+      <form
+        onSubmit={this.handleSubmit}
+        className='search-form'
+        onClick={() => this.props.selectSearchBar()}
+        onBlur={() => this.props.unselectSearchBar()}>
         <input
           className='search'
           type='text'
           placeholder='Search...'
           onChange={ this.updateSearch }
-          onClick={() => this.props.selectSearchBar()}
-          onBlur={() => this.props.unselectSearchBar()}
           />
         <this.SearchButton />
       </form>
@@ -54,7 +63,7 @@ class Search extends React.Component {
   }
 }
 
-export default Search;
+export default withRouter(Search);
 
 
 // {

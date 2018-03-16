@@ -3,7 +3,8 @@ import merge from 'lodash/merge';
 import {
   RECEIVE_ALL_QUESTIONS,
   RECEIVE_QUESTION,
-  RECEIVE_ALL_QUESTIONS_FRONT
+  RECEIVE_ALL_QUESTIONS_FRONT,
+  RECEIVE_SEARCH_QUESTIONS
 } from '../actions/question_actions';
 
 import {
@@ -21,6 +22,8 @@ const usersReducer = (oldState = {}, action) => {
       return merge({}, oldState, action.users);
     case RECEIVE_ANSWER:
       return merge({}, oldState, { [action.author.id]: action.author });
+    case RECEIVE_SEARCH_QUESTIONS:
+      return merge({}, action.users);
     default:
       return oldState;
   }
