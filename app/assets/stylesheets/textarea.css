@@ -643,10 +643,11 @@
   letter-spacing: -2px;
 }
 .ql-snow .ql-editor pre.ql-syntax {
-  background-color: #23241f;
-  color: #f8f8f2;
+  background-color: ##eff0f1;
+  color: #000;
   overflow: visible;
 }
+/*  */
 .ql-snow .ql-editor img {
   max-width: 100%;
 }
@@ -955,6 +956,7 @@
 
 .question-form-body {
   border: 1px solid #ccc;
+  min-height: 200px;
 }
 
 .quill.question-index-trunk .ql-container.ql-snow.ql-disabled .ql-editor p{
