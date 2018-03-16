@@ -46,10 +46,6 @@
   min-height: 300px;
 }
 
-.ql-container {
-  flex-grow: 1;
-}
-
 .question-form-preview {
   margin-top: 32px;
   font-size: 15px;
