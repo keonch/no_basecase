@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import AnswerFormContainer from '../answers/answer_form_container';
 // import AnswerContainer from '../answers/answer_container.js';
 import QuestionShowItemContainer from './question_show_item_container';
-
+import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill';
 
 class QuestionShow extends React.Component {
   componentDidMount(){
@@ -59,17 +59,18 @@ class QuestionShow extends React.Component {
   render () {
     return (
       <div className='q-show-page'>
-        <div>
+        <div className='q-s-answers-cont'>
           { this.renderQuestion() }
         </div>
 
-        <div>
+        <div className='q-s-answers-cont'>
           { this.renderAnswers() }
         </div>
 
         <div className='a-form'>
           <AnswerFormContainer questionId={ this.props.questionId }/>
         </div>
+
       </div>
     );
   }

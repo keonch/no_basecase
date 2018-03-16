@@ -41,7 +41,12 @@ class QuestionShowItem extends React.Component {
     );
   }
 
+
   render() {
+    var quill = new Quill('#editor', {
+      modules: { toolbar: true },
+      theme: 'snow'
+    });
     return (
       <div className='q-s-content'>
         <div className='q-s-votes'>
@@ -52,29 +57,33 @@ class QuestionShowItem extends React.Component {
           </button>
 
           <p className='q-s-votes-number'>{ this.props.entity.votes }</p>
-
-          <button
-            className="q-downvote"
-            onClick={() => this.props.downvote(this.props.type, this.props.entity, this.props.entity.id)}>
-            <i className="fas fa-caret-down"></i>
-          </button>
+            <button
+              className="q-downvote"
+              onClick={() => this.props.downvote(this.props.type, this.props.entity, this.props.entity.id)}>
+              <i className="fas fa-caret-down"></i>
+            </button>
         </div>
 
-        <div className='q-s-body'>
-          <ReactQuill
-            className='q-s-textarea'
-            value={ this.props.entity.body }
-            readOnly
-            modules={ {toolbar: null} } />
+        <div className='q-s-ad'><img></img></div>
+
+        <div className='q-s-component'>
+          <div className='q-s-body'>
+            <ReactQuill
+              className='q-s-textarea'
+              value={ this.props.entity.body }
+              readOnly
+              modules={ {toolbar: null} } />
+          </div>
+
+          { this.renderDelete(this.props.entity) }
+
+          <div className='q-user-tag-container'>
+            <UserTag
+              contentType={ this.props.type }
+              author={ this.props.author }
+              time={ this.props.entity.created_at } />
+          </div>
         </div>
-
-        { this.renderDelete(this.props.entity) }
-
-        <UserTag
-          className='q-author'
-          contentType={ this.props.type }
-          author={ this.props.author }
-          time={ this.props.entity.created_at } />
       </div>
     );
   }

@@ -6,7 +6,7 @@ class UserTag extends React.Component {
 
   render() {
     return (
-      <div className={`user-tag`}>
+      <div className={`user-tag q-user-tag`}>
         <div className='user-tag-time'>
           { this.props.contentType === 'question' ? "asked " : "answered " }
           <Moment fromNow>{this.props.time}</Moment>
