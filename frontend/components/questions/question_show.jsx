@@ -29,6 +29,7 @@ class QuestionShow extends React.Component {
             type='question'
             entity={ question }
             questionId={ this.props.questionId }
+            history={ this.props.history }
             />
 
           <p className='q-s-answer-count'>{ question.answersCount } Answers</p>
