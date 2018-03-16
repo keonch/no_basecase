@@ -112,3 +112,17 @@
   border-color: #005999;
   box-shadow: inset 0 1px 0 #3af;
 }
+
+.q-s-answer-cont {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.q-s-answer-form-head {
+  font-size: 18px;
+  padding: 20px 0;
+}
+
+.question-form-body {
+  margin-bottom: 40px;
+}

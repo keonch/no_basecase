@@ -31,21 +31,15 @@ class AnswerForm extends React.Component {
       [{ 'header': [1, 2, false] }]
     ];
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <p>Your Answer</p>
+      <div className='q-s-answer-cont'>
+        <form onSubmit={this.handleSubmit} className='q-s-answer-form'>
+          <p className='q-s-answer-form-head'>Your Answer</p>
 
           <ReactQuill
             value={this.state.body}
             onChange={this.updateBody}
             modules={ { toolbar: toolbarOptions } }
             className='question-form-body' />
-
-          <ReactQuill
-            value={this.state.body}
-            modules={ { toolbar: null } }
-            readOnly
-            className='question-form-preview' />
 
           <button
             type='submit'
