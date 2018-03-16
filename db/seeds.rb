@@ -110,7 +110,7 @@ questions = [
   ],
 ]
 
-direction = [1, -1]
+direction = [1, -1, 1, 1]
 
 qs = []
 

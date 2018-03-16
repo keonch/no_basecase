@@ -9,7 +9,7 @@ class QuestionsSearch extends React.Component {
     const questions = Object.values(this.props.questions);
     if (questions.length < 1){
       return (
-        <p>No Result</p>
+        <p></p>
       );
     }
     const index = questions.map((question, idx) => {

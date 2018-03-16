@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import QuestionShow from './question_show';
+import { selectAnswers } from '../../reducers/selectors';
 
 import {
   updateQuestion,
@@ -10,7 +11,7 @@ import {
 const msp = (state, ownProps) => {
   const questionId = ownProps.match.params.questionId;
   const question = state.entities.questions[questionId];
-  const answers = Object.values(state.entities.answers);
+  const answers = selectAnswers(state.entities.answers);
 
   return({
     questionId,

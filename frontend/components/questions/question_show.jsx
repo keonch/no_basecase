@@ -34,7 +34,7 @@ class QuestionShow extends React.Component {
           <p className='q-s-answer-count'>{ question.answersCount } Answers</p>
         </div>
         :
-        <div>Question Not Found</div>
+        <div></div>
     );
   }
 
