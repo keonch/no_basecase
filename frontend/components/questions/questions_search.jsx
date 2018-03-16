@@ -7,6 +7,11 @@ class QuestionsSearch extends React.Component {
 
   renderQuestions() {
     const questions = Object.values(this.props.questions);
+    if (questions.length < 1){
+      return (
+        <p>No Result</p>
+      );
+    }
     const index = questions.map((question, idx) => {
       const author = this.props.users[question.author_id];
       return (
