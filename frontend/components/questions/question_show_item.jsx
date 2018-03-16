@@ -62,6 +62,7 @@ class QuestionShowItem extends React.Component {
 
         <div className='q-s-body'>
           <ReactQuill
+            className='q-s-textarea'
             value={ this.props.entity.body }
             readOnly
             modules={ {toolbar: null} } />

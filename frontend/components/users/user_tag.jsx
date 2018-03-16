@@ -13,14 +13,9 @@ class UserTag extends React.Component {
         </div>
 
         <div className='user-tag-profile'>
-          {
-            !this.props.front ?
-            <Link to={`/users/${this.props.author.id}`}>
-              <img className='user-tag-img' src={window.profile} />
-            </Link>
-            :
-            ""
-          }
+          <Link to={`/users/${this.props.author.id}`}>
+            <img className='user-tag-img' src={window.profile} />
+          </Link>
 
           <div className='user-tag-info'>
             <Link
