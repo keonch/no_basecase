@@ -110,7 +110,7 @@ questions = [
   ],
 ]
 
-direction = [1, -1, 1]
+direction = [1, 1, 1, -1, -1, -1, 1]
 
 qs = []
 
@@ -121,8 +121,9 @@ end
 
 answers = []
 
+#TODO generate questions from stack overflow
 50.times do
-  a = Answer.create(body: Faker::ChuckNorris.unique.fact, author_id: users.sample.id, question_id: qs.sample.id)
+  a = Answer.create(body: Faker::Lorem.unique.paragraph, author_id: users.sample.id, question_id: qs.sample.id)
   answers.push(a)
 end
 
