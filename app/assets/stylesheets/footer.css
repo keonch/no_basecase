@@ -3,11 +3,30 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  padding: 20px 0;
   max-width: 1060px;
 }
 
+.footer-column {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
 .footer-links {
-  text-align: left;
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 10px 0;
+  align-items: center;
+}
+
+.footer-text {
+  text-align: center;
   color: rgb(187, 192, 191);
-  padding: 20px;
+  font-size: 13px;
+  margin: 0 8px;
+}
+
+.footer-icon {
+  height: 20px;
+  width: 20px;
 }
