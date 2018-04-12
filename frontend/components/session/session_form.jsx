@@ -93,7 +93,6 @@ class SessionForm extends React.Component {
 
           <div className='session-redirect'>
             <div>{ this.props.redirectMessage }{ this.props.redirectLink }</div>
-            <div className='session-employer'>Are you an employer? <Link to='/' className='session-link'>A placeholder link</Link></div>
           </div>
         </form>
       </div>
