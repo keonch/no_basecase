@@ -55,6 +55,15 @@
   text-align: center;
 }
 
+.q-answers {
+  padding: 5px;
+}
+
+.q-answers-green {
+  padding: 5px;
+  border: 1px solid rgba(69,161,99,0.5);
+}
+
 .q-answers-number {
   font-weight: normal;
   font-size: 20px;

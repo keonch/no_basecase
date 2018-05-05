@@ -22,9 +22,17 @@
   margin: 0 20px;
 }
 
-.front-answers {
+.front-answers-green {
+  border: 1px solid rgba(69,161,99,0.5);
+  padding: 5px;
   margin: 0 20px;
 }
+
+.front-answers {
+  padding: 5px;
+  margin: 0 20px;
+}
+
 .front-votes-number {
   font-weight: normal;
   font-size: 17px;

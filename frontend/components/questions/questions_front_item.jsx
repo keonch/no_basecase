@@ -5,6 +5,14 @@ import UserTag from '../users/user_tag';
 import Moment from 'react-moment';
 
 class QuestionsFrontItem extends React.Component {
+  answerClass() {
+    if (this.props.question.answersCount > 0) {
+      return "front-answers-green";
+    } else {
+      return "front-answers";
+    }
+  }
+
   render() {
     return (
       <div className='front-item'>
@@ -15,7 +23,7 @@ class QuestionsFrontItem extends React.Component {
             <p className='front-votes-label'>votes</p>
           </div>
 
-          <div className='front-answers'>
+          <div className={this.answerClass()}>
             <p className='front-answers-number'>{this.props.question.answersCount}</p>
             <p className='front-answers-label'>answers</p>
           </div>

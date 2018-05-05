@@ -11,6 +11,14 @@ class QuestionsIndexItem extends React.Component {
     );
   }
 
+  answerClass() {
+    if (this.props.question.answersCount > 0) {
+      return "q-answers-green";
+    } else {
+      return "q-answers";
+    }
+  }
+
   renderDelete() {
     return (
       this.props.isOwner ?
@@ -42,7 +50,7 @@ class QuestionsIndexItem extends React.Component {
             <p className='q-votes-label'>votes</p>
           </div>
 
-          <div className='q-answers'>
+          <div className={this.answerClass()}>
             <p className='q-answers-number'>{this.props.question.answersCount}</p>
             <p className='q-answers-label'>answers</p>
           </div>
@@ -57,7 +65,7 @@ class QuestionsIndexItem extends React.Component {
             </Link>
           </div>
 
-          
+
           <ReactQuill
             value={this.props.question.body}
             modules={ { toolbar: null } }
