@@ -12,8 +12,8 @@ const msp = (state, {frontPage}) => {
 
   return ({
     questions: state.entities.questions,
-    users,
     sortedQuestions: state.ui.sortedQuestions,
+    users,
     frontPage
   });
 };

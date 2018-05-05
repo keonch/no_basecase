@@ -37,7 +37,7 @@ class QuestionsFrontItem extends React.Component {
             </Link>
 
             <div className='user-tag-time'>
-              asked <Moment fromNow>{this.props.question.create_at}</Moment>
+              asked <Moment fromNow>{this.props.question.created_at}</Moment>
             </div>
           </div>
 

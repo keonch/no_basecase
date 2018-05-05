@@ -1,5 +1,4 @@
 import React from 'react';
-
 import QuestionsIndexItemContainer from './questions_index_item_container';
 import QuestionsFrontItem from './questions_front_item';
 
