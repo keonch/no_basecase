@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AnswerFormContainer from '../answers/answer_form_container';
-// import AnswerContainer from '../answers/answer_container.js';
 import QuestionShowItemContainer from './question_show_item_container';
 import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill';
 
@@ -18,11 +17,7 @@ class QuestionShow extends React.Component {
         <div className='q-s'>
           <div className='q-s-header'>
             <div className='q-s-title'>{ question.title }</div>
-            <Link
-              className='q-s-ask-question'
-              to='/questions/ask'>
-              Ask Question
-            </Link>
+            <Link className='ask-question' to='/questions/ask' >Ask Question</Link>
           </div>
 
           <QuestionShowItemContainer
