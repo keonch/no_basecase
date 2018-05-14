@@ -72,8 +72,3 @@ const mdp = (dispatch) => {
 };
 
 export default connect(msp, mdp)(QuestionsFrontItem);
-
-
-
-// const question = this.props.questions[questionId];
-// const author = this.props.users[question.author_id];
