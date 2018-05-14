@@ -16,7 +16,7 @@ const msp = (state, ownProps) => {
   const currentUser = state.session.currentUser || { id: null };
   let isOwner = false;
   if (entity) isOwner = (currentUser.id === entity.author_id);
-  
+
   return ({
     entity,
     type,
@@ -24,7 +24,7 @@ const msp = (state, ownProps) => {
     author,
     isOwner,
     history: ownProps.history,
-    currentUser: state.session.currentUser
+    currentUser: currentUser
   });
 };
 

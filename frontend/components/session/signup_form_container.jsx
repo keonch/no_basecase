@@ -17,7 +17,7 @@ const msp = (state) => {
   });
 };
 
-const mdp = dispatch => {
+const mdp = (dispatch) => {
   return ({
     processForm: (user) => dispatch(signup(user)),
     loginDemoUser: (user) => dispatch(login(user)),

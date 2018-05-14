@@ -19,6 +19,7 @@ import QuestionShowContainer from './questions/question_show_container';
 import Sidebar from './sidebar/sidebar.jsx';
 import Footer from './footer/footer';
 import QuestionsSearch from './questions/questions_search.jsx';
+import UserProfile from './users/profile.jsx';
 
 const App = () => (
   <div className='app'>
@@ -37,6 +38,7 @@ const App = () => (
           <ProtectedRoute exact path="/questions/ask" component={QuestionFormContainer} />
           <Route path="/questions/search" component={QuestionsSearch} />
           <Route path="/questions/:questionId" component={QuestionShowContainer} />
+          <Route path="/users/:userId" component={UserProfile} />
           <Route path='/' component={Sidebar} />
         </Switch>
 

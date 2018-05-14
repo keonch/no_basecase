@@ -17,7 +17,7 @@ const msp = (state, ownProps) => {
     questionId,
     question,
     answers,
-    currentUser: state.session.currentUser,
+    currentUser: state.session.currentUser
   });
 };
 
