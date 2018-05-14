@@ -19,7 +19,8 @@ const mdp = (dispatch) => {
 class Profile extends React.Component {
 
   componentDidMount() {
-    this.props.fetchUser(this.props.user)
+    this.props.fetchUser(this.props.user);
+    window.scrollTo(0, 0);
   }
 
   render() {

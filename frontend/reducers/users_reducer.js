@@ -25,7 +25,7 @@ const usersReducer = (oldState = {}, action) => {
     case CLEAR_ENTITIES:
       return {};
     case RECEIVE_USER:
-      return merge({}, action.user);
+      return merge({}, action.users);
     default:
       return oldState;
   }
