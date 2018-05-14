@@ -19,7 +19,7 @@ class Api::UsersController < ApplicationController
         @user.save
       end
       login(@user)
-      render 'api/users/show'
+      render 'api/users/session'
     else
       render json: @user.errors.full_messages, status: 422
     end
@@ -28,14 +28,10 @@ class Api::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      render 'api/users/show'
+      render 'api/users/session'
     else
       render json: @user.errors.full_messages, status: 422
     end
-  end
-
-  def showProfile
-
   end
 
   private
