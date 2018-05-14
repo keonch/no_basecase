@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchUser } from '../../actions/user_actions';
+import { clearEntities } from '../../actions/question_actions';
 
 const msp = (state, ownProps) => {
   return ({
@@ -10,7 +11,8 @@ const msp = (state, ownProps) => {
 
 const mdp = (dispatch) => {
   return ({
-    fetchUser: (id) => dispatch(fetchUser(id))
+    fetchUser: (id) => dispatch(fetchUser(id)),
+    clearEntities: () => dispatch(clearEntities())
   });
 }
 
@@ -26,6 +28,10 @@ class Profile extends React.Component {
         Hello
       </div>
     )
+  }
+
+  componentWillUnmount() {
+    this.props.clearEntities();
   }
 }
 

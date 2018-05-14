@@ -2,7 +2,7 @@ import merge from 'lodash/merge';
 
 import {
   RECEIVE_QUESTION,
-  CLEAR_QUESTIONS
+  CLEAR_ENTITIES
 } from '../actions/question_actions';
 
 import {
@@ -24,7 +24,7 @@ const answersReducer = (oldState = {}, action) => {
     case RECEIVE_VOTE:
       if (!action.answer) return oldState;
       return merge({}, oldState, { [action.answer.id]: action.answer });
-    case CLEAR_QUESTIONS:
+    case CLEAR_ENTITIES:
       return {};
     case REMOVE_ANSWER:
       const newState = merge({}, oldState);

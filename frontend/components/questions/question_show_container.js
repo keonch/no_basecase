@@ -5,7 +5,7 @@ import { selectAnswers } from '../../reducers/selectors';
 import {
   updateQuestion,
   fetchQuestion,
-  clearQuestions
+  clearEntities
 } from '../../actions/question_actions';
 
 import { clearUsers } from '../../actions/user_actions';
@@ -27,8 +27,7 @@ const mdp = (dispatch) => {
   return ({
     fetchQuestion: (id) => dispatch(fetchQuestion(id)),
     updateQuestion: (question) => dispatch(updateQuestion(question)),
-    clearQuestions: () => dispatch(clearQuestions()),
-    clearUsers: () => dispatch(clearUsers()),
+    clearEntities: () => dispatch(clearEntities())
   });
 };
 
