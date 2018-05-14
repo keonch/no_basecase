@@ -11,6 +11,8 @@ Question.destroy_all
 Answer.destroy_all
 UserVote.destroy_all
 
+User.create(name: 'goodGuest123', email: 'goodGuest123@nobasecase.com', password: 'goodGuest123')
+
 users = []
 100.times do
   user = User.create(name: Faker::Hipster.unique.word, email: Faker::Internet.unique.email, password: '123123')

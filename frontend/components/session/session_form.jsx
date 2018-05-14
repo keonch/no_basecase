@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.loginDemo = this.loginDemo.bind(this);
   }
 
   update(field) {
@@ -62,6 +63,14 @@ class SessionForm extends React.Component {
     );
   }
 
+  loginDemo() {
+    const user = {
+      email: 'goodGuest123@nobasecase.com',
+      password: 'goodGuest123'
+    }
+    this.props.loginDemoUser(user);
+  }
+
   render() {
     return (
       <div className="session">
@@ -93,6 +102,7 @@ class SessionForm extends React.Component {
 
           <div className='session-redirect'>
             <div>{ this.props.redirectMessage }{ this.props.redirectLink }</div>
+            <div className='demo session-link' onClick={() => this.loginDemo()}>Log in as guest</div>
           </div>
         </form>
       </div>

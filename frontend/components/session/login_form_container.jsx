@@ -17,6 +17,7 @@ const msp = (state) => {
 const mdp = dispatch => {
   return ({
     processForm: (user) => dispatch(login(user)),
+    loginDemoUser: (user) => dispatch(login(user)),
     resetErrors: () => dispatch({ type: RESET_SESSION_ERRORS })
   });
 };
