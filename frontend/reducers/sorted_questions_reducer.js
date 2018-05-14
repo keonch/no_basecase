@@ -2,7 +2,7 @@ import merge from 'lodash/merge';
 
 import {
   RECEIVE_ALL_QUESTIONS_FRONT,
-  CLEAR_QUESTIONS,
+  CLEAR_ENTITIES,
   REMOVE_QUESTION
 } from '../actions/question_actions';
 
@@ -16,7 +16,7 @@ const frontPageReducer = (oldState = [], action) => {
       const idx = newState.indexOf(action.questionId);
       if (idx !== -1) newState.splice(idx, 1);
       return newState;
-    case CLEAR_QUESTIONS:
+    case CLEAR_ENTITIES:
       return [];
     default:
       return oldState;

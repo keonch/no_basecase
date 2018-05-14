@@ -24,14 +24,11 @@ import UserProfile from './users/profile.jsx';
 const App = () => (
   <div className='app'>
     <header className='header'>
-
       <NavContainer />
-
     </header>
 
     <div className='page'>
       <div className='content'>
-
         <Switch>
           <AuthRoute path="/login" component={LogInFormContainer} />
           <AuthRoute path="/signup" component={SignUpFormContainer} />
@@ -41,17 +38,13 @@ const App = () => (
           <Route path="/users/:userId" component={UserProfile} />
           <Route path='/' component={Sidebar} />
         </Switch>
-
         <Route exact path="/" component={Front} />
         <Route exact path="/questions" component={QuestionsIndexContainer} />
-
       </div>
     </div>
 
     <footer className='footer'>
-
       <Footer />
-
     </footer>
   </div>
 );
