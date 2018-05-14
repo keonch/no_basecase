@@ -20,5 +20,4 @@ Rails.application.routes.draw do
   patch '/api/answer/upvote/:entity_id', to: 'api/answers#upvote'
   patch '/api/answer/downvote/:entity_id', to: 'api/answers#downvote'
   get '/api/frontpage', to: 'api/questions#top', defaults: { format: :json }
-
 end

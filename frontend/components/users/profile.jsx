@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchUser } from '../../actions/profile_actions';
+import { fetchUser } from '../../actions/user_actions';
 
-const msp = (state) => {
+const msp = (state, ownProps) => {
   return ({
-
+    user: ownProps.match.params.userId
   });
 }
 
@@ -17,7 +17,7 @@ const mdp = (dispatch) => {
 class Profile extends React.Component {
 
   componentDidMount() {
-    this.props.fetchUser()
+    this.props.fetchUser(this.props.user)
   }
 
   render() {

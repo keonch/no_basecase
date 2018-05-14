@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  before_action :require_logged_in!, only: [:show, :update]
+  before_action :require_logged_in!, only: [:update]
   before_action :require_logged_out!, only: [:create]
 
   def show
@@ -27,6 +27,10 @@ class Api::UsersController < ApplicationController
     else
       render json: @user.errors.full_messages, status: 422
     end
+  end
+
+  def showProfile
+
   end
 
   private
