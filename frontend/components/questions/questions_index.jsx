@@ -10,6 +10,7 @@ class QuestionsIndex extends React.Component {
     } else {
       this.props.fetchAllQuestions();
     }
+    window.scrollTo(0, 0);
   }
 
   renderFront() {

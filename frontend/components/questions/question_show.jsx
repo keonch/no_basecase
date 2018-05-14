@@ -7,6 +7,7 @@ import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill';
 class QuestionShow extends React.Component {
   componentDidMount(){
     this.props.fetchQuestion(this.props.questionId);
+    window.scrollTo(0, 0);
   }
 
   renderQuestion(){
