@@ -14,10 +14,19 @@ const mdp = (dispatch) => {
   });
 }
 
-const Profile = (props) => {
-  return (
-    <div></div>
-  )
+class Profile extends React.Component {
+
+  componentDidMount() {
+    this.props.fetchUser()
+  }
+
+  render() {
+    return (
+      <div>
+        Hello
+      </div>
+    )
+  }
 }
 
 export default connect(msp, mdp)(Profile);
