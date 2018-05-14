@@ -3,7 +3,7 @@ import * as APIUtil from '../util/questions_api_util';
 export const RECEIVE_ALL_QUESTIONS = 'RECEIVE_ALL_QUESTIONS';
 export const RECEIVE_QUESTION = 'RECEIVE_QUESTION';
 export const REMOVE_QUESTION = 'REMOVE_QUESTION';
-export const CLEAR_QUESTIONS = 'CLEAR_QUESTIONS';
+export const CLEAR_ENTITIES = 'CLEAR_ENTITIES';
 export const RECEIVE_ALL_QUESTIONS_FRONT = 'RECEIVE_ALL_QUESTIONS_FRONT';
 export const RECEIVE_SEARCH_QUESTIONS = 'RECEIVE_SEARCH_QUESTIONS';
 
@@ -48,9 +48,9 @@ const removeQuestion = (questionId) => {
   });
 };
 
-export const clearQuestions = () => {
+export const clearEntities = () => {
   return ({
-    type: CLEAR_QUESTIONS
+    type: CLEAR_ENTITIES
   });
 };
 

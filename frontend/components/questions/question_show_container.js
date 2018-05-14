@@ -8,6 +8,8 @@ import {
   clearQuestions
 } from '../../actions/question_actions';
 
+import { clearUsers } from '../../actions/user_actions';
+
 const msp = (state, ownProps) => {
   const questionId = ownProps.match.params.questionId;
   const question = state.entities.questions[questionId];
@@ -25,7 +27,8 @@ const mdp = (dispatch) => {
   return ({
     fetchQuestion: (id) => dispatch(fetchQuestion(id)),
     updateQuestion: (question) => dispatch(updateQuestion(question)),
-    clearQuestions: () => dispatch(clearQuestions())
+    clearQuestions: () => dispatch(clearQuestions()),
+    clearUsers: () => dispatch(clearUsers()),
   });
 };
 

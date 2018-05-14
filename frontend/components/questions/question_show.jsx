@@ -72,7 +72,7 @@ class QuestionShow extends React.Component {
   }
 
   componentWillUnmount(){
-    this.props.clearQuestions();
+    this.props.clearEntities();
   }
 }
 

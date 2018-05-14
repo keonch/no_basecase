@@ -1,6 +1,7 @@
 import * as APIUtil from '../util/users_api_util';
 
 export const RECEIVE_USER = 'RECEIVE_USER';
+export const CLEAR_USERS = 'CLEAR_USERS';
 
 const receiveUser = (payload) => {
   return ({
@@ -8,6 +9,12 @@ const receiveUser = (payload) => {
     user: payload.user,
     questions: payload.questions,
     answers: payload.answers
+  })
+}
+
+export const clearUsers = () => {
+  return ({
+    type: CLEAR_USERS
   })
 }
 

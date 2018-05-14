@@ -64,9 +64,7 @@ class QuestionsIndex extends React.Component {
   }
 
   componentWillUnmount() {
-    if (this.props.frontPage) {
-      this.props.clearQuestions();
-    }
+    this.props.clearEntities();
   }
 }
 
