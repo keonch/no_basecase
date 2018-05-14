@@ -1,5 +1,6 @@
 import merge from 'lodash/merge';
-
+import { RECEIVE_ANSWER } from '../actions/answer_actions';
+import { RECEIVE_USER } from '../actions/user_actions';
 import {
   RECEIVE_ALL_QUESTIONS,
   RECEIVE_QUESTION,
@@ -7,10 +8,6 @@ import {
   RECEIVE_SEARCH_QUESTIONS,
   CLEAR_ENTITIES
 } from '../actions/question_actions';
-
-import {
-  RECEIVE_ANSWER
-} from '../actions/answer_actions';
 
 const usersReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -27,6 +24,8 @@ const usersReducer = (oldState = {}, action) => {
       return merge({}, action.users);
     case CLEAR_ENTITIES:
       return {};
+    case RECEIVE_USER:
+      return merge({}, action.user);
     default:
       return oldState;
   }
