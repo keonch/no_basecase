@@ -20,7 +20,7 @@ const mdp = (dispatch) => {
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-    this.test = this.test.bind(this);
+    this.renderUser = this.renderUser.bind(this);
   }
 
   componentDidMount() {
