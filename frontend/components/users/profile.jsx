@@ -5,7 +5,8 @@ import { clearEntities } from '../../actions/question_actions';
 
 const msp = (state, ownProps) => {
   return ({
-    user: ownProps.match.params.userId
+    users: ownProps.match.params.userId,
+    user: state.entities.users
   });
 }
 
@@ -17,16 +18,36 @@ const mdp = (dispatch) => {
 }
 
 class Profile extends React.Component {
+  constructor(props) {
+    super(props);
+    this.test = this.test.bind(this);
+  }
 
   componentDidMount() {
     this.props.fetchUser(this.props.user);
     window.scrollTo(0, 0);
   }
 
+  renderUser() {
+    if (this.props.users[this.props.user]) {
+      return (
+        <div>
+          { `${this.props.users[this.props.user].name}` } Page
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          { `${this.props.user}` }
+        </div>
+      )
+    }
+  }
+
   render() {
     return (
       <div>
-        Hello
+        { this.renderUser() }
       </div>
     )
   }
