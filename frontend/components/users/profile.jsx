@@ -36,11 +36,7 @@ class Profile extends React.Component {
         </div>
       )
     } else {
-      return (
-        <div>
-          { `${this.props.user}` }
-        </div>
-      )
+      return
     }
   }
 
