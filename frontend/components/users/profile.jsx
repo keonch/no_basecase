@@ -5,8 +5,8 @@ import { clearEntities } from '../../actions/question_actions';
 
 const msp = (state, ownProps) => {
   return ({
-    users: ownProps.match.params.userId,
-    user: state.entities.users
+    users: state.entities.users,
+    user: ownProps.match.params.userId
   });
 }
 
