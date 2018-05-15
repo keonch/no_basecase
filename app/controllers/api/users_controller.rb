@@ -4,6 +4,9 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @questions = @user.questions
+    @answers = @user.answers
+
     if @user
       render 'api/users/show'
     else

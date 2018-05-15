@@ -9,8 +9,14 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  has_many :questions, inverse_of: :author
-  has_many :answers, inverse_of: :author
+  has_many :questions,
+    class_name: :Question,
+    foreign_key: :author_id
+
+  has_many :answers,
+    class_name: :Answer,
+    foreign_key: :author_id
+    
   has_many :user_votes, inverse_of: :user
 
   def self.generate_session_token
