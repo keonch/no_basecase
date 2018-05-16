@@ -4,11 +4,15 @@ import { fetchUser } from '../../actions/user_actions';
 import { clearEntities } from '../../actions/question_actions';
 
 const msp = (state, ownProps) => {
+  const answerCount = Object.keys(state.entities.answers).length ;
+  const questionCount = Object.keys(state.entities.questions).length;
   return ({
     users: state.entities.users,
     user: ownProps.match.params.userId,
     answers: state.entities.answers,
-    questions: state.entities.questions
+    questions: state.entities.questions,
+    answerCount: answerCount,
+    questionCount: questionCount
   });
 }
 
@@ -22,18 +26,23 @@ const mdp = (dispatch) => {
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-    const answerCount = Object.keys(props.answers).length ;
-    const questionCount = Object.keys(props.questions).length;
-    this.state = {
-      answerCount: answerCount,
-      questionCount: questionCount
-    }
     this.renderUser = this.renderUser.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchUser(this.props.user);
     window.scrollTo(0, 0);
+  }
+
+  renderQA() {
+    const index = this.props.questions.map((question) => {
+      return (
+        <div>{ question.title }</div>
+      )
+    })
+    return (
+      <div>{ index }</div>
+    )
   }
 
   renderUser() {
@@ -45,11 +54,12 @@ class Profile extends React.Component {
             ### REPUTATION
           </div>
           <div>{ `${this.props.users[this.props.user].name}` }</div>
-          <div>{ `${this.state.answerCount}`}</div>
-          <div>{ `${this.state.questionCount}`}</div>
+          <div>{ `${this.props.answerCount}`}</div>
+          <div>{ `${this.props.questionCount}`}</div>
 
           <div className='user-posts'>
             <div>Top Posts</div>
+            <div>{  }</div>
           </div>
         </div>
       )

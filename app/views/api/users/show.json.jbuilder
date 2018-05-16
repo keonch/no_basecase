@@ -18,7 +18,7 @@ if @answers
   json.answers do
     @answers.each do |answer|
       json.set! answer.id do
-        json.extract! answer, :id, :title
+        json.extract! answer, :id, :question_id
       end
     end
   end

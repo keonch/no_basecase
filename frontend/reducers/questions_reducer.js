@@ -1,5 +1,4 @@
 import merge from 'lodash/merge';
-
 import {
   RECEIVE_ALL_QUESTIONS,
   RECEIVE_QUESTION,
@@ -8,15 +7,9 @@ import {
   RECEIVE_ALL_QUESTIONS_FRONT,
   RECEIVE_SEARCH_QUESTIONS
 } from '../actions/question_actions';
-
-import {
-  RECEIVE_ANSWER,
-  REMOVE_ANSWER
-} from '../actions/answer_actions';
-
-import {
-  RECEIVE_VOTE
-} from '../actions/vote_actions';
+import { RECEIVE_ANSWER, REMOVE_ANSWER } from '../actions/answer_actions';
+import { RECEIVE_VOTE } from '../actions/vote_actions';
+import { RECEIVE_USER } from '../actions/user_actions';
 
 const questionsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -45,6 +38,8 @@ const questionsReducer = (oldState = {}, action) => {
     case CLEAR_ENTITIES:
       return {};
     case RECEIVE_SEARCH_QUESTIONS:
+      return merge({}, action.questions);
+    case RECEIVE_USER:
       return merge({}, action.questions);
     default:
       return oldState;
