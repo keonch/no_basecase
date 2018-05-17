@@ -4,7 +4,6 @@ import { signup, login, RESET_SESSION_ERRORS } from '../../actions/session_actio
 import SessionForm from './session_form';
 import { Link } from 'react-router-dom';
 
-
 const msp = (state) => {
   return ({
     errors: state.errors.session,

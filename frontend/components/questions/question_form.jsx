@@ -35,7 +35,6 @@ class QuestionForm extends React.Component {
   }
 
   render () {
-
     const toolbarOptions = [
       ['bold', 'italic'],
       ['blockquote', 'code-block'],

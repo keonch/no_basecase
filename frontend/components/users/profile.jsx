@@ -48,18 +48,27 @@ class Profile extends React.Component {
   renderUser() {
     if (this.props.users[this.props.user]) {
       return (
-        <div>
-          <div className='profile-image'>
-            <img className='profile-image-icon' src={window.profile} />
-            ### REPUTATION
+        <div className='profile'>
+          <div className='user-info'>
+            <div className='profile-image'>
+              <img className='profile-image-icon' src={window.profile} />
+            </div>
+            <div className='user-summary'>
+              <div className='username'>{ `${this.props.users[this.props.user].name}` }</div>
+              <div className='user-stats'>
+                <div className='user-stat'>
+                  <h4 className='user-stat-count'>{ `${this.props.answerCount}`}</h4>
+                  <h4 className='user-stat-label'>answers</h4>
+                </div>
+                <div className='user-stat'>
+                  <h4 className='user-stat-count'>{ `${this.props.questionCount}`}</h4>
+                  <h4 className='user-stat-label'>{this.props.questionCount === 1 ? 'question' : 'questions'}</h4>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>{ `${this.props.users[this.props.user].name}` }</div>
-          <div>{ `${this.props.answerCount}`}</div>
-          <div>{ `${this.props.questionCount}`}</div>
-
           <div className='user-posts'>
             <div>Top Posts</div>
-            <div>{  }</div>
           </div>
         </div>
       )
