@@ -8,7 +8,7 @@ if @questions
   json.questions do
     @questions.each do |question|
       json.set! question.id do
-        json.extract! question, :id, :title
+        json.extract! question, :id, :title, :author_id
       end
     end
   end
@@ -18,7 +18,7 @@ if @answers
   json.answers do
     @answers.each do |answer|
       json.set! answer.id do
-        json.extract! answer, :id, :question_id
+        json.extract! answer, :id, :question_id, :author_id
       end
     end
   end

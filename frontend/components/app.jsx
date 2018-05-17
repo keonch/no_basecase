@@ -33,13 +33,13 @@ const App = () => (
           <AuthRoute path="/login" component={LogInFormContainer} />
           <AuthRoute path="/signup" component={SignUpFormContainer} />
           <ProtectedRoute exact path="/questions/ask" component={QuestionFormContainer} />
+          <Route exact path="/questions" component={QuestionsIndexContainer} />
           <Route path="/questions/search" component={QuestionsSearch} />
           <Route path="/questions/:questionId" component={QuestionShowContainer} />
           <Route path="/users/:userId" component={UserProfile} />
           <Route path='/' component={Sidebar} />
         </Switch>
         <Route exact path="/" component={Front} />
-        <Route exact path="/questions" component={QuestionsIndexContainer} />
       </div>
     </div>
 
