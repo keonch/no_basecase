@@ -7,13 +7,10 @@ import {
 import QuestionsIndex from './questions_index';
 
 const msp = (state, {frontPage}) => {
-
-  const users = Object.assign({}, state.entities.users);
-
   return ({
     questions: state.entities.questions,
     sortedQuestions: state.entities.sortedQuestions,
-    users,
+    users: state.entities.users,
     frontPage
   });
 };

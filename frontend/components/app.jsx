@@ -29,16 +29,16 @@ const App = () => (
 
     <div className='page'>
       <div className='content'>
-        <Switch>
+        <Switch>          
           <AuthRoute path="/login" component={LogInFormContainer} />
           <AuthRoute path="/signup" component={SignUpFormContainer} />
+          <Route path="/users/:userId" component={UserProfile} />
           <ProtectedRoute exact path="/questions/ask" component={QuestionFormContainer} />
-          <Route exact path="/questions" component={QuestionsIndexContainer} />
           <Route path="/questions/search" component={QuestionsSearch} />
           <Route path="/questions/:questionId" component={QuestionShowContainer} />
-          <Route path="/users/:userId" component={UserProfile} />
           <Route path='/' component={Sidebar} />
         </Switch>
+        <Route exact path="/questions" component={QuestionsIndexContainer} />
         <Route exact path="/" component={Front} />
       </div>
     </div>

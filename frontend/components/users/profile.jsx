@@ -86,6 +86,7 @@ class Profile extends React.Component {
   }
 
   componentWillUnmount() {
+     ('swag');
     this.props.clearEntities();
   }
 }

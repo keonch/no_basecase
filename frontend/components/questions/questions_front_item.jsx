@@ -55,20 +55,4 @@ class QuestionsFrontItem extends React.Component {
     );
   }
 }
-
-const msp = (state, ownProps) => {
-  const question = state.entities.questions[ownProps.questionId];
-  const author = state.entities.users[question.author_id];
-  return ({
-    question,
-    author
-  });
-};
-
-const mdp = (dispatch) => {
-  return ({
-
-  });
-};
-
-export default connect(msp, mdp)(QuestionsFrontItem);
+export default QuestionsFrontItem;

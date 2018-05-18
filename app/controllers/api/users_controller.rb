@@ -6,7 +6,7 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
     @questions = @user.questions
     @answers = @user.answers
-    @answeredQuestions = @answers.map do |answer|
+    @questions += @user.answers.map do |answer|
       Question.find(answer.question_id)
     end
 
