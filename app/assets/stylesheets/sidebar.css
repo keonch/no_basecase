@@ -12,6 +12,9 @@
   border-radius: 2px;
   font-size: 13px;
   padding: 8px 13px;
+  height: 33px;
+  width: 110px;
+  text-align: center;
 }
 
 .ask-question:hover {
