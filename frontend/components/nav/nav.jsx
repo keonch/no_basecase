@@ -5,7 +5,12 @@ import SearchContainer from './search_container';
 const Nav = (props) => {
 
   const loggedIn = !!props.currentUser;
-
+  // <div className='menu-items'>
+  //   <i className="fas fa-inbox"></i>
+  //   <i className="fas fa-trophy"></i>
+  //   <i className="fas fa-question-circle"></i>
+  //   <i className="fab fa-stack-exchange"></i>
+  // </div>
   return (
     <div className='nav'>
       {
@@ -21,9 +26,6 @@ const Nav = (props) => {
 
       <div className='links'>
         <NavLink to='/questions' className='navlink' >Questions</NavLink>
-        <NavLink to='/jobs' className='navlink' >Developer Jobs</NavLink>
-        <NavLink to='/tags' className='navlink' >Tags</NavLink>
-        <NavLink to='/users' className='navlink' >Users</NavLink>
 
         <div className='search-bar'>
           <SearchContainer />
@@ -43,12 +45,7 @@ const Nav = (props) => {
 
         </div>
 
-        <div className='menu-items'>
-          <i className="fas fa-inbox"></i>
-          <i className="fas fa-trophy"></i>
-          <i className="fas fa-question-circle"></i>
-          <i className="fab fa-stack-exchange"></i>
-        </div>
+
 
         <div className='session'>
           {
