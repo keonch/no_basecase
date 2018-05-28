@@ -46,6 +46,9 @@ class Profile extends React.Component {
   }
 
   renderUser() {
+    // <div className='user-posts'>
+    //   <div>Top Posts</div>
+    // </div>
     if (this.props.users[this.props.user]) {
       return (
         <div className='profile'>
@@ -67,9 +70,7 @@ class Profile extends React.Component {
               </div>
             </div>
           </div>
-          <div className='user-posts'>
-            <div>Top Posts</div>
-          </div>
+
         </div>
       )
     } else {
