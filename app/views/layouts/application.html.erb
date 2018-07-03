@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NoBaseCase</title>
+    <title>NoBasecase</title>
     <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-    <%= favicon_link_tag 'favicon.png' %>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
   </head>
 
   <body>
     <%= yield %>
   </body>
 </html>
-
-
-<!-- <link rel="stylesheet" href="node_modules/react-quill/dist/quill.snow.css"> -->
-<!-- <link rel="stylesheet" href="node_modules/react-quill/dist/quill.core.css"> -->

@@ -1,36 +1,27 @@
 {
-  "name": "no_base_case",
+  "name": "no_basecase",
   "private": true,
   "dependencies": {
-    "babel-core": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.6.1",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "lodash": "^4.17.5",
-    "moment": "^2.21.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-moment": "^0.7.0",
-    "react-quill": "^1.2.6",
+    "lodash": "^4.17.10",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
-    "react-router-dom": "^4.2.2",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0",
-    "webpack": "^3.11.0"
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "webpack": "^4.14.0",
+    "webpack-cli": "^3.0.8"
   },
-  "devDependencies": {
-    "redux-logger": "^3.0.6"
-  },
-  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
-  "version": "1.0.0",
+  "devDependencies": {},
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "webpack",
-    "webpack": "webpack --watch"
+    "build": "webpack --watch --mode development",
+    "webpack": "webpack --mode production"
   },
   "engines": {
     "node": "6.7.0",
@@ -38,13 +29,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/keonch/no_base_case.git"
+    "url": "git+https://github.com/keonch/no_basecase.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "keonch",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/keonch/no_base_case/issues"
+    "url": "https://github.com/keonch/no_basecase/issues"
   },
-  "homepage": "https://github.com/keonch/no_base_case#readme"
+  "homepage": "https://github.com/keonch/no_basecase#readme"
 }
