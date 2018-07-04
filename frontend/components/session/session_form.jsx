@@ -10,7 +10,7 @@ export default class SessionForm extends React.Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.update = this.update.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleSubmit(e) {
@@ -32,7 +32,7 @@ export default class SessionForm extends React.Component {
     }
   }
 
-  update(e) {
+  handleChange(e) {
     const field = e.currentTarget.className;
     this.setState({
       [field]: e.currentTarget.value
@@ -53,7 +53,7 @@ export default class SessionForm extends React.Component {
                 placeholder='J. Doh'
                 className='name'
                 value={this.state.name}
-                onChange={this.update}/>
+                onChange={this.handleChange}/>
             </div>
           }
 
@@ -63,7 +63,7 @@ export default class SessionForm extends React.Component {
             placeholder='you@example.org'
             className='email'
             value={this.state.email}
-            onChange={this.update}/>
+            onChange={this.handleChange}/>
 
           <label>Password</label>
           <input
@@ -71,7 +71,7 @@ export default class SessionForm extends React.Component {
             placeholder='*********'
             className='password'
             value={this.state.password}
-            onChange={this.update}/>
+            onChange={this.handleChange}/>
 
           <input type='submit' value={this.props.type}/>
         </form>

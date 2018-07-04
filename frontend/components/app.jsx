@@ -11,10 +11,12 @@ import Footer from './footer/footer';
 const App = () => (
   <div className='app'>
     <Route path='/' component={Nav}/>
-    <Route exact path='/' component={QuestionsIndex}/>
-    <Route exact path='/questions' component={QuestionsIndex}/>
-    <AuthRoute path='/login' component={Login}/>
-    <AuthRoute path='/signup' component={Signup}/>
+    <div className='page-content'>      
+      <Route exact path='/' component={QuestionsIndex}/>
+      <Route exact path='/questions' component={QuestionsIndex}/>
+      <AuthRoute path='/login' component={Login}/>
+      <AuthRoute path='/signup' component={Signup}/>
+    </div>
     <Route path='/' component={Footer}/>
   </div>
 );

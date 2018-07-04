@@ -1,0 +1,17 @@
+.nav {
+  border-top: 3px solid #F48024;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.logo {
+  height: 35px;
+}
+
+.logo:hover {
+  background: darkgrey;
+  opacity: .1;
+}

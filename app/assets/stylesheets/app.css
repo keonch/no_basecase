@@ -1,0 +1,20 @@
+.app {
+  display: grid;
+  grid-template-rows: 52px auto 100px;
+  grid-template-areas:
+    "nav"
+    "content"
+    "footer"
+}
+
+.nav {
+  grid-area: nav;
+}
+
+.page-content {
+  grid-area: content;
+}
+
+.footer {
+  grid-area: footer;
+}
