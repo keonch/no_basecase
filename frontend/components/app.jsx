@@ -1,18 +1,21 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import {
-  Route,
-  Redirect,
-  Switch,
-  Link,
-  HashRouter
-} from 'react-router-dom';
+import { Route, Switch } from 'react-router';
 import { AuthRoute, ProtectedRoute } from '../utils/route_util';
-
+import Nav from './nav/nav_container';
+import QuestionsIndex from './questions/questions_index';
+import Login from './session/login_container';
+import Signup from './session/signup_container';
+import Footer from './footer/footer';
 
 const App = () => (
   <div className='app'>
-    from App
+    <Route path='/' component={Nav}/>
+    <Route exact path='/' component={QuestionsIndex}/>
+    <Route exact path='/questions' component={QuestionsIndex}/>
+    <AuthRoute path='/login' component={Login}/>
+    <AuthRoute path='/signup' component={Signup}/>
+    <Route path='/' component={Footer}/>
   </div>
 );
 
