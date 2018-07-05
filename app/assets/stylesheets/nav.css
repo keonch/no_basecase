@@ -1,34 +1,26 @@
-.nav {
-  border-top: 3px solid #F48024;
-  box-shadow: 0 1px 0 rgba(12,13,14,0.1), 0 1px 6px rgba(59,64,69,0.1);
-  background-color: #fafafb;
-  position: fixed;
-  width: 100%;
-  height: 50px;
-  box-sizing: border-box;
-}
-
 .nav-container {
   margin: auto;
-  max-width: 1200px;
+  max-width: 1100px;
   height: 100%;
   display: grid;
   align-items: center;
-  grid-template-columns: 170px 365px auto minmax(auto, min-content);
+  grid-template-columns: 160px 365px auto minmax(auto, min-content);
   grid-template-areas:
-    "logo search blank session";
+    "logo search blank session-btn";
 }
 
-// ================================LOGO=================================
+/* ==============================LOGO================================ */
 .logo {
   height: 100%;
   width: 100%;
-  padding: 6px 10px 3px 10px;
+  padding-top: 7px;
 }
 
 .logo-img {
+  margin: auto;
   grid-area: logo;
-  height: 33px;
+  height: 35px;
+  width: 145px;
 }
 
 .logo:hover {
@@ -36,7 +28,7 @@
   cursor: pointer;
 }
 
-// =============================SEARCH BAR==============================
+/* ===========================SEARCH BAR============================= */
 .search {
   grid-area: search;
   position: relative;
@@ -89,9 +81,9 @@
   box-shadow: inset 0 1px 0 #3af;
 }
 
-// ===========================SESSION BUTTONS===========================
-.session {
-  grid-area: session;
+/* =========================SESSION BUTTONS========================== */
+.session-btn {
+  grid-area: session-btn;
   display: flex;
   flex-flow: row nowrap;
   font-size: 13px;

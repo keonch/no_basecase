@@ -1,0 +1,27 @@
+.index {
+  margin: auto;
+  display: grid;
+  justify-content: center;
+  max-width: 1100px;
+  grid-template-columns: minmax(auto, max-content) auto minmax(auto, max-content);
+  grid-template-areas:
+    "sidebar1 index sidebar2";
+}
+
+@media only screen and (max-width: 980px) {
+  .index {
+    display: grid;
+    grid-template-columns: minmax(auto, max-content) auto;
+    grid-template-areas:
+      "sidebar1 index";
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .index {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-areas:
+      "index";
+  }
+}

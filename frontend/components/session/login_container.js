@@ -4,7 +4,8 @@ import { login } from '../../actions/session_actions';
 
 const msp = (state) => {
   return ({
-    type: "Log In"
+    type: 'Log In',
+    header: 'No Basecase is a Q&A application developed by Keon Choi.'
   });
 };
 

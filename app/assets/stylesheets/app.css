@@ -1,22 +1,32 @@
 .app {
   display: grid;
   font-family: helvetica, sans-serif;
+  height: 100vh;
   grid-template-rows: 52px auto 100px;
   grid-template-areas:
     "nav"
-    "content"
-    "footer"
+    "page-content"
+    "footer";
 }
 
 .nav {
   grid-area: nav;
+  border-top: 3px solid #F48024;
+  box-shadow: 0 1px 0 rgba(12,13,14,0.1), 0 1px 6px rgba(59,64,69,0.1);
+  background-color: #fafafb;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
 }
 
 .page-content {
-  grid-area: content;
-  height: 1000px;
+  grid-area: page-content;
+  width: 100%;
 }
 
 .footer {
   grid-area: footer;
+  background-color: #252729;
+  bottom: 0;
 }

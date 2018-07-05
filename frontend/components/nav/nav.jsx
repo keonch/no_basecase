@@ -4,31 +4,29 @@ import SearchForm from './search_form_container';
 
 const Nav = (props) => {
   return (
-    <div className='nav'>
-      <div className='nav-container'>
-        <Link to='/' className='logo'>
-          <img className='logo-img' src='/assets/logo.png' />
-        </Link>
+    <div className='nav-container'>
+      <Link to='/' className='logo'>
+        <img className='logo-img' src='/assets/logo.png' />
+      </Link>
 
-        <SearchForm />
+      <SearchForm />
 
-        {
-          props.currentUser ? (
-            <div className='session'>
-              <button
-                className='logout'
-                onClick={props.logout}>
-                Log Out
-              </button>
-            </div>
-          ) : (
-            <div className='session'>
-              <Link className='login' to='/login'>Log In</Link>
-              <Link className='signup' to='/signup'>Sign Up</Link>
-            </div>
-          )
-        }
-      </div>
+      {
+        props.currentUser ? (
+          <div className='session-btn'>
+            <button
+              className='logout'
+              onClick={props.logout}>
+              Log Out
+            </button>
+          </div>
+        ) : (
+          <div className='session-btn'>
+            <Link className='login' to='/login'>Log In</Link>
+            <Link className='signup' to='/signup'>Sign Up</Link>
+          </div>
+        )
+      }
     </div>
   );
 };

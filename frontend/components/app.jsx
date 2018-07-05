@@ -10,14 +10,20 @@ import Footer from './footer/footer';
 
 const App = () => (
   <div className='app'>
-    <Route path='/' component={Nav}/>
-    <div className='page-content'>      
+    <div className='nav'>
+      <Route path='/' component={Nav}/>
+    </div>
+
+    <div className='page-content'>
       <Route exact path='/' component={QuestionsIndex}/>
       <Route exact path='/questions' component={QuestionsIndex}/>
       <AuthRoute path='/login' component={Login}/>
       <AuthRoute path='/signup' component={Signup}/>
     </div>
-    <Route path='/' component={Footer}/>
+
+    <div className='footer'>
+      <Route path='/' component={Footer}/>
+    </div>
   </div>
 );
 
