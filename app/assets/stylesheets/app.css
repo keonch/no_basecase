@@ -1,5 +1,6 @@
 .app {
   display: grid;
+  font-family: helvetica, sans-serif;
   grid-template-rows: 52px auto 100px;
   grid-template-areas:
     "nav"
@@ -13,6 +14,7 @@
 
 .page-content {
   grid-area: content;
+  height: 1000px;
 }
 
 .footer {

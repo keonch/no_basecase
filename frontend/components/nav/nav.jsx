@@ -3,22 +3,32 @@ import { Link } from 'react-router-dom';
 import SearchForm from './search_form_container';
 
 const Nav = (props) => {
-  const sessionTabs = props.currentUser ? (
-    <button onClick={props.logout}>Sign Out</button>
-  ) : (
-    <div>
-      <Link to='/login'>Log In</Link>
-      <Link to='/signup'>Sign Up</Link>
-    </div>
-  );
-
   return (
     <div className='nav'>
-      <Link to='/'><img className='logo' src={}/></Link>
+      <div className='nav-container'>
+        <Link to='/' className='logo'>
+          <img className='logo-img' src='/assets/logo.png' />
+        </Link>
 
-      <SearchForm />
+        <SearchForm />
 
-      {sessionTabs}
+        {
+          props.currentUser ? (
+            <div className='session'>
+              <button
+                className='logout'
+                onClick={props.logout}>
+                Log Out
+              </button>
+            </div>
+          ) : (
+            <div className='session'>
+              <Link className='login' to='/login'>Log In</Link>
+              <Link className='signup' to='/signup'>Sign Up</Link>
+            </div>
+          )
+        }
+      </div>
     </div>
   );
 };

@@ -30,6 +30,7 @@ export default class SearchForm extends React.Component {
         <input
           type='text'
           placeholder='Search...'
+          className='search-input'
           onChange={this.handleChange}
           onFocus={this.toggleSearchIcon}
           onBlur={this.toggleSearchIcon}
