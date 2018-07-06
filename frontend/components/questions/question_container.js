@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
-import { fetchQuestion } from '../../actions/question_actions';
 import { sortAnswersByVotes } from '../../reducers/selectors';
+import {
+  fetchQuestion,
+  deleteQuestion
+} from '../../actions/question_actions';
 import Question from './question';
 
 const msp = (state, ownProps) => {
@@ -22,7 +25,8 @@ const msp = (state, ownProps) => {
 
 const mdp = (dispatch) => {
   return ({
-    fetchQuestion: (questionId) => dispatch(fetchQuestion(questionId))
+    fetchQuestion: (questionId) => dispatch(fetchQuestion(questionId)),
+    deleteQuestion: (questionId) => dispatch(deleteQuestion(questionId))
   });
 };
 

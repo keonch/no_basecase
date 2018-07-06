@@ -14,7 +14,7 @@ export default class AnswerForm extends React.Component {
   }
 
   handleChange(value) {
-    this.setState({body: value})
+    this.setState({ body: value })
   }
 
   handleSubmit(e) {
@@ -23,7 +23,7 @@ export default class AnswerForm extends React.Component {
       this.props.postAnswer(
         this.props.questionId,
         {body: this.state.body}
-      ).then(() => this.setState({body: ''}));
+      ).then(() => this.setState({ body: '' }));
     } else {
       this.setState({
         sessionError: 'To answer a question, you must either sign up for an account or log in.'

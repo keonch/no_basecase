@@ -1,6 +1,15 @@
 class Api::AnswersController < ApplicationController
   before_action :require_logged_in!, only: [:create, :upvote, :downvote]
 
+  def show
+    @answer = Answer.find(params[:id])
+    if @answer
+      render :show
+    else
+      render json: ["Not Found"], status: 404
+    end
+  end
+
   def create
     @answer = Answer.new(answer_params)
     @answer.author_id = current_user.id

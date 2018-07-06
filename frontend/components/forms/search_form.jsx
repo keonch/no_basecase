@@ -13,15 +13,11 @@ export default class SearchForm extends React.Component {
   }
 
   toggleSearchIcon() {
-    this.setState({
-      searchIcon: !this.state.searchIcon
-    });
+    this.setState({ searchIcon: !this.state.searchIcon });
   }
 
   handleChange(e) {
-    this.setState({
-      searchText: e.currentTarget.value
-    });
+    this.setState({ searchText: e.currentTarget.value });
   }
 
   render() {

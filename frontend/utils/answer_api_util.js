@@ -1,3 +1,12 @@
+export const fetchAnswer = (questionId, answerId) => {
+  debugger
+  return (
+    $.ajax({
+      url: `api/questions/${questionId}/answers/${answerId}`
+    })
+  );
+};
+
 export const postAnswer = (questionId, answer) => {
   return (
     $.ajax({

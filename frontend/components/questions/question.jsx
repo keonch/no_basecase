@@ -3,22 +3,25 @@ import Quill from 'react-quill';
 import Author from '../users/author_container';
 import Answer from '../answers/answer_container';
 import AnswerForm from '../forms/answer_form_container';
+import { Redirect } from 'react-router-dom';
 
 export default class Question extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       loaded: false,
-      errors: []
+      errors: [],
+      redirect: false
     };
 
     this.renderAnswersIndex = this.renderAnswersIndex.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
     window.scrollTo(0, 0);
     this.props.fetchQuestion(this.props.questionId)
-    .then(() => (this.setState({loaded: true})));
+    .then(() => this.setState({ loaded: true }));
   }
 
   renderAnswersIndex() {
@@ -32,8 +35,14 @@ export default class Question extends React.Component {
     });
   }
 
+  handleDelete() {
+    this.props.deleteQuestion(this.props.questionId)
+    .then(() => this.setState({ redirect: true }));
+  }
+
   render() {
     if (!this.state.loaded) return <div>Loading</div>;
+    if (this.state.redirect) return <Redirect to='/'/>;
 
     return (
       <div>
@@ -51,7 +60,7 @@ export default class Question extends React.Component {
             this.props.isAuthor &&
             <div>
               <div>Edit</div>
-              <div>Delete</div>
+              <div onClick={this.handleDelete}>Delete</div>
             </div>
           }
           <Author

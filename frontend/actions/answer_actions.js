@@ -26,6 +26,20 @@ const receiveErrors = (errors) => {
   });
 };
 
+export const fetchAnswer = (questionId, answerId) => {
+  return (
+    (dispatch) => {
+      return(
+        APIUtils.fetchAnswer(questionId, answerId)
+        .then(
+          (payload) => (dispatch(receiveAnswer(payload))),
+          (errors) => (dispatch(receiveErrors(errors.responseJSON)))
+        )
+      );
+    }
+  );
+};
+
 export const postAnswer = (questionId, answer) => {
   return (
     (dispatch) => {

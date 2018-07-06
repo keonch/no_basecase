@@ -15,7 +15,7 @@ export default class QuestionForm extends React.Component {
   }
 
   handleTitleChange(e) {
-    this.setState({title: e.currentTarget.value});
+    this.setState({ title: e.currentTarget.value });
   }
 
   handleBodyChange(value) {
