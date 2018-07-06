@@ -46,7 +46,6 @@ export default class Question extends React.Component {
           <Quill
             readOnly
             modules={{toolbar: null}}
-
             value={this.props.question.body || ''}/>
           {
             this.props.isAuthor &&

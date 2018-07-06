@@ -16,3 +16,13 @@ export const deleteAnswer = (questionId, answerId) => {
     })
   );
 };
+
+export const updateAnswer = (questionId, answer) => {
+  return (
+    $.ajax({
+      method: 'PUT',
+      url: `api/questions/${questionId}/answers/${answer.id}`,
+      data: {answer}
+    })
+  );
+};

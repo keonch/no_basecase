@@ -25,13 +25,13 @@ class Api::AnswersController < ApplicationController
   end
 
   def update
-    @question = Question.find(params[:id])
-    if @question
-      if @question.author_id == current_user.id
-        if @question.update(question_params)
+    @answer = Answer.find(params[:id])
+    if @answer
+      if @answer.author_id == current_user.id
+        if @answer.update(answer_params)
           render :show
         else
-          render json: @question.errors.full_messages, status: 422
+          render json: @answer.errors.full_messages, status: 422
         end
       else
         render json: ['Forbidden'], status: 403

@@ -53,3 +53,17 @@ export const deleteAnswer = (questionId, answerId) => {
     }
   );
 };
+
+export const updateAnswer = (questionId, answer) => {
+  return (
+    (dispatch) => {
+      return(
+        APIUtils.updateAnswer(questionId, answer)
+        .then(
+          (payload) => (dispatch(receiveAnswer(payload))),
+          (errors) => (dispatch(receiveErrors(errors.responseJSON)))
+        )
+      );
+    }
+  );
+};
