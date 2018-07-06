@@ -1,6 +1,7 @@
 import * as APIUtils from '../utils/answer_api_util';
 
 export const RECEIVE_ANSWER = 'RECEIVE_ANSWER';
+export const REMOVE_ANSWER = 'REMOVE_ANSWER';
 export const RECEIVE_ANSWER_ERRORS = 'RECEIVE_ANSWER_ERRORS';
 
 const receiveAnswer = (payload) => {
@@ -8,6 +9,13 @@ const receiveAnswer = (payload) => {
     type: RECEIVE_ANSWER,
     answer: payload.answer,
     user: payload.user
+  });
+};
+
+const removeAnswer = (answerId) => {
+  return ({
+    type: REMOVE_ANSWER,
+    answerId
   });
 };
 
@@ -25,6 +33,20 @@ export const postAnswer = (questionId, answer) => {
         APIUtils.postAnswer(questionId, answer)
         .then(
           (payload) => (dispatch(receiveAnswer(payload))),
+          (errors) => (dispatch(receiveErrors(errors.responseJSON)))
+        )
+      );
+    }
+  );
+};
+
+export const deleteAnswer = (questionId, answerId) => {
+  return (
+    (dispatch) => {
+      return(
+        APIUtils.deleteAnswer(questionId, answerId)
+        .then(
+          (answerId) => (dispatch(removeAnswer(answerId))),
           (errors) => (dispatch(receiveErrors(errors.responseJSON)))
         )
       );

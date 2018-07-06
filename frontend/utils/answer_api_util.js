@@ -7,3 +7,12 @@ export const postAnswer = (questionId, answer) => {
     })
   );
 };
+
+export const deleteAnswer = (questionId, answerId) => {
+  return (
+    $.ajax({
+      method: 'DELETE',
+      url: `api/questions/${questionId}/answers/${answerId}`
+    })
+  );
+};

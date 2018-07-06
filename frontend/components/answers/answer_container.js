@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { deleteAnswer } from '../../actions/answer_actions';
 import Answer from './answer';
 
 const msp = (state, ownProps) => {
@@ -8,6 +9,7 @@ const msp = (state, ownProps) => {
   ) : (
     false
   );
+
   return ({
     answer,
     isAuthor
@@ -16,7 +18,7 @@ const msp = (state, ownProps) => {
 
 const mdp = (dispatch) => {
   return ({
-
+    deleteAnswer: (questionId, answerId) => dispatch(deleteAnswer(questionId, answerId))
   });
 };
 

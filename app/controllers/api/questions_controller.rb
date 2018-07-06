@@ -18,9 +18,21 @@ class Api::QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.author_id = current_user.id
     if @question.save
-      render :show
+      render json: @question.id
     else
       render json: @question.errors.full_messages, status: 422
+    end
+  end
+
+  def destroy
+    question = Question.find(params[:id])
+    if question && question.author_id == current_user.id
+      question.destroy
+      render json: question.id
+    elsif question && question.author_id != current_user.id
+      render json: ['Forbidden'], status: 403
+    else
+      render json: ['Not Found'], status: 404
     end
   end
 
@@ -36,18 +48,6 @@ class Api::QuestionsController < ApplicationController
       else
         render json: ['Forbidden'], status: 403
       end
-    else
-      render json: ['Not Found'], status: 404
-    end
-  end
-
-  def destroy
-    question = Question.find(params[:id])
-    if question && question.author_id == current_user.id
-      question.destroy
-      render json: question.id
-    elsif question && question.author_id != current_user.id
-      render json: ['Forbidden'], status: 403
     else
       render json: ['Not Found'], status: 404
     end

@@ -26,6 +26,7 @@ export default class Question extends React.Component {
       return (
         <Answer
           key={answerId}
+          questionId={this.props.questionId}
           answerId={answerId}/>
       );
     });
@@ -45,6 +46,7 @@ export default class Question extends React.Component {
           <Quill
             readOnly
             modules={{toolbar: null}}
+
             value={this.props.question.body || ''}/>
           {
             this.props.isAuthor &&
@@ -68,7 +70,6 @@ export default class Question extends React.Component {
         {this.renderAnswersIndex()}
 
         <AnswerForm questionId={this.props.questionId}/>
-
       </div>
     );
   }

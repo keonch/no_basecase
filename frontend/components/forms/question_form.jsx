@@ -25,9 +25,9 @@ export default class QuestionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.postQuestion(this.state)
-    .then(({ question }) => {
+    .then((questionId) => {
       return (
-        this.props.history.push(`/questions/${question.id}`)
+        this.props.history.push(`/questions/${questionId}`)
       );
     });
   }

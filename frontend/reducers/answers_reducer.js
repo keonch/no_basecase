@@ -3,7 +3,8 @@ import {
   RECEIVE_QUESTION
 } from '../actions/question_actions';
 import {
-  RECEIVE_ANSWER
+  RECEIVE_ANSWER,
+  REMOVE_ANSWER
 } from '../actions/answer_actions';
 
 const answersReducer = (oldState = {}, action) => {
@@ -13,6 +14,10 @@ const answersReducer = (oldState = {}, action) => {
       return merge({}, action.answers);
     case RECEIVE_ANSWER:
       return merge({}, oldState, action.answer);
+    case REMOVE_ANSWER:
+      const newState = merge({}, oldState);
+      delete newState[action.answerId];
+      return newState;
     default:
       return oldState;
   }

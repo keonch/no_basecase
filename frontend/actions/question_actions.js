@@ -25,7 +25,7 @@ export const postQuestion = (question) => {
       return(
         APIUtils.postQuestion(question)
         .then(
-          (payload) => (dispatch(receiveQuestion(payload))),
+          (questionId) => (questionId),
           (errors) => (dispatch(receiveErrors(errors.responseJSON)))
         )
       );

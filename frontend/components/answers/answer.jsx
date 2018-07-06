@@ -9,8 +9,8 @@ const Answer = (props) => {
       {
         props.isAuthor &&
         <div>
-          <div>Edit</div>
-          <div>Delete</div>
+          <button>Edit</button>
+          <button onClick={() => props.deleteAnswer(props.questionId, props.answer.id)}>Delete</button>
         </div>
       }
 
