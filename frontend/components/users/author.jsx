@@ -2,15 +2,14 @@ import React from 'react';
 import Moment from 'react-moment';
 
 const Author = (props) => {
-  const highlight = props.type === 'question' ? 'highlight' : '';
   return (
-    <div className={`author-item ${highlight}`}>
+    <div className={`author-item ${props.highlight}`}>
       <div>
         {props.author.name}
       </div>
+
       <div>
-        asked
-        <Moment fromNow>{this.props.createdAt}</Moment>
+        {props.verb} <Moment fromNow>{props.createdAt}</Moment>
       </div>
     </div>
   );

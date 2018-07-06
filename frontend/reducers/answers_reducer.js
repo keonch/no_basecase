@@ -6,16 +6,16 @@ import {
   RECEIVE_ANSWER
 } from '../actions/answer_actions';
 
-const usersReducer = (oldState = {}, action) => {
+const answersReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_QUESTION:
-      return merge({}, oldState, action.users);
+      return merge({}, action.answers);
     case RECEIVE_ANSWER:
-      return merge({}, oldState, action.user);
+      return merge({}, oldState, action.answer);
     default:
       return oldState;
   }
 };
 
-export default usersReducer;
+export default answersReducer;

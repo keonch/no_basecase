@@ -7,7 +7,7 @@ const questionsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_QUESTION:
-      return merge({}, {[action.question.id]: action.question});
+      return merge({}, action.question);
     default:
       return oldState;
   }

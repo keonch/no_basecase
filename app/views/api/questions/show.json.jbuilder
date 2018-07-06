@@ -1,22 +1,23 @@
 json.question do
-  json.partial! 'api/questions/question', question: @question
+  json.set! @question.id do
+    json.partial! 'api/questions/question', question: @question
+  end
 end
 
-@question.answers.each do |answer|
-  json.answers do
+json.answers do
+  @question.answers.each do |answer|
       json.set! answer.id do
-        json.extract! answer, :id, :body, :author_id, :created_at
+        json.extract! answer, :id, :body
+        json.authorId answer.author_id
+        json.createdAt answer.created_at
       end
   end
 end
 
 json.users do
-  json.set! @question.author.id do
-    json.partial! 'api/users/user', user: @question.author
-  end
   @question.answerers.each do |answerer|
     json.set! answerer.id do
-      json.partial! 'api/users/user', user: answerer
+      json.extract! answerer, :id, :name
     end
   end
 end

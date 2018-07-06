@@ -7,6 +7,7 @@ const receiveQuestion = (payload) => {
   return ({
     type: RECEIVE_QUESTION,
     question: payload.question,
+    answers: payload.answers,
     users: payload.users
   });
 };
