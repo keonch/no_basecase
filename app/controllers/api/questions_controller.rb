@@ -7,6 +7,11 @@ class Api::QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    if @question
+      render :show
+    else
+      render json: ['Not Found'], status: 404
+    end
   end
 
   def create
@@ -29,10 +34,10 @@ class Api::QuestionsController < ApplicationController
           render json: @question.errors.full_messages, status: 422
         end
       else
-        render json: ["Forbidden"], status: 403
+        render json: ['Forbidden'], status: 403
       end
     else
-      render json: ["Not Found"], status: 404
+      render json: ['Not Found'], status: 404
     end
   end
 
@@ -42,9 +47,9 @@ class Api::QuestionsController < ApplicationController
       question.destroy
       render json: question.id
     elsif question && question.author_id != current_user.id
-      render json: ["Forbidden"], status: 403
+      render json: ['Forbidden'], status: 403
     else
-      render json: ["Not Found"], status: 404
+      render json: ['Not Found'], status: 404
     end
   end
 

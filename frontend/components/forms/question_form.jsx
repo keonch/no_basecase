@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactQuill from 'react-quill';
+import Quill from 'react-quill';
 
 export default class QuestionForm extends React.Component {
   constructor(props) {
@@ -43,7 +43,7 @@ export default class QuestionForm extends React.Component {
           value={this.state.title}
           onChange={this.handleTitleChange}/>
 
-        <ReactQuill
+        <Quill
           value={this.state.body}
           onChange={this.handleBodyChange}/>
 

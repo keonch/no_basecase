@@ -9,3 +9,14 @@ end
       end
   end
 end
+
+json.users do
+  json.set! @question.author.id do
+    json.partial! 'api/users/user', user: @question.author
+  end
+  @question.answerers.each do |answerer|
+    json.set! answerer.id do
+      json.partial! 'api/users/user', user: answerer
+    end
+  end
+end

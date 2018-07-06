@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SearchForm from './search_form_container';
+import SearchForm from '../forms/search_form_container';
 
 const Nav = (props) => {
   return (

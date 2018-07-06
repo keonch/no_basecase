@@ -3,10 +3,11 @@ import * as APIUtils from '../utils/question_api_util';
 export const RECEIVE_QUESTION = 'RECEIVE_QUESTION';
 export const RECEIVE_QUESTION_ERRORS = 'RECEIVE_QUESTION_ERRORS';
 
-const receiveQuestion = ({ question }) => {
+const receiveQuestion = (payload) => {
   return ({
     type: RECEIVE_QUESTION,
-    question
+    question: payload.question,
+    users: payload.users
   });
 };
 
@@ -22,6 +23,20 @@ export const postQuestion = (question) => {
     (dispatch) => {
       return(
         APIUtils.postQuestion(question)
+        .then(
+          (payload) => (dispatch(receiveQuestion(payload))),
+          (errors) => (dispatch(receiveErrors(errors.responseJSON)))
+        )
+      );
+    }
+  );
+};
+
+export const fetchQuestion = (questionId) => {
+  return (
+    (dispatch) => {
+      return(
+        APIUtils.fetchQuestion(questionId)
         .then(
           (payload) => (dispatch(receiveQuestion(payload))),
           (errors) => (dispatch(receiveErrors(errors.responseJSON)))

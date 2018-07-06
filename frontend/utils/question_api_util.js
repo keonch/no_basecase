@@ -7,3 +7,11 @@ export const postQuestion = (question) => {
     })
   );
 };
+
+export const fetchQuestion = (questionId) => {
+  return (
+    $.ajax({
+      url: `api/questions/${questionId}`
+    })
+  );
+};
