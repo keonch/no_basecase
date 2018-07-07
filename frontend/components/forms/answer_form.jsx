@@ -1,5 +1,6 @@
 import React from 'react';
 import Quill from 'react-quill';
+import { Link } from 'react-router-dom';
 
 export default class AnswerForm extends React.Component {
   constructor(props) {
@@ -41,9 +42,9 @@ export default class AnswerForm extends React.Component {
         {
           !this.props.currentUser &&
           <div>
-            <a href='#/signup'>Sign up </a>
+            <Link to='/signup'>Sign up </Link>
             or
-            <a href='#/login'> log in</a>
+            <Link to='/login'> log in</Link>
           </div>
         }
         <div>{this.state.sessionError}</div>

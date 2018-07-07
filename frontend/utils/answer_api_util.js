@@ -25,11 +25,11 @@ export const deleteAnswer = (questionId, answerId) => {
   );
 };
 
-export const updateAnswer = (questionId, answer) => {
+export const updateAnswer = (questionId, answerId, answer) => {
   return (
     $.ajax({
       method: 'PUT',
-      url: `api/questions/${questionId}/answers/${answer.id}`,
+      url: `api/questions/${questionId}/answers/${answerId}`,
       data: {answer}
     })
   );

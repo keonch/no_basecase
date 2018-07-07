@@ -1,19 +1,18 @@
 import { connect } from 'react-redux';
-import {
-  updateAnswer,
-  fetchAnswer
-} from '../../actions/answer_actions';
-
+import { updateAnswer, fetchAnswer } from '../../actions/answer_actions';
 import AnswerEditForm from './answer_edit_form';
 
 const msp = (state, ownProps) => {
-  const questionId = ownProps.match.params.questionId;
-  const answerId = ownProps.match.params.answerId;
-  const answer = state.entities.answers[answerId] || {};
-  const currentUser = state.session.currentUser;
-  const loaded = !currentUser || !!state.entities.answers[answerId];
+  const questionId = ownProps.match.params.questionId,
+        question = state.entities.questions[questionId] || {},
+        answerId = ownProps.match.params.answerId,
+        answer = state.entities.answers[answerId] || {},
+        currentUser = state.session.currentUser,
+        loaded = !!state.entities.answers[answerId];
+
   return ({
     questionId,
+    question,
     answerId,
     answer,
     currentUser,
@@ -23,8 +22,9 @@ const msp = (state, ownProps) => {
 
 const mdp = (dispatch) => {
   return ({
-    updateAnswer: (questionId, answer) => dispatch(updateAnswer(
+    updateAnswer: (questionId, answerId, answer) => dispatch(updateAnswer(
       questionId,
+      answerId,
       answer
     )),
     fetchAnswer: (questionId, answerId) => dispatch(fetchAnswer(

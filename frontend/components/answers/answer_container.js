@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { deleteAnswer } from '../../actions/answer_actions';
-
 import Answer from './answer';
 
 const msp = (state, ownProps) => {

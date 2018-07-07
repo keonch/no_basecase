@@ -68,11 +68,11 @@ export const deleteAnswer = (questionId, answerId) => {
   );
 };
 
-export const updateAnswer = (questionId, answer) => {
+export const updateAnswer = (questionId, answerId, answer) => {
   return (
     (dispatch) => {
       return(
-        APIUtils.updateAnswer(questionId, answer)
+        APIUtils.updateAnswer(questionId, answerId, answer)
         .then(
           (payload) => (dispatch(receiveAnswer(payload))),
           (errors) => (dispatch(receiveErrors(errors.responseJSON)))

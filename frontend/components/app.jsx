@@ -22,7 +22,7 @@ const App = () => (
       <Route exact path='/questions' component={QuestionsIndex}/>
       <Switch>
         <ProtectedRoute path="/questions/ask" component={QuestionForm}/>
-        <Route path='/questions/:questionId/edit/:answerId' component={AnswerEditForm}/>
+        <ProtectedRoute path='/questions/:questionId/edit/:answerId' component={AnswerEditForm}/>
         <Route path='/questions/:questionId' component={Question}/>
       </Switch>
       <AuthRoute path='/login' component={Login}/>

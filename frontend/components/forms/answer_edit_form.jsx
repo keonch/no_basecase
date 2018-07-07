@@ -1,23 +1,22 @@
 import React from 'react';
 import Quill from 'react-quill';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 export default class AnswerEditForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       body: props.answer.body,
-      loaded: props.loaded
+      loaded: props.loaded,
+      redirect: false
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleDiscard = this.handleDiscard.bind(this);
-    this.checkUser = this.checkUser.bind(this);
   }
 
   componentDidMount() {
-    if (!!this.props.currentUser && !this.state.loaded) {
+    if (!this.state.loaded) {
       this.props.fetchAnswer(
         this.props.questionId,
         this.props.answerId
@@ -26,6 +25,14 @@ export default class AnswerEditForm extends React.Component {
         loaded: true
       }));
     }
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    if (props.answer.authorId !== props.currentUser.id) {
+      return { redirect: true };
+    }
+
+    return null;
   }
 
   handleChange(value) {
@@ -38,31 +45,27 @@ export default class AnswerEditForm extends React.Component {
       this.props.questionId,
       this.props.answerId,
       { body: this.state.body }
-    ).then(() => this.props.history.push(
-      `questions/${this.params.questionId}`
-    ));
-  }
-
-  handleDiscard() {
-    console.log('discarding');
-    debugger
-    this.props.history.replace(`questions/${this.props.questionId}`);
-  }
-
-  checkUser() {
-    console.log('checked user');
-    if (this.props.currentUser.id !== this.props.answer.authorId) {
-    }
+    ).then(() => this.setState({ redirect: true }));
   }
 
   render() {
-    if (!this.state.loaded) return <div>Loading</div>;
+    if (!this.state.loaded) {
+      return <div>Loading</div>;
+    } else if (this.state.redirect) {
+      return <Redirect to={`/questions/${this.props.questionId}`}/>;
+    }
 
     return (
       <form onSubmit={this.handleSubmit}>
-        <Quill value={this.state.body} onChange={this.handleChange}/>
+        <Quill
+          readOnly
+          modules={{ toolbar: null }}
+          value={this.props.question.body}/>
+        <Quill
+          value={this.state.body}
+          onChange={this.handleChange}/>
         <input type='submit' value='Edit Answer'/>
-        <div onClick={this.handleDiscard}>Discard</div>
+        <Link to={`/questions/${this.props.questionId}`}>Discard</Link>
       </form>
     );
   }

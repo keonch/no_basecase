@@ -3,7 +3,7 @@ import Quill from 'react-quill';
 import Author from '../users/author_container';
 import AnswersIndex from '../answers/answers_index_container';
 import AnswerForm from '../forms/answer_form_container';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 export default class Question extends React.Component {
   constructor(props) {
@@ -40,7 +40,7 @@ export default class Question extends React.Component {
       <div>
         <div>
           <div>{this.props.question.title}</div>
-          <a href='#/questions/ask'>Ask Question</a>
+          <Link to='/questions/ask'>Ask Question</Link>
         </div>
 
         <div>

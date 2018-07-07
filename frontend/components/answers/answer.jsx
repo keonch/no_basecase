@@ -25,7 +25,7 @@ export default class Answer extends React.Component {
         {
           this.props.isAuthor &&
           <div>
-            <button onClick={this.handleEdit}>Edit</button>
+            <Link to={`${this.props.questionId}/edit/${this.props.answerId}`}>Edit</Link>
             <button onClick={this.handleDelete}>Delete</button>
           </div>
         }
