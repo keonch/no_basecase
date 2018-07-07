@@ -1,7 +1,7 @@
 import React from 'react';
 import Quill from 'react-quill';
 import Author from '../users/author_container';
-import Answer from '../answers/answer_container';
+import AnswersIndex from '../answers/answers_index_container';
 import AnswerForm from '../forms/answer_form_container';
 import { Redirect } from 'react-router-dom';
 
@@ -10,11 +10,10 @@ export default class Question extends React.Component {
     super(props);
     this.state = {
       loaded: false,
-      errors: [],
-      redirect: false
+      redirect: false,
+      sortType: 'votes'
     };
 
-    this.renderAnswersIndex = this.renderAnswersIndex.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
@@ -24,20 +23,13 @@ export default class Question extends React.Component {
     .then(() => this.setState({ loaded: true }));
   }
 
-  renderAnswersIndex() {
-    return this.props.sortedAnswerIds.map((answerId) => {
-      return (
-        <Answer
-          key={answerId}
-          questionId={this.props.questionId}
-          answerId={answerId}/>
-      );
-    });
-  }
-
   handleDelete() {
     this.props.deleteQuestion(this.props.questionId)
     .then(() => this.setState({ redirect: true }));
+  }
+
+  handleSortType(type) {
+    this.setState({ sortType: type });
   }
 
   render() {
@@ -60,7 +52,7 @@ export default class Question extends React.Component {
             this.props.isAuthor &&
             <div>
               <div>Edit</div>
-              <div onClick={this.handleDelete}>Delete</div>
+              <button onClick={this.handleDelete}>Delete</button>
             </div>
           }
           <Author
@@ -71,11 +63,19 @@ export default class Question extends React.Component {
         </div>
 
         {
-          this.props.sortedAnswerIds.length > 0 &&
-          <div>{this.props.sortedAnswerIds.length} Answers</div>
+          this.props.answerCount > 0 &&
+          <div>
+            <div>{this.props.answerCount} Answers</div>
+            <div>
+              <button onClick={() => this.handleSortType('newest')}>Newest</button>
+              <button onClick={() => this.handleSortType('oldest')}>Oldest</button>
+              <button onClick={() => this.handleSortType('votes')}>Votes</button>
+            </div>
+            <AnswersIndex
+              sortType={this.state.sortType}
+              questionId={this.props.questionId}/>
+          </div>
         }
-
-        {this.renderAnswersIndex()}
 
         <AnswerForm questionId={this.props.questionId}/>
       </div>

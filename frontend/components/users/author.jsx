@@ -5,11 +5,11 @@ const Author = (props) => {
   return (
     <div className={`author-item ${props.highlight}`}>
       <div>
-        {props.author.name}
+        {props.verb} <Moment fromNow>{props.createdAt}</Moment>
       </div>
 
       <div>
-        {props.verb} <Moment fromNow>{props.createdAt}</Moment>
+        {props.author.name}
       </div>
     </div>
   );

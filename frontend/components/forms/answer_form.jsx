@@ -33,8 +33,7 @@ export default class AnswerForm extends React.Component {
 
   render() {
     return (
-      <form
-        onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <div>Your Answer</div>
         <Quill
           value={this.state.body}

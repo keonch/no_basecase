@@ -1,24 +1,23 @@
 import { connect } from 'react-redux';
-import { sortAnswersByVotes } from '../../reducers/selectors';
 import {
   fetchQuestion,
   deleteQuestion
 } from '../../actions/question_actions';
+
 import Question from './question';
 
 const msp = (state, ownProps) => {
   const questionId = ownProps.match.params.questionId;
   const question = state.entities.questions[questionId] || {};
-  const isAuthor = state.session.currentUser ? (
-    state.session.currentUser.id === question.authorId
-  ) : (
-    false
-  );
+  const answerCount = Object.keys(state.entities.answers).length;
+  const isAuthor =
+    !!state.session.currentUser &&
+    state.session.currentUser.id === question.authorId;
 
   return ({
     questionId,
     question,
-    sortedAnswerIds: sortAnswersByVotes(state.entities.answers),
+    answerCount,
     isAuthor
   });
 };

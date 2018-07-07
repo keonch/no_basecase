@@ -17,23 +17,23 @@ export default class Answer extends React.Component {
 
   render() {
     return (
-      <div>
+      <li>
         <Quill
           readOnly
-          modules={{toolbar: null}}
+          modules={{ toolbar: null }}
           value={this.props.answer.body}/>
         {
           this.props.isAuthor &&
           <div>
-            <Link to={`${this.props.questionId}/edit/${this.props.answerId}`}>Edit</Link>
-            <div onClick={this.handleDelete}>Delete</div>
+            <button onClick={this.handleEdit}>Edit</button>
+            <button onClick={this.handleDelete}>Delete</button>
           </div>
         }
         <Author
           verb='answered'
           authorId={this.props.answer.authorId}
           createdAt={this.props.answer.createdAt}/>
-      </div>
+      </li>
     );
   }
 }
