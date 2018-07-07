@@ -74,7 +74,7 @@ export const updateAnswer = (questionId, answerId, answer) => {
       return(
         APIUtils.updateAnswer(questionId, answerId, answer)
         .then(
-          (payload) => (dispatch(receiveAnswer(payload))),
+          null,
           (errors) => (dispatch(receiveErrors(errors.responseJSON)))
         )
       );

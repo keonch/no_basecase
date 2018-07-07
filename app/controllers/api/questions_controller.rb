@@ -41,7 +41,7 @@ class Api::QuestionsController < ApplicationController
     if @question
       if @question.author_id == current_user.id
         if @question.update(question_params)
-          render :show
+          render json: @question.id
         else
           render json: @question.errors.full_messages, status: 422
         end

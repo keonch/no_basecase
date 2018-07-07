@@ -38,7 +38,7 @@ class Api::AnswersController < ApplicationController
     if @answer
       if @answer.author_id == current_user.id
         if @answer.update(answer_params)
-          render :show
+          render json: @answer.id
         else
           render json: @answer.errors.full_messages, status: 422
         end

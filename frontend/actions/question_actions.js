@@ -33,7 +33,7 @@ export const postQuestion = (question) => {
       return(
         APIUtils.postQuestion(question)
         .then(
-          (questionId) => (questionId),
+          null,
           (errors) => (dispatch(receiveErrors(errors.responseJSON)))
         )
       );
@@ -62,6 +62,20 @@ export const deleteQuestion = (questionId) => {
         APIUtils.deleteQuestion(questionId)
         .then(
           (questionId) => (dispatch(removeQuestion(questionId))),
+          (errors) => (dispatch(receiveErrors(errors.responseJSON)))
+        )
+      );
+    }
+  );
+};
+
+export const updateQuestion = (questionId, question) => {
+  return (
+    (dispatch) => {
+      return(
+        APIUtils.updateQuestion(questionId, question)
+        .then(
+          null,
           (errors) => (dispatch(receiveErrors(errors.responseJSON)))
         )
       );

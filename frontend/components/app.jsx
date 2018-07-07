@@ -9,6 +9,7 @@ import Signup from './session/signup_container';
 import Footer from './footer/footer';
 import Question from './questions/question_container';
 import QuestionForm from './forms/question_form_container';
+import QuestionEditForm from './forms/question_edit_form_container';
 import AnswerEditForm from './forms/answer_edit_form_container';
 
 const App = () => (
@@ -23,6 +24,7 @@ const App = () => (
       <Switch>
         <ProtectedRoute path="/questions/ask" component={QuestionForm}/>
         <ProtectedRoute path='/questions/:questionId/edit/:answerId' component={AnswerEditForm}/>
+        <ProtectedRoute path='/questions/:questionId/edit' component={QuestionEditForm}/>
         <Route path='/questions/:questionId' component={Question}/>
       </Switch>
       <AuthRoute path='/login' component={Login}/>

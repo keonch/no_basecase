@@ -24,3 +24,13 @@ export const deleteQuestion = (questionId) => {
     })
   );
 };
+
+export const updateQuestion = (questionId, question) => {
+  return (
+    $.ajax({
+      method: 'PUT',
+      url: `api/questions/${questionId}`,
+      data: {question}
+    })
+  );
+};

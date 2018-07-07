@@ -15,6 +15,7 @@ export default class Question extends React.Component {
     };
 
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
   componentDidMount() {
@@ -26,6 +27,10 @@ export default class Question extends React.Component {
   handleDelete() {
     this.props.deleteQuestion(this.props.questionId)
     .then(() => this.setState({ redirect: true }));
+  }
+
+  handleEdit() {
+
   }
 
   handleSortType(type) {
@@ -51,7 +56,9 @@ export default class Question extends React.Component {
           {
             this.props.isAuthor &&
             <div>
-              <div>Edit</div>
+              <Link to={`/questions/${this.props.questionId}/edit`}>
+                Edit
+              </Link>
               <button onClick={this.handleDelete}>Delete</button>
             </div>
           }
