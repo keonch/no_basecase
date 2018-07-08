@@ -1,6 +1,7 @@
 import React from 'react';
 import Quill from 'react-quill';
 import { Link } from 'react-router-dom';
+import { toolbarOptions } from '../../utils/quill_toolbar_options';
 
 export default class AnswerForm extends React.Component {
   constructor(props) {
@@ -38,6 +39,7 @@ export default class AnswerForm extends React.Component {
         <div>Your Answer</div>
         <Quill
           value={this.state.body}
+          modules={{ toolbar: toolbarOptions }}
           onChange={this.handleChange}/>
         {
           !this.props.currentUser &&

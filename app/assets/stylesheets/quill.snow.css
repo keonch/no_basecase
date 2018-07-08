@@ -666,7 +666,7 @@
 }
 .ql-snow .ql-picker.ql-expanded .ql-picker-label {
   color: #ccc;
-  /* z-index: 2; */
+  z-index: 2;
 }
 .ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-fill {
   fill: #ccc;
@@ -678,7 +678,7 @@
   display: block;
   margin-top: -1px;
   top: 100%;
-  /* z-index: 1; */
+  z-index: 1;
 }
 .ql-snow .ql-color-picker,
 .ql-snow .ql-icon-picker {

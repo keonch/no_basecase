@@ -1,6 +1,7 @@
 import React from 'react';
 import Quill from 'react-quill';
 import { Link, Redirect } from 'react-router-dom';
+import { toolbarOptions } from '../../utils/quill_toolbar_options';
 
 export default class AnswerEditForm extends React.Component {
   constructor(props) {
@@ -63,6 +64,7 @@ export default class AnswerEditForm extends React.Component {
           value={this.props.question.body}/>
         <Quill
           value={this.state.body}
+          modules={{ toolbar: toolbarOptions }}
           onChange={this.handleChange}/>
         <input type='submit' value='Edit Answer'/>
         <Link to={`/questions/${this.props.questionId}`}>Discard</Link>

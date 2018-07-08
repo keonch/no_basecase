@@ -1,10 +1,12 @@
 import React from 'react';
 import Quill from 'react-quill';
 import { Link, Redirect } from 'react-router-dom';
+import { toolbarOptions } from '../../utils/quill_toolbar_options';
 
 export default class AnswerEditForm extends React.Component {
   constructor(props) {
     super(props);
+    this.quillElement = React.createRef();
     this.state = {
       body: props.question.body,
       loaded: props.loaded,
@@ -38,9 +40,15 @@ export default class AnswerEditForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    // Tuncates the body to 200 characters for rendering snippets
+    let quillText = this.quillElement.current.getEditor().getText();
+        quillText = quillText.replace(/(\r\n\t|\n|\r\t)/gm, " ");
     this.props.updateQuestion(
       this.props.questionId,
-      { body: this.state.body }
+      {
+        body: this.state.body,
+        trunc_body: quillText.substring(0, 200)
+      }
     ).then(() => this.setState({ redirect: true }));
   }
 
@@ -56,6 +64,8 @@ export default class AnswerEditForm extends React.Component {
         <div>{this.props.question.title}</div>
         <Quill
           value={this.state.body}
+          modules={{ toolbar: toolbarOptions }}
+          ref={this.quillElement}
           onChange={this.handleChange}/>
         <input type='submit' value='Edit Question'/>
         <Link to={`/questions/${this.props.questionId}`}>Discard</Link>

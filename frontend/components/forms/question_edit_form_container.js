@@ -1,12 +1,18 @@
 import { connect } from 'react-redux';
-import { updateQuestion, fetchQuestion } from '../../actions/question_actions';
+import {
+  updateQuestion,
+  fetchQuestion
+} from '../../actions/question_actions';
+
 import QuestionEditForm from './question_edit_form';
 
 const msp = (state, ownProps) => {
   const questionId = ownProps.match.params.questionId,
         question = state.entities.questions[questionId] || {},
         currentUser = state.session.currentUser,
-        loaded = !!state.entities.questions[questionId];
+        loaded =
+          !!state.entities.questions[questionId] &&
+          !!state.entities.questions[questionId].body;
 
   return ({
     questionId,

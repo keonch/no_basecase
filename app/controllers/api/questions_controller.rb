@@ -1,4 +1,5 @@
 class Api::QuestionsController < ApplicationController
+  include ActionView::Helpers::TextHelper
   before_action :require_logged_in!, only: [:create, :update, :destroy]
 
   def index
@@ -55,7 +56,7 @@ class Api::QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:title, :body)
+    params.require(:question).permit(:title, :body, :trunc_body)
   end
 
 end
