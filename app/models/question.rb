@@ -1,4 +1,7 @@
 class Question < ApplicationRecord
+
+  include Votable
+
   validates :title, :body, :author_id, presence: true
 
   belongs_to :author,

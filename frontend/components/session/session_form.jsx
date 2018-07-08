@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// TODO handleChange - className
+
 export default class SessionForm extends React.Component {
   constructor(props) {
     super(props);

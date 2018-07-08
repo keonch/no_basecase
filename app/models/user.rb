@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   after_initialize :ensure_session_token
   validates :email, :session_token, :password_digest, presence: false
   validates :password, length: { minimum: 6, allow_nil: true }
@@ -12,6 +13,10 @@ class User < ApplicationRecord
   has_many :questions,
     class_name: :Question,
     foreign_key: :author_id
+
+  has_many :votes,
+    class_name: :Vote,
+    foreign_key: :user_id
 
   attr_reader :password
 

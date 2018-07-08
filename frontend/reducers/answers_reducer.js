@@ -1,7 +1,6 @@
 import merge from 'lodash/merge';
-import {
-  RECEIVE_QUESTION
-} from '../actions/question_actions';
+import { RECEIVE_QUESTION } from '../actions/question_actions';
+import { RECEIVE_ANSWER_VOTE } from '../actions/vote_actions';
 import {
   RECEIVE_ANSWER,
   REMOVE_ANSWER
@@ -18,6 +17,8 @@ const answersReducer = (oldState = {}, action) => {
       const newState = merge({}, oldState);
       delete newState[action.answerId];
       return newState;
+    case RECEIVE_ANSWER_VOTE:
+      return merge({}, oldState, action.answer);
     default:
       return oldState;
   }

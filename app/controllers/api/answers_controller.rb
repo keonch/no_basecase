@@ -1,12 +1,19 @@
 class Api::AnswersController < ApplicationController
-  before_action :require_logged_in!, only: [:create, :upvote, :downvote]
+
+  before_action :require_logged_in!, only: [
+    :create,
+    :upvote,
+    :downvote,
+    :upvote,
+    :downvote
+  ]
 
   def show
     @answer = Answer.find(params[:id])
     if @answer
       render :show
     else
-      render json: ["Not Found"], status: 404
+      render json: ['Not Found'], status: 404
     end
   end
 
@@ -27,9 +34,9 @@ class Api::AnswersController < ApplicationController
       answer.destroy
       render json: answer.id
     elsif answer && answer.author_id != current_user.id
-      render json: ["Forbidden"], status: 403
+      render json: ['Forbidden'], status: 403
     else
-      render json: ["Not Found"], status: 404
+      render json: ['Not Found'], status: 404
     end
   end
 
@@ -50,9 +57,30 @@ class Api::AnswersController < ApplicationController
     end
   end
 
+  def upvote
+    vote(1)
+  end
+
+  def downvote
+    vote(-1)
+  end
+
   private
   def answer_params
     params.require(:answer).permit(:body)
+  end
+
+  def vote(increment)
+    @answer = Answer.find(params[:id])
+    @vote = @answer.votes.find_or_initialize_by(user: current_user)
+    new_value = @vote.get_value(increment)
+    if !new_value
+      render json: ['Cannot vote again'], status: 403
+    elsif @vote.update(value: new_value)
+      render :vote
+    else
+      render @vote.errors.full_messages, status: 422
+    end
   end
 
 end

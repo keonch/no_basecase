@@ -3,6 +3,10 @@ import {
   fetchQuestion,
   deleteQuestion
 } from '../../actions/question_actions';
+import {
+  upvoteQuestion,
+  downvoteQuestion
+} from '../../actions/vote_actions';
 
 import Question from './question';
 
@@ -25,7 +29,9 @@ const msp = (state, ownProps) => {
 const mdp = (dispatch) => {
   return ({
     fetchQuestion: (questionId) => dispatch(fetchQuestion(questionId)),
-    deleteQuestion: (questionId) => dispatch(deleteQuestion(questionId))
+    deleteQuestion: (questionId) => dispatch(deleteQuestion(questionId)),
+    upvoteQuestion: (questionId) => dispatch(upvoteQuestion(questionId)),
+    downvoteQuestion: (questionId) => dispatch(downvoteQuestion(questionId))
   });
 };
 

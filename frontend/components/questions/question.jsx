@@ -15,7 +15,7 @@ export default class Question extends React.Component {
     };
 
     this.handleDelete = this.handleDelete.bind(this);
-    this.handleEdit = this.handleEdit.bind(this);
+    this.handleVote = this.handleVote.bind(this);
   }
 
   componentDidMount() {
@@ -29,12 +29,16 @@ export default class Question extends React.Component {
     .then(() => this.setState({ redirect: true }));
   }
 
-  handleEdit() {
-
-  }
-
   handleSortType(type) {
     this.setState({ sortType: type });
+  }
+
+  handleVote(direction) {
+    if (direction === 'up') {
+      this.props.upvoteQuestion(this.props.questionId);
+    } else {
+      this.props.downvoteQuestion(this.props.questionId);
+    }
   }
 
   render() {
@@ -49,6 +53,9 @@ export default class Question extends React.Component {
         </div>
 
         <div>
+          <i onClick={() => this.handleVote('up')} className='upvote fas fa-caret-up'/>
+          <div>{this.props.question.votes}</div>
+          <i onClick={() => this.handleVote('down')} className='downvote fas fa-caret-down'/>
           <Quill
             readOnly
             modules={{toolbar: null}}

@@ -1,5 +1,12 @@
 class Api::QuestionsController < ApplicationController
-  before_action :require_logged_in!, only: [:create, :update, :destroy]
+
+  before_action :require_logged_in!, only: [
+    :create,
+    :update,
+    :destroy,
+    :upvote,
+    :downvote
+  ]
 
   def index
     @questions = Question.all.includes(:author)
@@ -53,9 +60,30 @@ class Api::QuestionsController < ApplicationController
     end
   end
 
+  def upvote
+    vote(1)
+  end
+
+  def downvote
+    vote(-1)
+  end
+
   private
   def question_params
     params.require(:question).permit(:title, :body, :trunc_body)
+  end
+
+  def vote(increment)
+    @question = Question.find(params[:id])
+    @vote = @question.votes.find_or_initialize_by(user: current_user)
+    new_value = @vote.get_value(increment)
+    if !new_value
+      render json: ['Cannot vote again'], status: 403
+    elsif @vote.update(value: new_value)
+      render :vote
+    else
+      render @vote.errors.full_messages, status: 422
+    end
   end
 
 end
