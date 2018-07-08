@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 const QuestionsIndexItem = (props) => {
   return (
     <div>
+      <div>{props.question.votes}</div>
       <Link to={`questions/${props.question.id}`}>
         {props.question.title}
       </Link>

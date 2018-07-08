@@ -5,6 +5,8 @@ json.questions do
       json.authorId question.author_id
       json.createdAt question.created_at
       json.truncBody question.trunc_body
+      json.votes question.vote_sum
+      json.answerCount question.answers.length
     end
   end
 end

@@ -9,8 +9,8 @@ module Votable
       dependent: :destroy
   end
 
-  def voteCount
-    self.votes.sum(:value)
+  def vote_sum
+    self.votes.reduce(0) { |sum, vote| sum += vote.value }
   end
 
 end

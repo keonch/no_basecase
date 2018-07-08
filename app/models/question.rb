@@ -2,7 +2,8 @@ class Question < ApplicationRecord
 
   include Votable
 
-  validates :title, :body, :author_id, presence: true
+  validates :title, :body, :trunc_body, :author_id, presence: true
+  validates :answered, inclusion: { in: [ true, false ] }
 
   belongs_to :author,
     class_name: :User,
@@ -15,6 +16,10 @@ class Question < ApplicationRecord
   has_many :answerers,
     through: :answers,
     source: :author
+
+  # TODO chosen_answer feature
+  # has_one :chosen_answer,
+  #   through: :answers
 
   has_and_belongs_to_many :hashtags
 

@@ -3,6 +3,7 @@ json.question do
     json.extract! @question, :id, :title, :body
     json.authorId @question.author_id
     json.createdAt @question.created_at
+    json.votes @question.vote_sum
   end
 end
 
@@ -12,6 +13,7 @@ json.answers do
         json.extract! answer, :id, :body
         json.authorId answer.author_id
         json.createdAt answer.created_at
+        json.votes answer.vote_sum
       end
   end
 end

@@ -2,18 +2,18 @@ class Api::QuestionsController < ApplicationController
 
   before_action :require_logged_in!, only: [
     :create,
-    :update,
     :destroy,
+    :update,
     :upvote,
     :downvote
   ]
 
   def index
-    @questions = Question.all.includes(:author)
+    @questions = Question.all.includes(:author, :answers, :votes)
   end
 
   def show
-    @question = Question.find(params[:id])
+    @question = Question.includes(:author, :answerers, :votes, { answers: [:votes] }).find(params[:id])
     if @question
       render :show
     else
