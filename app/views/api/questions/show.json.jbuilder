@@ -1,6 +1,8 @@
 json.question do
   json.set! @question.id do
-    json.partial! 'api/questions/question', question: @question
+    json.extract! @question, :id, :title, :body
+    json.authorId @question.author_id
+    json.createdAt @question.created_at
   end
 end
 

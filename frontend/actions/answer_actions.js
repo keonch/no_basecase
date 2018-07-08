@@ -26,58 +26,34 @@ const receiveErrors = (errors) => {
   });
 };
 
-export const fetchAnswer = (questionId, answerId) => {
-  return (
-    (dispatch) => {
-      return(
-        APIUtils.fetchAnswer(questionId, answerId)
-        .then(
-          (payload) => (dispatch(receiveAnswer(payload))),
-          (errors) => (dispatch(receiveErrors(errors.responseJSON)))
-        )
-      );
-    }
-  );
-};
+export const fetchAnswer = (questionId, answerId) => (
+  (dispatch) => (APIUtils.fetchAnswer(questionId, answerId).then(
+    (payload) => (dispatch(receiveAnswer(payload))),
+    (errors) => (dispatch(receiveErrors(errors.responseJSON)))
+  ))
+);
 
-export const postAnswer = (questionId, answer) => {
-  return (
-    (dispatch) => {
-      return(
-        APIUtils.postAnswer(questionId, answer)
-        .then(
-          (payload) => (dispatch(receiveAnswer(payload))),
-          (errors) => (dispatch(receiveErrors(errors.responseJSON)))
-        )
-      );
-    }
-  );
-};
+export const postAnswer = (questionId, answer) => (
+  (dispatch) => (APIUtils.postAnswer(questionId, answer).then(
+    (payload) => (dispatch(receiveAnswer(payload))),
+    (errors) => (dispatch(receiveErrors(errors.responseJSON)))
+  ))
+);
 
-export const deleteAnswer = (questionId, answerId) => {
-  return (
-    (dispatch) => {
-      return(
-        APIUtils.deleteAnswer(questionId, answerId)
-        .then(
-          (answerId) => (dispatch(removeAnswer(answerId))),
-          (errors) => (dispatch(receiveErrors(errors.responseJSON)))
-        )
-      );
-    }
-  );
-};
+export const deleteAnswer = (questionId, answerId) => (
+  (dispatch) => (APIUtils.deleteAnswer(questionId, answerId).then(
+    (answerId) => (dispatch(removeAnswer(answerId))),
+    (errors) => (dispatch(receiveErrors(errors.responseJSON)))
+  ))
+);
 
-export const updateAnswer = (questionId, answerId, answer) => {
-  return (
-    (dispatch) => {
-      return(
-        APIUtils.updateAnswer(questionId, answerId, answer)
-        .then(
-          null,
-          (errors) => (dispatch(receiveErrors(errors.responseJSON)))
-        )
-      );
-    }
-  );
-};
+export const updateAnswer = (questionId, answerId, answer) => (
+  (dispatch) => (APIUtils.updateAnswer(
+    questionId,
+    answerId,
+    answer
+  ).then(
+    (questionId) => (questionId),
+    (errors) => (dispatch(receiveErrors(errors.responseJSON)))
+  ))
+);

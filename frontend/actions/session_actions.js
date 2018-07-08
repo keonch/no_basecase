@@ -17,44 +17,23 @@ const receiveErrors = (errors) => {
   });
 };
 
-export const signup = (user) => {
-  return (
-    (dispatch) => {
-      return(
-        APIUtils.signup(user)
-        .then(
-          (user) => (dispatch(receiveCurrentUser(user))),
-          (errors) => (dispatch(receiveErrors(errors.responseJSON)))
-        )
-      );
-    }
-  );
-};
+export const signup = (user) => (
+  (dispatch) => (APIUtils.signup(user).then(
+    (user) => (dispatch(receiveCurrentUser(user))),
+    (errors) => (dispatch(receiveErrors(errors.responseJSON)))
+  ))
+);
 
-export const login = (user) => {
-  return (
-    (dispatch) => {
-      return (
-        APIUtils.login(user)
-        .then(
-          (user) => (dispatch(receiveCurrentUser(user))),
-          (errors) => (dispatch(receiveErrors(errors.responseJSON)))
-        )
-      );
-    }
-  );
-};
+export const login = (user) => (
+  (dispatch) => (APIUtils.login(user).then(
+    (user) => (dispatch(receiveCurrentUser(user))),
+    (errors) => (dispatch(receiveErrors(errors.responseJSON)))
+  ))
+);
 
-export const logout = () => {
-  return (
-    (dispatch) => {
-      return (
-        APIUtils.logout()
-        .then(
-          () => (dispatch(receiveCurrentUser())),
-          (errors) => (dispatch(receiveErrors(errors.responseJSON)))
-        )
-      );
-    }
-  );
-};
+export const logout = () => (
+  (dispatch) => (APIUtils.logout().then(
+    () => (dispatch(receiveCurrentUser())),
+    (errors) => (dispatch(receiveErrors(errors.responseJSON)))
+  ))
+);

@@ -1,9 +1,8 @@
 class Api::QuestionsController < ApplicationController
-  include ActionView::Helpers::TextHelper
   before_action :require_logged_in!, only: [:create, :update, :destroy]
 
   def index
-    @questions = Question.all
+    @questions = Question.all.includes(:author)
   end
 
   def show

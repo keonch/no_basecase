@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import { AuthRoute, ProtectedRoute } from '../utils/route_util';
 import Nav from './nav/nav_container';
-import QuestionsIndex from './questions/questions_index';
+import QuestionsIndex from './questions/questions_index_container';
 import Login from './session/login_container';
 import Signup from './session/signup_container';
 import Footer from './footer/footer';
