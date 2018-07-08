@@ -3,10 +3,11 @@ import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import { AuthRoute, ProtectedRoute } from '../utils/route_util';
 import Nav from './nav/nav_container';
-import QuestionsIndex from './questions/questions_index_container';
+import Footer from './footer/footer';
 import Login from './session/login_container';
 import Signup from './session/signup_container';
-import Footer from './footer/footer';
+import QuestionsIndex from './questions/questions_index_container';
+import QuestionsIndexRoot from './questions/questions_index_root_container';
 import Question from './questions/question_container';
 import QuestionForm from './forms/question_form_container';
 import QuestionEditForm from './forms/question_edit_form_container';
@@ -19,7 +20,7 @@ const App = () => (
     </div>
 
     <div className='page-content'>
-      <Route exact path='/' component={QuestionsIndex}/>
+      <Route exact path='/' component={QuestionsIndexRoot}/>
       <Route exact path='/questions' component={QuestionsIndex}/>
       <Switch>
         <ProtectedRoute path="/questions/ask" component={QuestionForm}/>

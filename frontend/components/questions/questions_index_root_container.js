@@ -8,7 +8,7 @@ const msp = (state) => {
   return ({
     questions: state.entities.questions,
     sortedQuestionIds: sortQuestionsByVotes(state.entities.questions),
-    page: 'questions'
+    page: 'root'
   });
 };
 

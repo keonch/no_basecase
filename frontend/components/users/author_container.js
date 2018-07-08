@@ -8,4 +8,4 @@ const msp = (state, ownProps) => {
   });
 };
 
-export default connect(msp, null)(Author);
+export default connect(msp)(Author);
