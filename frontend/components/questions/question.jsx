@@ -72,7 +72,8 @@ export default class Question extends React.Component {
           <Author
             highlight='highlight'
             verb='asked'
-            authorId={this.props.question.authorId}
+            styleClass='box'
+            author={this.props.author}
             createdAt={this.props.question.createdAt}/>
         </div>
 

@@ -11,17 +11,18 @@ import {
 import Question from './question';
 
 const msp = (state, ownProps) => {
-  const questionId = ownProps.match.params.questionId;
-  const question = state.entities.questions[questionId] || {};
-  const answerCount = Object.keys(state.entities.answers).length;
-  const isAuthor =
-    !!state.session.currentUser &&
-    state.session.currentUser.id === question.authorId;
+  const questionId = ownProps.match.params.questionId,
+        question = state.entities.questions[questionId] || {},
+        answerCount = Object.keys(state.entities.answers).length,
+        author = state.entities.users[question.authorId],
+        isAuthor = !!state.session.currentUser &&
+          state.session.currentUser.id === question.authorId;
 
   return ({
     questionId,
     question,
     answerCount,
+    author,
     isAuthor
   });
 };

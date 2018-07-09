@@ -12,7 +12,7 @@ const Author = (props) => {
           props.styleClass !== 'single-line' &&
           <img className='avatar' src='/assets/avatar.png' />
         }
-        <div className='username'>{props.author.name}</div>
+        <div className='username'>&nbsp;{props.author.name}</div>
       </div>
     </div>
   );

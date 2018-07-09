@@ -1,4 +1,4 @@
-.author-container {
+.author-box {
   width: 200px;
   height: 70px;
   padding: 5px 6px 7px 7px;
@@ -7,14 +7,27 @@
   flex-flow: column nowrap;
 }
 
+.author-single-line {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
 .highlight {
   background-color: #E0EAF1;
+}
+
+.author-box > .author-time {
+  margin: 1px 0 2px 0;
+}
+
+.author-box > .author-info > .username {
+  padding-top: 3px;
+  margin-left: 8px;
 }
 
 .author-time {
   font-size: 12px;
   color: #848d95;
-  margin: 1px 0 2px 0;
 }
 
 .author-info {
@@ -30,8 +43,6 @@
 }
 
 .username {
-  padding-top: 3px;
-  margin-left: 8px;
   font-size: 12px;
   color: #848d95;
 }
