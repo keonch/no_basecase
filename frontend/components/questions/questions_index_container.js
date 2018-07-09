@@ -4,11 +4,11 @@ import { sortQuestionsByVotes } from '../../reducers/selectors';
 
 import QuestionsIndex from './questions_index';
 
-const msp = (state) => {
+const msp = (state, ownProps) => {
   return ({
+    page: ownProps.match.path,
     questions: state.entities.questions,
-    sortedQuestionIds: sortQuestionsByVotes(state.entities.questions),
-    page: 'questions'
+    sortedQuestionIds: sortQuestionsByVotes(state.entities.questions)
   });
 };
 

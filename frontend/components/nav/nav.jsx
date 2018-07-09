@@ -9,6 +9,8 @@ const Nav = (props) => {
         <img className='logo-img' src='/assets/logo.png' />
       </Link>
 
+      <Link to='/questions' className='questions-link'>Questions</Link>
+
       <SearchForm />
 
       {

@@ -1,5 +1,5 @@
 import React from 'react';
-import Author from '../users/author_container';
+import Author from '../users/author';
 import AnswerEditForm from '../forms/answer_edit_form_container';
 import Quill from 'react-quill';
 import { Link } from 'react-router-dom';
@@ -57,7 +57,8 @@ export default class Answer extends React.Component {
         }
         <Author
           verb='answered'
-          authorId={this.props.answer.authorId}
+          styleClass='box'
+          author={this.props.author}
           createdAt={this.props.answer.createdAt}/>
       </li>
     );

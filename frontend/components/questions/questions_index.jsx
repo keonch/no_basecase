@@ -1,5 +1,5 @@
 import React from 'react';
-import QuestionIndexItem from './questions_index_item';
+import QuestionIndexItem from './questions_index_item_container';
 import { Link } from 'react-router-dom';
 
 export default class QuestionsIndex extends React.Component {
@@ -23,7 +23,7 @@ export default class QuestionsIndex extends React.Component {
         return (
           <QuestionIndexItem
             key={questionId}
-            showTruncBody={this.props.page === 'questions'}
+            page={this.props.page}
             question={this.props.questions[questionId]}/>
         );
       })
@@ -31,25 +31,29 @@ export default class QuestionsIndex extends React.Component {
   }
 
   render() {
-    const header = this.props.page === 'root' ? 'Top Questions' : 'All Questions';
     return (
-      <div>
-        <div>
-          <div>{header}</div>
-          <Link to='questions/ask'>Ask Question</Link>
-          {
-            this.props.page === 'questions' &&
-            <div>{this.props.sortedQuestionIds.length} questions</div>
-          }
-          <div>
-            <button>Newest</button>
-            <button>Votes</button>
-            <button>Active</button>
-            <button>Unanswered</button>
+      <div className='index-page'>
+        <div className='index-header'>
+          <header>{
+            this.props.page === '/' ? 'Top Questions' : 'All Questions'
+          }</header>
+          <Link className='ask-question' to='questions/ask'>Ask Question</Link>
+        </div>
+
+        <div className='index-sub-header'>
+          <div className='question-counter'>{
+              this.props.page === '/questions' &&
+              `${this.props.sortedQuestionIds.length} questions`
+          }</div>
+          <div className='sort-tabs'>
+            <button className='sort-tab'>Newest</button>
+            <button className='sort-tab'>Votes</button>
+            <button className='sort-tab'>Active</button>
+            <button className='sort-tab'>Unanswered</button>
           </div>
         </div>
 
-        <ul>{this.renderQuestions()}</ul>
+        <ul className='questions-index'>{this.renderQuestions()}</ul>
       </div>
     );
   }

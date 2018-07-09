@@ -4,28 +4,42 @@
   height: 100%;
   display: grid;
   align-items: center;
-  grid-template-columns: 160px 365px auto minmax(auto, min-content);
+  grid-template-columns: 160px 90px minmax(250px, 350px) auto minmax(auto, min-content);
   grid-template-areas:
-    "logo search blank session-btn";
+    "logo link search blank session-btn";
+}
+
+.questions-link {
+  grid-area: link;
+  font-size: 14px;
+  color: #535a60;
+  height: 100%;
+  text-align: center;
+  padding-top: 14px;
+}
+
+.questions-link:hover {
+  background-color: rgba(239,240,241,0.75);
+  cursor: pointer;
 }
 
 /* ==============================LOGO================================ */
 .logo {
+  grid-area: logo;
   height: 100%;
   width: 100%;
   padding-top: 7px;
 }
 
-.logo-img {
-  margin: auto;
-  grid-area: logo;
-  height: 35px;
-  width: 145px;
-}
-
 .logo:hover {
   background-color: rgba(239,240,241,0.75);
   cursor: pointer;
+}
+
+.logo-img {
+  margin: auto;
+  height: 35px;
+  width: 145px;
 }
 
 /* ===========================SEARCH BAR============================= */

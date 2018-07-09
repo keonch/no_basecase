@@ -1,0 +1,37 @@
+.author-container {
+  width: 200px;
+  height: 70px;
+  padding: 5px 6px 7px 7px;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.highlight {
+  background-color: #E0EAF1;
+}
+
+.author-time {
+  font-size: 12px;
+  color: #848d95;
+  margin: 1px 0 2px 0;
+}
+
+.author-info {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 1px;
+  box-shadow: 2px 2px 4px rgba(12,13,14,0.5);
+}
+
+.username {
+  padding-top: 3px;
+  margin-left: 8px;
+  font-size: 12px;
+  color: #848d95;
+}

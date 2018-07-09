@@ -1,6 +1,6 @@
 import React from 'react';
 import Quill from 'react-quill';
-import Author from '../users/author_container';
+import Author from '../users/author';
 import AnswersIndex from '../answers/answers_index_container';
 import AnswerForm from '../forms/answer_form_container';
 import { Link, Redirect } from 'react-router-dom';

@@ -1,21 +1,32 @@
 import React from 'react';
-import Author from '../users/author_container';
+import Author from '../users/author';
 import { Link } from 'react-router-dom';
 
 const QuestionsIndexItem = (props) => {
+  const styleClass = props.page === '/' ? 'single-line' : 'box';
   return (
-    <div>
-      <div>{props.question.votes}</div>
-      <Link to={`questions/${props.question.id}`}>
+    <div className='question index-item'>
+      <div className='stats'>
+        <div>{props.question.votes}</div>
+        <div>votes</div>
+        <div>{props.question.answerCount}</div>
+        <div>answers</div>
+      </div>
+
+      <Link
+        className='title'
+        to={`questions/${props.question.id}`}>
         {props.question.title}
       </Link>
       {
-        props.showTruncBody &&
-        <div>{props.question.truncBody}</div>
+        props.page === '/questions' &&
+        <div className='body'>{props.question.truncBody}</div>
       }
+
       <Author
         verb='asked'
-        authorId={props.question.authorId}
+        author={props.author}
+        styleClass={styleClass}
         createdAt={props.question.createdAt}/>
     </div>
   );

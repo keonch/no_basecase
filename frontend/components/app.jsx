@@ -7,11 +7,11 @@ import Footer from './footer/footer';
 import Login from './session/login_container';
 import Signup from './session/signup_container';
 import QuestionsIndex from './questions/questions_index_container';
-import QuestionsIndexRoot from './questions/questions_index_root_container';
 import Question from './questions/question_container';
 import QuestionForm from './forms/question_form_container';
 import QuestionEditForm from './forms/question_edit_form_container';
 import AnswerEditForm from './forms/answer_edit_form_container';
+import Sidebar from './sidebar';
 
 const App = () => (
   <div className='app'>
@@ -20,7 +20,7 @@ const App = () => (
     </div>
 
     <div className='page-content'>
-      <Route exact path='/' component={QuestionsIndexRoot}/>
+      <Route exact path='/' component={QuestionsIndex}/>
       <Route exact path='/questions' component={QuestionsIndex}/>
       <Switch>
         <ProtectedRoute path="/questions/ask" component={QuestionForm}/>
@@ -28,8 +28,11 @@ const App = () => (
         <ProtectedRoute path='/questions/:questionId/edit' component={QuestionEditForm}/>
         <Route path='/questions/:questionId' component={Question}/>
       </Switch>
-      <AuthRoute path='/login' component={Login}/>
-      <AuthRoute path='/signup' component={Signup}/>
+      <Switch>
+        <AuthRoute path='/login' component={Login}/>
+        <AuthRoute path='/signup' component={Signup}/>
+        <Route path='/' component={Sidebar}/>
+      </Switch>
     </div>
 
     <div className='footer'>

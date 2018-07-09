@@ -9,12 +9,14 @@ import Answer from './answer';
 
 const msp = (state, ownProps) => {
   const answer = state.entities.answers[ownProps.answerId];
+  const author = state.entities.users[answer.authorId];
   const isAuthor =
     !!state.session.currentUser &&
-    state.session.currentUser.id === answer.authorId;
+    state.session.currentUser.id === author.id;
 
   return ({
     answer,
+    author,
     isAuthor
   });
 };

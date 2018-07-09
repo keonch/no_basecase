@@ -4,8 +4,7 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.name == nil
-    @user.name = User.generate_name
+    @user.name = User.generate_name if @user.name == nil
     if @user.save
       login(@user)
       render 'api/users/session'

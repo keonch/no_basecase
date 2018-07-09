@@ -8,6 +8,7 @@ const AnswersIndex = (props) => {
           props.sortedAnswerIds.map((answerId) => (
             <Answer
               key={answerId}
+              styleClass='box'
               questionId={props.questionId}
               answerId={answerId}/>
           ))
