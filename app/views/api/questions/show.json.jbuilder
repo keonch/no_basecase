@@ -24,4 +24,8 @@ json.users do
       json.extract! answerer, :id, :name
     end
   end
+
+  json.set! @question.author_id do
+    json.extract! @question.author, :id, :name
+  end
 end

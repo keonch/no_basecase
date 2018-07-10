@@ -28,7 +28,7 @@ export default class QuestionForm extends React.Component {
     e.preventDefault();
     // Tuncates the body to 200 characters for rendering snippets
     let quillText = this.quillElement.current.getEditor().getText();
-        quillText = quillText.replace(/(\r\n\t|\n|\r\t)/gm, " ");
+        quillText = quillText.replace(/(\r\n\t|\n|\r\t)/gm, ' ');
     this.props.postQuestion({
       title: this.state.title,
       body: this.state.body,

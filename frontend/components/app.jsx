@@ -20,19 +20,21 @@ const App = () => (
     </div>
 
     <div className='page-content'>
-      <Route exact path='/' component={QuestionsIndex}/>
-      <Route exact path='/questions' component={QuestionsIndex}/>
-      <Switch>
-        <ProtectedRoute path="/questions/ask" component={QuestionForm}/>
-        <ProtectedRoute path='/questions/:questionId/edit/:answerId' component={AnswerEditForm}/>
-        <ProtectedRoute path='/questions/:questionId/edit' component={QuestionEditForm}/>
-        <Route path='/questions/:questionId' component={Question}/>
-      </Switch>
-      <Switch>
-        <AuthRoute path='/login' component={Login}/>
-        <AuthRoute path='/signup' component={Signup}/>
-        <Route path='/' component={Sidebar}/>
-      </Switch>
+      <div className='content'>        
+        <Route exact path='/' component={QuestionsIndex}/>
+        <Route exact path='/questions' component={QuestionsIndex}/>
+        <Switch>
+          <ProtectedRoute path="/questions/ask" component={QuestionForm}/>
+          <ProtectedRoute path='/questions/:questionId/edit/:answerId' component={AnswerEditForm}/>
+          <ProtectedRoute path='/questions/:questionId/edit' component={QuestionEditForm}/>
+          <Route path='/questions/:questionId' component={Question}/>
+        </Switch>
+        <Switch>
+          <AuthRoute path='/login' component={Login}/>
+          <AuthRoute path='/signup' component={Signup}/>
+          <Route path='/' component={Sidebar}/>
+        </Switch>
+      </div>
     </div>
 
     <div className='footer'>

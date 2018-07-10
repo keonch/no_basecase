@@ -4,20 +4,26 @@ import { Link } from 'react-router-dom';
 
 const QuestionsIndexItem = (props) => {
   const styleClass = props.page === '/' ? 'single-line' : 'box';
+  const answered = props.question.answerCount > 0 ? 'answered' : '';
   return (
-    <div className='question index-item'>
+    <div className={`question-${styleClass} index-item`}>
       <div className='stats'>
-        <div>{props.question.votes}</div>
-        <div>votes</div>
-        <div>{props.question.answerCount}</div>
-        <div>answers</div>
+        <div className='votes'>
+          <div className='vote-number'>{props.question.votes}</div>
+          <span>votes</span>
+        </div>
+        <div className={`answers ${answered}`}>
+          <div className='answer-number'>{props.question.answerCount}</div>
+          <span>answers</span>
+        </div>
       </div>
 
-      <Link
-        className='title'
-        to={`questions/${props.question.id}`}>
-        {props.question.title}
-      </Link>
+      <div className='title'>
+        <Link
+          to={`questions/${props.question.id}`}>
+          {props.question.title}
+        </Link>
+      </div>
       {
         props.page === '/questions' &&
         <div className='body'>{props.question.truncBody}</div>
@@ -26,7 +32,7 @@ const QuestionsIndexItem = (props) => {
       <Author
         verb='asked'
         author={props.author}
-        styleClass={styleClass}
+        showAvatar={props.page !== '/'}
         createdAt={props.question.createdAt}/>
     </div>
   );

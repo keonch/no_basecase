@@ -9,6 +9,7 @@ class Api::QuestionsController < ApplicationController
   ]
 
   def index
+    # need update to joins query for {;answer => [:id]} for answerCount
     @questions = Question.all.includes(:author, :answers, :votes)
   end
 
@@ -23,6 +24,7 @@ class Api::QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
+    @question.trunc_body += '...' if @question.trunc_body.length == 200
     @question.author_id = current_user.id
     if @question.save
       render json: @question.id

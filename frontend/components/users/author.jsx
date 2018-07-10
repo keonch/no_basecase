@@ -3,13 +3,13 @@ import Moment from 'react-moment';
 
 const Author = (props) => {
   return (
-    <div className={`author-${props.styleClass} ${props.highlight}`}>
+    <div className={`author${!props.showAvatar ? '-single-line' : ''} ${props.highlight || ''}`}>
       <div className='author-time'>
         {props.verb} <Moment fromNow>{props.createdAt}</Moment>
       </div>
       <div className='author-info'>
         {
-          props.styleClass !== 'single-line' &&
+          props.showAvatar &&
           <img className='avatar' src='/assets/avatar.png' />
         }
         <div className='username'>&nbsp;{props.author.name}</div>

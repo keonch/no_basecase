@@ -57,7 +57,7 @@ export default class Answer extends React.Component {
         }
         <Author
           verb='answered'
-          styleClass='box'
+          showAvatar
           author={this.props.author}
           createdAt={this.props.answer.createdAt}/>
       </li>

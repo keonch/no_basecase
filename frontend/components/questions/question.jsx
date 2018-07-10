@@ -26,7 +26,7 @@ export default class Question extends React.Component {
 
   handleDelete() {
     this.props.deleteQuestion(this.props.questionId)
-    .then(() => this.setState({ redirect: true }));
+    .then(() => this.props.history.push('/'));
   }
 
   handleSortType(type) {
@@ -69,12 +69,15 @@ export default class Question extends React.Component {
               <button onClick={this.handleDelete}>Delete</button>
             </div>
           }
-          <Author
-            highlight='highlight'
-            verb='asked'
-            styleClass='box'
-            author={this.props.author}
-            createdAt={this.props.question.createdAt}/>
+          {
+            !!this.props.author &&
+            <Author
+              highlight='highlight'
+              verb='asked'
+              showAvatar
+              author={this.props.author}
+              createdAt={this.props.question.createdAt}/>
+          }
         </div>
 
         {

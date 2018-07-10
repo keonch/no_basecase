@@ -69,8 +69,129 @@
   border-top: 1px solid #d6d9dc;
   display: flex;
   flex-flow: column nowrap;
+  width: 100%;
 }
 
 .index-item {
   border-bottom: 1px solid #eff0f1;
+  padding: 12px 8px;
+}
+
+.index-item > .stats {
+  color: #6a737c;
+}
+
+.index-item > .stats > .answered {
+  color: #45A163;
+  border: 1px solid rgba(69,161,99,0.5);
+}
+
+.index-item > .title {
+  color: #07C;
+  font-weight: 400;
+}
+
+/* =======================question single-line======================= */
+.question-single-line {
+  width: 100%;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  grid-template-columns: 140px auto;
+  grid-template-areas:
+    'stats title'
+    'stats author';
+}
+
+.question-single-line .stats {
+  grid-area: stats;
+  display: flex;
+  flex-flow: row nowrap;
+  text-align: center;
+  justify-content: space-around;
+  padding-right: 8px;
+  height: 50px;
+}
+
+.question-single-line .stats .votes,
+.question-single-line .stats .answers{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  padding: 6px;
+}
+
+.question-single-line .stats span {
+  font-size: 11px;
+}
+
+.question-single-line .stats div {
+  font-size: 17px;
+}
+
+.question-single-line .title {
+  grid-area: title;
+  padding-bottom: 6px;
+  word-break: break-all;
+  font-size: 16px;
+}
+
+.question-single-line .author {
+  grid-area: author;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+}
+
+/* ===========================question box=========================== */
+.question-box {
+  width: 100%;
+  display: grid;
+  grid-template-rows: min-content min-content 1fr;
+  grid-template-columns: min-content auto;
+  grid-template-areas:
+    'stats-box title-box'
+    'stats-box body-box'
+    'stats-box author-box';
+}
+
+.question-box .stats {
+  width: 58px;
+  grid-area: stats-box;
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+  margin: 0 16px 0 8px;
+}
+
+.question-box .stats .votes,
+.question-box .stats .answers{
+  margin-bottom: 8px;
+  padding: 5px 0 7px 0;
+}
+
+.question-box .stats span {
+  font-size: 11px;
+}
+
+.question-box .stats div {
+  font-size: 20px;
+}
+
+.question-box .title {
+  grid-area: title-box;
+  margin-bottom: 7.5px;
+  height: min-content;
+}
+
+.question-box .body {
+  grid-area: body-box;
+  color: #3b4045;
+  margin-bottom: 5px;
+  font-size: 13px;
+  height: min-content;
+}
+
+.question-box .author {
+  grid-area: author-box;
+  justify-self: end;
 }
