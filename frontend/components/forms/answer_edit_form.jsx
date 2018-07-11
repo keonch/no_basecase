@@ -83,7 +83,9 @@ export default class AnswerEditForm extends React.Component {
           <input type='submit' value='Edit Answer'/>
           <Link
             className='cancel-btn'
-            to={`/questions/${this.props.questionId}`}>cancel</Link>
+            to={`/questions/${this.props.questionId}`}>
+            cancel
+          </Link>
         </div>
       </form>
     );

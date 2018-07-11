@@ -83,8 +83,15 @@ export default class AnswerEditForm extends React.Component {
           modules={{ toolbar: toolbarOptions }}
           ref={this.quillElement}
           onChange={this.handleBodyChange}/>
-        <input type='submit' value='Edit Question'/>
-        <Link to={`/questions/${this.props.questionId}`}>Discard</Link>
+
+        <div className='question-edit-btns'>
+          <input type='submit' value='Edit Question'/>
+          <Link
+            className='cancel-btn'
+            to={`/questions/${this.props.questionId}`}>
+            cancel
+          </Link>
+        </div>
       </form>
     );
   }
