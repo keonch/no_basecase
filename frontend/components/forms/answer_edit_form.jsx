@@ -57,17 +57,34 @@ export default class AnswerEditForm extends React.Component {
     }
 
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form
+        className='answer-edit-form'
+        onSubmit={this.handleSubmit}>
+        <Link
+          className='title'
+          to={`/questions/${this.props.questionId}`}>
+          {this.props.question.title}
+        </Link>
+
         <Quill
           readOnly
           modules={{ toolbar: null }}
+          className='show-body'
           value={this.props.question.body}/>
+
+        <h2>Answer</h2>
         <Quill
           value={this.state.body}
           modules={{ toolbar: toolbarOptions }}
+          className='answer-form'
           onChange={this.handleChange}/>
-        <input type='submit' value='Edit Answer'/>
-        <Link to={`/questions/${this.props.questionId}`}>Discard</Link>
+
+        <div className='answer-buttons'>
+          <input type='submit' value='Edit Answer'/>
+          <Link
+            className='cancel-btn'
+            to={`/questions/${this.props.questionId}`}>cancel</Link>
+        </div>
       </form>
     );
   }
