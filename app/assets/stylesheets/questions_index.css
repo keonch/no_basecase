@@ -7,12 +7,12 @@
   grid-template-columns: 1fr min-content;
   grid-template-rows: 60px min-content 1fr;
   grid-template-areas:
-    "header sidebar"
-    "sub-header sidebar"
-    "questions-index sidebar";
+    'header sidebar'
+    'sub-header sidebar'
+    'questions-index sidebar';
 }
 
-.sidebar {
+.index-page .sidebar {
   grid-area: sidebar;
 }
 

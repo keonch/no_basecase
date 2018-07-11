@@ -10,7 +10,7 @@ const QuestionsIndexItem = (props) => {
       <div className='stats'>
         <div className='votes'>
           <div className='vote-number'>{props.question.votes}</div>
-          <span>votes</span>
+          <span>vote{`${props.question.votes === 1 ? '' : 's'}`}</span>
         </div>
         <div className={`answers ${answered}`}>
           <div className='answer-number'>{props.question.answerCount}</div>

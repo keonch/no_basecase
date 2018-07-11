@@ -32,15 +32,6 @@ body, main {
   width: 100%;
 }
 
-.sidebar {
-  background-color: blue;
-  margin-left: 24px;
-}
-
-.something {
-  width: 300px;
-}
-
 .footer {
   grid-area: footer;
   background-color: #252729;

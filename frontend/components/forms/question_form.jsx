@@ -40,14 +40,15 @@ export default class QuestionForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>Title</label>
-        <input
-          type='text'
-          placeholder="What's your programming question? Be specific."
-          className='title'
-          value={this.state.title}
-          onChange={this.handleTitleChange}/>
+      <form className='question-form' onSubmit={this.handleSubmit}>
+        <div className='title'>
+          <label>Title</label>
+          <input
+            type='text'
+            placeholder="What's your programming question? Be specific."
+            value={this.state.title}
+            onChange={this.handleTitleChange}/>
+        </div>
 
         <Quill
           value={this.state.body}
@@ -55,7 +56,10 @@ export default class QuestionForm extends React.Component {
           ref={this.quillElement}
           onChange={this.handleBodyChange}/>
 
-        <input type='submit' value='Post Your Question'/>
+        <input
+          className='post-question-btn'
+          type='submit'
+          value='Post Your Question'/>
       </form>
     );
   }

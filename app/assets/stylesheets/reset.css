@@ -26,10 +26,10 @@ img {
   height: auto;
 }
 
-input[type="password"],
-input[type="email"],
-input[type="text"],
-input[type="submit"],
+input[type='password'],
+input[type='email'],
+input[type='text'],
+input[type='submit'],
 textarea,
 button {
   -webkit-appearance: none;
@@ -37,6 +37,6 @@ button {
 }
 
 button,
-input[type="submit"] {
+input[type='submit'] {
   cursor: pointer;
 }

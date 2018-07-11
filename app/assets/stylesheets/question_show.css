@@ -7,13 +7,13 @@
   grid-template-columns: auto min-content;
   grid-template-rows: min-content min-content min-content min-content;
   grid-template-areas:
-    "header header"
-    "question sidebar"
-    "answers sidebar"
-    "form sidebar";
+    'header header'
+    'question sidebar'
+    'answers sidebar'
+    'form sidebar';
 }
 
-.sidebar {
+.question-show-page .sidebar {
   grid-area: sidebar;
 }
 
@@ -61,8 +61,8 @@
   grid-template-columns: 61px 1fr;
   grid-template-rows: min-content min-content;
   grid-template-areas:
-  "votes body"
-  "votes info";
+  'votes body'
+  'votes info';
 }
 
 /* ========================question & answers======================== */

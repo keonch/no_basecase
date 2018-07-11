@@ -62,13 +62,13 @@ export default class Answer extends React.Component {
                 to={
                   `${this.props.questionId}/edit/${this.props.answerId}`
                 }
-                className='author-actions'>
-                Edit
+                className='author-action'>
+                edit
               </Link>
               <button
-                className='author-actions'
+                className='author-action'
                 onClick={this.handleDelete}>
-                Delete
+                delete
               </button>
             </div>
           }
