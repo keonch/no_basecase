@@ -601,7 +601,6 @@
 .ql-snow .ql-editor code,
 .ql-snow .ql-editor pre {
   background-color: #f0f0f0;
-  border-radius: 3px;
 }
 .ql-snow .ql-editor pre {
   white-space: pre-wrap;
@@ -620,9 +619,12 @@
   letter-spacing: -2px;
 }
 .ql-snow .ql-editor pre.ql-syntax {
-  background-color: #23241f;
-  color: #f8f8f2;
+  background-color: #eff0f1;
+  color: #393318;
   overflow: visible;
+}
+.ql-editor strong{
+  font-weight:bold;
 }
 .ql-snow .ql-editor img {
   max-width: 100%;

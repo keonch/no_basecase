@@ -1,5 +1,6 @@
 import React from 'react';
 import QuestionIndexItem from './questions_index_item_container';
+import Sidebar from '../sidebar';
 import { Link } from 'react-router-dom';
 
 export default class QuestionsIndex extends React.Component {
@@ -40,10 +41,12 @@ export default class QuestionsIndex extends React.Component {
           <Link className='ask-question' to='questions/ask'>Ask Question</Link>
         </div>
 
+        <Sidebar/>
+
         <div className='index-sub-header'>
           <div className='question-counter'>{
-              this.props.page === '/questions' &&
-              `${this.props.sortedQuestionIds.length} questions`
+            this.props.page === '/questions' &&
+            `${this.props.sortedQuestionIds.length} questions`
           }</div>
           <div className='sort-tabs'>
             <button className='sort-tab'>Newest</button>

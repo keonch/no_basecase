@@ -3,6 +3,7 @@ import Quill from 'react-quill';
 import Author from '../users/author';
 import AnswersIndex from '../answers/answers_index_container';
 import AnswerForm from '../forms/answer_form_container';
+import Sidebar from '../sidebar';
 import { Link, Redirect } from 'react-router-dom';
 
 export default class Question extends React.Component {
@@ -42,53 +43,70 @@ export default class Question extends React.Component {
   }
 
   render() {
-    if (!this.state.loaded) return <div>Loading</div>;
+    if (!this.state.loaded) return <div></div>;
     if (this.state.redirect) return <Redirect to='/'/>;
 
     return (
-      <div>
-        <div>
-          <div>{this.props.question.title}</div>
-          <Link to='/questions/ask'>Ask Question</Link>
-        </div>
+      <div className='question-show-page'>
+        <header>
+          <h1>{this.props.question.title}</h1>
+          <Link
+            className='ask-question-2'
+            to='/questions/ask'>Ask Question</Link>
+        </header>
 
-        <div>
-          <i onClick={() => this.handleVote('up')} className='upvote fas fa-caret-up'/>
-          <div>{this.props.question.votes}</div>
-          <i onClick={() => this.handleVote('down')} className='downvote fas fa-caret-down'/>
+        <Sidebar/>
+
+        <div className='question show-item'>
+          <div className='show-votes'>
+            <i onClick={() => this.handleVote('up')} className='upvote fas fa-caret-up'/>
+            <div className='answer-count'>{this.props.question.votes}</div>
+            <i onClick={() => this.handleVote('down')} className='downvote fas fa-caret-down'/>
+          </div>
           <Quill
+            className='show-body'
             readOnly
             modules={{toolbar: null}}
             value={this.props.question.body || ''}/>
-          {
-            this.props.isAuthor &&
-            <div>
-              <Link to={`/questions/${this.props.questionId}/edit`}>
-                Edit
-              </Link>
-              <button onClick={this.handleDelete}>Delete</button>
-            </div>
-          }
-          {
-            !!this.props.author &&
-            <Author
-              highlight='highlight'
-              verb='asked'
-              showAvatar
-              author={this.props.author}
-              createdAt={this.props.question.createdAt}/>
-          }
+          <div className='show-info'>
+            {
+              !!this.props.author &&
+              <Author
+                highlight='highlight'
+                verb='asked'
+                showAvatar
+                author={this.props.author}
+                createdAt={this.props.question.createdAt}/>
+            }
+            {
+              this.props.isAuthor &&
+              <div className='author-actions'>
+                <Link
+                  className='author-action'
+                  to={`/questions/${this.props.questionId}/edit`}>
+                  edit
+                </Link>
+                <button
+                  className='author-action'
+                  onClick={this.handleDelete}>
+                  delete
+                </button>
+              </div>
+            }
+          </div>
         </div>
 
         {
           this.props.answerCount > 0 &&
-          <div>
-            <div>{this.props.answerCount} Answers</div>
-            <div>
-              <button onClick={() => this.handleSortType('newest')}>Newest</button>
-              <button onClick={() => this.handleSortType('oldest')}>Oldest</button>
-              <button onClick={() => this.handleSortType('votes')}>Votes</button>
-            </div>
+          <div className='answers'>
+            <header>
+              <h2>{this.props.answerCount} Answer{`${this.props.answerCount > 1 ? 's' : ''}`}</h2>
+              <div className='tabs'>
+                <button onClick={() => this.handleSortType('newest')}>newest</button>
+                <button onClick={() => this.handleSortType('oldest')}>oldest</button>
+                <button onClick={() => this.handleSortType('votes')}>votes</button>
+              </div>
+            </header>
             <AnswersIndex
               sortType={this.state.sortType}
               questionId={this.props.questionId}/>

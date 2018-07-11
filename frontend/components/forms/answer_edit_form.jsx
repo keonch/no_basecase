@@ -51,7 +51,7 @@ export default class AnswerEditForm extends React.Component {
 
   render() {
     if (!this.state.loaded) {
-      return <div>Loading</div>;
+      return <div></div>;
     } else if (this.state.redirect) {
       return <Redirect to={`/questions/${this.props.questionId}`}/>;
     }

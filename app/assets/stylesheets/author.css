@@ -39,6 +39,8 @@
 .avatar {
   width: 32px;
   height: 32px;
+  min-width: 32px;
+  min-height: 32px;
   border-radius: 1px;
   box-shadow: 2px 2px 4px rgba(12,13,14,0.5);
 }

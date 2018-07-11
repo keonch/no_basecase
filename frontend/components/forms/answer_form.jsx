@@ -36,20 +36,23 @@ export default class AnswerForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <div>Your Answer</div>
+        <h2>Your Answer</h2>
         <Quill
           value={this.state.body}
           modules={{ toolbar: toolbarOptions }}
           onChange={this.handleChange}/>
         {
           !this.props.currentUser &&
-          <div>
+          <h3>
             <Link to='/signup'>Sign up </Link>
             or
             <Link to='/login'> log in</Link>
-          </div>
+          </h3>
         }
-        <div>{this.state.sessionError}</div>
+        {
+          this.state.sessionError &&
+          <div className='post-error'>{this.state.sessionError}</div>
+        }
         <input
           type='submit'
           value='Post Your Answer'/>

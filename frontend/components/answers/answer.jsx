@@ -32,34 +32,47 @@ export default class Answer extends React.Component {
 
   render() {
     return (
-      <li>
-        <i
-          onClick={() => this.handleVote('up')}
-          className='upvote fas fa-caret-up'/>
-        <div>{this.props.answer.votes}</div>
-        <i
-          onClick={() => this.handleVote('down')}
-          className='downvote fas fa-caret-down'/>
+      <li className='answer show-item'>
+        <div className='show-votes'>
+          <i
+            onClick={() => this.handleVote('up')}
+            className='upvote fas fa-caret-up'/>
+          <div className='answer-count'>{this.props.answer.votes}</div>
+          <i
+            onClick={() => this.handleVote('down')}
+            className='downvote fas fa-caret-down'/>
+        </div>
+
         <Quill
+          className='show-body'
           readOnly
           modules={{ toolbar: null }}
           value={this.props.answer.body}/>
-        {
-          this.props.isAuthor &&
-          <div>
-            <Link
-              to={
-                `${this.props.questionId}/edit/${this.props.answerId}`
-              }>Edit
-            </Link>
-            <button onClick={this.handleDelete}>Delete</button>
-          </div>
-        }
-        <Author
-          verb='answered'
-          showAvatar
-          author={this.props.author}
-          createdAt={this.props.answer.createdAt}/>
+
+        <div className='show-info'>
+          <Author
+            verb='answered'
+            showAvatar
+            author={this.props.author}
+            createdAt={this.props.answer.createdAt}/>
+          {
+            this.props.isAuthor &&
+            <div className='author-actions'>
+              <Link
+                to={
+                  `${this.props.questionId}/edit/${this.props.answerId}`
+                }
+                className='author-actions'>
+                Edit
+              </Link>
+              <button
+                className='author-actions'
+                onClick={this.handleDelete}>
+                Delete
+              </button>
+            </div>
+          }
+        </div>
       </li>
     );
   }

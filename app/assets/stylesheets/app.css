@@ -11,7 +11,7 @@ body, main {
   grid-template-rows: 52px 1fr 100px;
   grid-template-areas:
     "nav"
-    "page-content"
+    "content-page"
     "footer";
 }
 
@@ -27,18 +27,9 @@ body, main {
   z-index: 10;
 }
 
-.page-content {
-  grid-area: page-content;
+.content-page {
+  grid-area: content-page;
   width: 100%;
-}
-
-.content {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-flow: row nowrap;
-  padding: 24px 16px;
-  height: 100%;
 }
 
 .sidebar {

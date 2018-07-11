@@ -14,7 +14,7 @@ const QuestionsIndexItem = (props) => {
         </div>
         <div className={`answers ${answered}`}>
           <div className='answer-number'>{props.question.answerCount}</div>
-          <span>answers</span>
+          <span>answer{`${props.question.answerCount > 1 ? 's' : ''}`}</span>
         </div>
       </div>
 

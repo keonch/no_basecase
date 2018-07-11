@@ -1,24 +1,34 @@
 .index-page {
-  width: 100%;
-  display: flex;
-  flex-flow: column nowrap;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  grid-template-rows: 60px min-content 1fr;
+  grid-template-areas:
+    "header sidebar"
+    "sub-header sidebar"
+    "questions-index sidebar";
+}
+
+.sidebar {
+  grid-area: sidebar;
 }
 
 /* ==============================header============================== */
 .index-header {
-  height: 60px;
+  grid-area: header;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
 }
 
 .index-header > header {
-  grid-area: header;
   font-size: 27px;
 }
 
 .ask-question {
-  grid-area: ask-question;
   text-align: center;
   padding-top: 10px;
   width: 100px;
@@ -35,6 +45,7 @@
 }
 
 .index-sub-header {
+  grid-area: sub-header;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -66,6 +77,7 @@
 
 /* ==========================question index========================== */
 .questions-index {
+  grid-area: questions-index;
   border-top: 1px solid #d6d9dc;
   display: flex;
   flex-flow: column nowrap;
@@ -93,10 +105,9 @@
 
 /* =======================question single-line======================= */
 .question-single-line {
-  width: 100%;
   display: grid;
   grid-template-rows: min-content 1fr;
-  grid-template-columns: 140px auto;
+  grid-template-columns: 140px 1fr;
   grid-template-areas:
     'stats title'
     'stats author';
@@ -131,23 +142,24 @@
 .question-single-line .title {
   grid-area: title;
   padding-bottom: 6px;
-  word-break: break-all;
+  word-wrap: break-word;
+  word-break: break-word;
   font-size: 16px;
+  max-width: 636px;
 }
 
-.question-single-line .author {
+.question-single-line .author-single-line {
   grid-area: author;
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-end;
+  flex-flow: row wrap;
+  justify-self: end;
 }
 
 /* ===========================question box=========================== */
 .question-box {
-  width: 100%;
   display: grid;
   grid-template-rows: min-content min-content 1fr;
-  grid-template-columns: min-content auto;
+  grid-template-columns: min-content 1fr;
   grid-template-areas:
     'stats-box title-box'
     'stats-box body-box'
@@ -181,14 +193,20 @@
   grid-area: title-box;
   margin-bottom: 7.5px;
   height: min-content;
+  word-wrap: break-word;
+  word-break: break-word;
+  max-width: 694px;
 }
 
 .question-box .body {
   grid-area: body-box;
-  color: #3b4045;
-  margin-bottom: 5px;
-  font-size: 13px;
   height: min-content;
+  margin-bottom: 5px;
+  color: #3b4045;
+  font-size: 13px;
+  word-wrap: break-word;
+  word-break: break-word;
+  max-width: 694px;
 }
 
 .question-box .author {
