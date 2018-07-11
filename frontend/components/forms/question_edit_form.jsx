@@ -8,12 +8,14 @@ export default class AnswerEditForm extends React.Component {
     super(props);
     this.quillElement = React.createRef();
     this.state = {
+      title: props.question.title,
       body: props.question.body,
       loaded: props.loaded,
       redirect: false
     };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleBodyChange = this.handleBodyChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -34,7 +36,11 @@ export default class AnswerEditForm extends React.Component {
     return null;
   }
 
-  handleChange(value) {
+  handleTitleChange(e) {
+    this.setState({ title: e.currentTarget.value });
+  }
+
+  handleBodyChange(value) {
     this.setState({ body: value });
   }
 
@@ -46,6 +52,7 @@ export default class AnswerEditForm extends React.Component {
     this.props.updateQuestion(
       this.props.questionId,
       {
+        title: this.state.title,
         body: this.state.body,
         trunc_body: quillText.substring(0, 200)
       }
@@ -60,13 +67,22 @@ export default class AnswerEditForm extends React.Component {
     }
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div>{this.props.question.title}</div>
+      <form
+        className='question-edit-form'
+        onSubmit={this.handleSubmit}>
+        <div className='title'>
+          <label>Title</label>
+          <input
+            type='text'
+            value={this.state.title}
+            onChange={this.handleTitleChange}/>
+        </div>
+
         <Quill
           value={this.state.body}
           modules={{ toolbar: toolbarOptions }}
           ref={this.quillElement}
-          onChange={this.handleChange}/>
+          onChange={this.handleBodyChange}/>
         <input type='submit' value='Edit Question'/>
         <Link to={`/questions/${this.props.questionId}`}>Discard</Link>
       </form>

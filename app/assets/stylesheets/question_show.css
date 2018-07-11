@@ -33,6 +33,8 @@
   margin-bottom: 10px;
   word-wrap: break-word;
   word-break: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .ask-question-2 {
@@ -90,6 +92,8 @@
 .show-body {
   grid-area: body;
   margin-bottom: 10px;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .show-info {

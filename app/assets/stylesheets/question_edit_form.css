@@ -1,0 +1,63 @@
+.question-edit-form {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.question-edit-form .title {
+  grid-area: title;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  max-width: 663px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.question-edit-form .title label {
+  font-size: 13px;
+  color: #242729;
+  margin-right: 32px;
+  font-weight: bold;
+}
+
+.question-edit-form .title input {
+  padding: 8px 10px;
+  font-size: 14px;
+  color: #3b4045;
+  border: 1px solid #c8ccd0;
+  width: 100%;
+}
+
+.question-edit-form .quill {
+  margin-top: 10px;
+  max-width: 663px;
+}
+
+.question-edit-form .quill .ql-editor {
+  grid-area: quill;
+  min-height: 200px;
+}
+
+.question-edit-form .post-question-btn {
+  grid-area: button;
+  background-color: #0095ff;
+  border: 1px solid #07c;
+  box-shadow: inset 0 1px 0 0 rgba(102,191,255,0.75), 0 0 0 0 rgba(0,149,255,0);
+  border-radius: 3px;
+  color: white;
+  font-size: 13px;
+  padding: 11px 10px 11px 10px;
+  margin-top: 10px;
+  height: fit-content;
+  white-space: nowrap;
+  width: min-content;
+}
+
+.question-edit-form .post-question-btn:hover {
+  background-color: #007ed9;
+  border: 1px solid #07c;
+  box-shadow: inset 0 1px 0 0 rgba(102,191,255,0.5), 0 0 0 0 rgba(0,149,255,0);
+}
