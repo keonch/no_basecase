@@ -1,8 +1,21 @@
 .sidebar {
-  background-color: blue;
   margin-left: 24px;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
-.something {
+.linkedin-ad {
+  padding: 50px;
+}
+
+
+.sidebar a {
   width: 300px;
+  background: #f1f1f1;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+.sidebar a:hover {
+  background: #ededed;
+  cursor: pointer;
 }

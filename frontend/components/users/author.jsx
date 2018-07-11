@@ -10,7 +10,7 @@ const Author = (props) => {
       <div className='author-info'>
         {
           props.showAvatar &&
-          <img className='avatar' src='/assets/avatar.png' />
+          <img className='avatar' src='/assets/avatar.png'/>
         }
         <div className='username'>&nbsp;{props.author.name}</div>
       </div>

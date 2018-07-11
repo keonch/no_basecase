@@ -6,7 +6,7 @@ const Nav = (props) => {
   return (
     <div className='nav-container'>
       <Link to='/' className='logo'>
-        <img className='logo-img' src='/assets/logo.png' />
+        <img className='logo-img' src={window.logo}/>
       </Link>
 
       <Link to='/questions' className='questions-link'>Questions</Link>

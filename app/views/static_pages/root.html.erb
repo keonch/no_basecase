@@ -2,6 +2,11 @@
   <% if logged_in? %>
     window.currentUser = <%= render('api/users/user.json.jbuilder', user: current_user).html_safe %>
   <% end %>
+  window.githubAd = '<%= asset_path('github_ad.png') %>'
+  window.linkedinAd = '<%= asset_path('linkedin_ad.png') %>'
+  window.logo = '<%= asset_path('logo.png') %>'
+  window.avatar = '<%= asset_path('avatar.png') %>'
+  window.logoSmall = '<%= asset_path('logo_small.png') %>'
 </script>
 
 <main id='root'>from root</main>
