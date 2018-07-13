@@ -34,6 +34,7 @@ export default class QuestionForm extends React.Component {
       body: this.state.body,
       trunc_body: quillText.substring(0, 200)
     }).then((questionId) => {
+      debugger
       this.props.history.push(`/questions/${questionId}`);
     });
   }
