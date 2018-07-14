@@ -191,6 +191,8 @@
 
 .question-show-page form .ql-editor {
   min-height: 200px;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .question-show-page form input:hover {
