@@ -4,6 +4,7 @@ import Author from '../users/author';
 import AnswersIndex from '../answers/answers_index_container';
 import AnswerForm from '../forms/answer_form_container';
 import Sidebar from '../sidebar';
+import { ClipLoader } from 'react-spinners';
 import { Link, Redirect } from 'react-router-dom';
 
 export default class Question extends React.Component {
@@ -11,7 +12,6 @@ export default class Question extends React.Component {
     super(props);
     this.state = {
       loaded: false,
-      redirect: false,
       sortType: 'votes'
     };
 
@@ -43,8 +43,17 @@ export default class Question extends React.Component {
   }
 
   render() {
-    if (!this.state.loaded) return <div></div>;
-    if (this.state.redirect) return <Redirect to='/'/>;
+    if (!this.state.loaded) {
+      return (
+        <div className='loader'>
+          <ClipLoader
+            color={'#F48024'}
+            loading
+            size={35}
+          />
+        </div>
+      );
+    }
 
     return (
       <div className='question-show-page'>

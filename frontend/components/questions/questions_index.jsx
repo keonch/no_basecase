@@ -1,13 +1,15 @@
 import React from 'react';
 import QuestionIndexItem from './questions_index_item_container';
 import Sidebar from '../sidebar';
+import { ClipLoader } from 'react-spinners';
 import { Link } from 'react-router-dom';
 
 export default class QuestionsIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sort: 'top'
+      sort: 'top',
+      loaded: false
     };
 
     this.renderQuestions = this.renderQuestions.bind(this);
@@ -15,7 +17,8 @@ export default class QuestionsIndex extends React.Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    this.props.fetchAllQuestions();
+    this.props.fetchAllQuestions()
+    .then(() => this.setState({ loaded: true }));
   }
 
   renderQuestions() {
@@ -32,6 +35,18 @@ export default class QuestionsIndex extends React.Component {
   }
 
   render() {
+    if (!this.state.loaded) {
+      return (
+        <div className='loader'>
+          <ClipLoader
+            color={'#F48024'}
+            loading
+            size={35}
+          />
+        </div>
+      );
+    }
+
     return (
       <div className='index-page'>
         <div className='index-header'>
