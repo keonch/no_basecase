@@ -8,7 +8,6 @@ export default class QuestionsIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sort: 'top',
       loaded: false
     };
 
@@ -66,22 +65,22 @@ export default class QuestionsIndex extends React.Component {
           <div className='sort-tabs'>
             <button
               onClick={() => this.props.sortQuestionsBy('newest')}
-              className='sort-tab'>
+              className={`sort-tab ${this.props.sortType === 'newest' ? 'selected' : 'unselected'}`}>
               Newest
             </button>
             <button
               onClick={() => this.props.sortQuestionsBy('votes')}
-              className='sort-tab'>
+              className={`sort-tab ${this.props.sortType === 'votes' ? 'selected' : 'unselected'}`}>
               Votes
             </button>
             <button
               onClick={() => this.props.sortQuestionsBy('active')}
-              className='sort-tab'>
+              className={`sort-tab ${this.props.sortType === 'active' ? 'selected' : 'unselected'}`}>
               Active
             </button>
             <button
               onClick={() => this.props.sortQuestionsBy('unanswered')}
-              className='sort-tab'>
+              className={`sort-tab ${this.props.sortType === 'unanswered' ? 'selected' : 'unselected'} far-right`}>
               Unanswered
             </button>
           </div>

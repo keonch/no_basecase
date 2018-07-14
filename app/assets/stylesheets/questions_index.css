@@ -60,17 +60,28 @@
 .sort-tabs {
   display: flex;
   flex-flow: row nowrap;
+  border: 1px solid #adb3b9;
+  border-radius: 3px;
 }
 
 .sort-tab {
-  border: 1px solid #adb3b9;
+  border-right: 1px solid #adb3b9;
   box-shadow: 0 0 0 0 rgba(145,153,161,0);
   color: #6a737c;
   padding: 8px;
   font-size: 13px;
 }
 
-.sort-tab:hover {
+.sort-tabs > .selected {
+  color: #3b4045;
+  background-color: rgba(174,192,209,0.25);
+}
+
+.sort-tabs > .far-right {
+  border-right: none;
+}
+
+.sort-tabs .unselected:hover {
   color: #535960;
   background-color: rgba(183,192,200,0.05);
 }

@@ -29,6 +29,7 @@ const msp = (state, ownProps) => {
   return ({
     page: ownProps.match.path,
     questions: state.entities.questions,
+    sortType: state.ui.sortQuestions,
     sortedQuestionIds
   });
 };
