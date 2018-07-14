@@ -111,9 +111,9 @@ export default class Question extends React.Component {
             <header>
               <h2>{this.props.answerCount} Answer{`${this.props.answerCount > 1 ? 's' : ''}`}</h2>
               <div className='tabs'>
-                <button onClick={() => this.handleSortType('newest')}>newest</button>
-                <button onClick={() => this.handleSortType('oldest')}>oldest</button>
-                <button onClick={() => this.handleSortType('votes')}>votes</button>
+                <button onClick={() => this.props.sortAnswersBy('newest')}>newest</button>
+                <button onClick={() => this.props.sortAnswersBy('oldest')}>oldest</button>
+                <button onClick={() => this.props.sortAnswersBy('votes')}>votes</button>
               </div>
             </header>
             <AnswersIndex

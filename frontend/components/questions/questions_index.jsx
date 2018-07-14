@@ -64,10 +64,26 @@ export default class QuestionsIndex extends React.Component {
             `${this.props.sortedQuestionIds.length} questions`
           }</div>
           <div className='sort-tabs'>
-            <button className='sort-tab'>Newest</button>
-            <button className='sort-tab'>Votes</button>
-            <button className='sort-tab'>Active</button>
-            <button className='sort-tab'>Unanswered</button>
+            <button
+              onClick={() => this.props.sortQuestionsBy('newest')}
+              className='sort-tab'>
+              Newest
+            </button>
+            <button
+              onClick={() => this.props.sortQuestionsBy('votes')}
+              className='sort-tab'>
+              Votes
+            </button>
+            <button
+              onClick={() => this.props.sortQuestionsBy('active')}
+              className='sort-tab'>
+              Active
+            </button>
+            <button
+              onClick={() => this.props.sortQuestionsBy('unanswered')}
+              className='sort-tab'>
+              Unanswered
+            </button>
           </div>
         </div>
 

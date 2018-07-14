@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { sortAnswersBy } from '../../actions/ui_actions';
 import {
   fetchQuestion,
   deleteQuestion
@@ -32,7 +33,8 @@ const mdp = (dispatch) => {
     fetchQuestion: (questionId) => dispatch(fetchQuestion(questionId)),
     deleteQuestion: (questionId) => dispatch(deleteQuestion(questionId)),
     upvoteQuestion: (questionId) => dispatch(upvoteQuestion(questionId)),
-    downvoteQuestion: (questionId) => dispatch(downvoteQuestion(questionId))
+    downvoteQuestion: (questionId) => dispatch(downvoteQuestion(questionId)),
+    sortAnswersBy: (sortState) => dispatch(sortAnswersBy(sortState))
   });
 };
 
