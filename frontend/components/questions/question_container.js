@@ -24,7 +24,8 @@ const msp = (state, ownProps) => {
     question,
     answerCount,
     author,
-    isAuthor
+    isAuthor,
+    sortType: state.ui.sortAnswers
   });
 };
 

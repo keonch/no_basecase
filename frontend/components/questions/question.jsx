@@ -111,13 +111,24 @@ export default class Question extends React.Component {
             <header>
               <h2>{this.props.answerCount} Answer{`${this.props.answerCount > 1 ? 's' : ''}`}</h2>
               <div className='tabs'>
-                <button onClick={() => this.props.sortAnswersBy('newest')}>newest</button>
-                <button onClick={() => this.props.sortAnswersBy('oldest')}>oldest</button>
-                <button onClick={() => this.props.sortAnswersBy('votes')}>votes</button>
+                <button
+                  className={`${this.props.sortType === 'newest' ? 'selected' : 'unselected'}`}
+                  onClick={() => this.props.sortAnswersBy('newest')}>
+                  newest
+                </button>
+                <button
+                  className={`${this.props.sortType === 'oldest' ? 'selected' : 'unselected'}`}
+                  onClick={() => this.props.sortAnswersBy('oldest')}>
+                  oldest
+                </button>
+                <button
+                  className={`${this.props.sortType === 'votes' ? 'selected' : 'unselected'}`}
+                  onClick={() => this.props.sortAnswersBy('votes')}>
+                  votes
+                </button>
               </div>
             </header>
             <AnswersIndex
-              sortType={this.state.sortType}
               questionId={this.props.questionId}/>
           </div>
         }
