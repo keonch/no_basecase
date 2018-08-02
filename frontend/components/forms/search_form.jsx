@@ -10,6 +10,7 @@ export default class SearchForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.toggleSearchIcon = this.toggleSearchIcon.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   toggleSearchIcon() {
@@ -20,22 +21,32 @@ export default class SearchForm extends React.Component {
     this.setState({ searchText: e.currentTarget.value });
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.search(this.state.searchText);
+  }
+
   render() {
     return (
-      <div className='search'>
+      <form
+        onFocus={this.toggleSearchIcon}
+        onBlur={this.toggleSearchIcon}
+        onSubmit={this.handleSubmit}
+        className='search'>
         <input
           type='text'
           placeholder='Search...'
           className='search-input'
           onChange={this.handleChange}
-          onFocus={this.toggleSearchIcon}
-          onBlur={this.toggleSearchIcon}
           value={this.state.searchText}/>
-          {
-            this.state.searchIcon &&
-            <i className='search-icon fas fa-search'/>
-          }
-      </div>
+      </form>
     );
   }
 }
+
+// {
+//   this.state.searchIcon &&
+//   <i
+//     onClick={this.handleSubmit}
+//     className='search-icon fas fa-search'/>
+// }

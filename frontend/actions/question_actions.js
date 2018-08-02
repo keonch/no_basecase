@@ -70,3 +70,10 @@ export const updateQuestion = (questionId, question) => (
     (errors) => (dispatch(receiveErrors(errors.responseJSON)))
   ))
 );
+
+export const search = (searchText) => (
+  (dispatch) => (APIUtils.search(searchText).then(
+    (payload) => (dispatch(receiveAllQuestions(payload))),
+    (errors) => (dispatch(receiveErrors(errors.responseJSON)))
+  ))
+);
