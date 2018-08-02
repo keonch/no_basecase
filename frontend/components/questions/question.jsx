@@ -115,16 +115,28 @@ export default class Question extends React.Component {
                   className={`${this.props.sortType === 'newest' ? 'selected' : 'unselected'}`}
                   onClick={() => this.props.sortAnswersBy('newest')}>
                   newest
+                  {
+                    this.props.sortType === 'newest' &&
+                    <div className='tab-bottom-border'></div>
+                  }
                 </button>
                 <button
                   className={`${this.props.sortType === 'oldest' ? 'selected' : 'unselected'}`}
                   onClick={() => this.props.sortAnswersBy('oldest')}>
                   oldest
+                  {
+                    this.props.sortType === 'oldest' &&
+                    <div className='tab-bottom-border'></div>
+                  }
                 </button>
                 <button
                   className={`${this.props.sortType === 'votes' ? 'selected' : 'unselected'}`}
                   onClick={() => this.props.sortAnswersBy('votes')}>
                   votes
+                  {
+                    this.props.sortType === 'votes' &&
+                    <div className='tab-bottom-border'></div>
+                  }
                 </button>
               </div>
             </header>

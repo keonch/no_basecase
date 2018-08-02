@@ -118,6 +118,17 @@
   padding: 14px 8px;
   font-size: 12px;
   color: #848d95;
+  position: relative;
+}
+
+.answers header .tabs .tab-bottom-border {
+  position: absolute;
+  bottom: -3px;
+  left: 0px;
+  height: 2px;
+  z-index: 1;
+  background-color: white;
+  width: 100%;
 }
 
 .answers header .tabs .selected {
