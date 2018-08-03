@@ -17,5 +17,7 @@ Rails.application.routes.draw do
         post 'downvote'
       end
     end
+
+    get 'search', to: 'questions#search'
   end
 end

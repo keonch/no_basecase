@@ -35,8 +35,8 @@ export const updateQuestion = (questionId, question) => (
 
 export const search = (searchText) => (
   $.ajax({
-    method: 'POST',
-    url: 'api/questions/search',
-    data: {searchText}
+    method: 'GET',
+    url: 'api/search',
+    data: {search_text: searchText}
   })
 )
