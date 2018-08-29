@@ -71,8 +71,13 @@ class Api::QuestionsController < ApplicationController
   end
 
   def search
-    string = params[:search_text]
-    debugger
+    search_params = params[:search_text].split(" ")
+    result = Question.search_index(search_params)
+    if result
+      # send json
+    else
+      # query
+    end
   end
 
   private

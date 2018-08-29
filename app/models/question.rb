@@ -23,4 +23,8 @@ class Question < ApplicationRecord
 
   has_and_belongs_to_many :hashtags
 
+  def self.search_index(search_params)
+    
+  end
+
 end
