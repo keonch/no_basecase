@@ -71,12 +71,11 @@ class Api::QuestionsController < ApplicationController
   end
 
   def search
-    search_params = params[:search_text].split(" ")
-    result = Question.search_index(search_params)
-    if result
-      # send json
+    @questions = Question.search(params[:search_text])
+    if @questions
+      render :index
     else
-      # query
+      render json: ['Not Found'], status: 404
     end
   end
 

@@ -23,8 +23,8 @@ class Question < ApplicationRecord
 
   has_and_belongs_to_many :hashtags
 
-  def self.search_index(search_params)
-    
+  def self.search(search_param)
+    self.where("similarity(title, ?) > 0.3", search_param).includes(:author, :answers, :votes)
   end
 
 end

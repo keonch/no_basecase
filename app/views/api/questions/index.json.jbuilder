@@ -1,5 +1,6 @@
 json.questions do
   @questions.each do |question|
+    p question
     json.set! question.id do
       json.extract! question, :id, :title, :body
       json.authorId question.author_id
